@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(powershell:*)",
+      "Bash(curl:*)",
+      "Bash(fc:*)",
+      "Bash(copy:*)",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(.desregistraDLL_MDFe.bat)",
+      "Bash(cmd /c:*)",
+      "Bash(C:WindowsMicrosoft.NETFrameworkv4.0.30319regasm.exe \"MDFe_Util.dll\" /tlb:\"MDFe_Util.tlb\" /codebase)",
+      "Bash(registraDLL_MDFe.bat)",
+      "Bash(\"%windir%\\Microsoft.NET\\Framework\\v4.0.30319\\regasm.exe\" \"C:\\Projetos\\mdf-e\\MDFe_Util.dll\" /tlb:\"C:\\Projetos\\mdf-e\\MDFe_Util.tlb\" /codebase)",
+      "Bash(C:WindowsMicrosoft.NETFrameworkv4.0.30319regasm.exe \"C:\\Projetos\\mdf-e\\MDFe_Util.dll\" /tlb:\"C:\\Projetos\\mdf-e\\MDFe_Util.tlb\" /codebase)",
+      "WebFetch(domain:portal.fazenda.sp.gov.br)",
+      "WebFetch(domain:dfe-portal.svrs.rs.gov.br)",
+      "Bash(del \"C:\\Projetos\\mdf-e\\solucionar_erro_automation.bat\")",
+      "Bash(del \"C:\\Projetos\\mdf-e\\SOLUCAO_ERRO_AUTOMATION.txt\")",
+      "Bash(del:*)",
+      "Bash(rm:*)",
+      "WebFetch(domain:mdfe.svrs.rs.gov.br)",
+      "WebFetch(domain:mdfe-homologacao.svrs.rs.gov.br)",
+      "Bash(TypeLibBrowser.exe)",
+      "Bash(\"C:\\Projetos\\mdf-e\\MDFe_Util\\v3.10\\MDFe_Util\\Utils\\TypeLibBrowser.exe\")"
+    ],
+    "deny": []
+  }
+}

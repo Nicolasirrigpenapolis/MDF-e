@@ -1,0 +1,6 @@
+[History]
+1=#P0#=mb	#P1#=bottxtCampo32_Click	#P2#=NFE/frmMDFe/bottxtCampo32_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20250805092856	#P7#=0	#P8#=2	.
+2=#P0#=mb	#P1#=SuperMDFe	#P2#=NFE/frmMDFe/SuperMDFe	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20250805091906	#P7#=0	#P8#=239	.
+3=#P0#=mb	#P1#=ExecutaGrid3	#P2#=NFE/frmMDFe/ExecutaGrid3	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20250805091816	#P7#=0	#P8#=11	.
+4=#P0#=mb	#P1#=ExecutaGrid4	#P2#=NFE/frmMDFe/ExecutaGrid4	#P3#=	#P4#=	#P5#=MembMethodPublic	#P6#=20250805091754	#P7#=0	#P8#=11	.
+5=#P0#=mb	#P1#=Botao_Click	#P2#=NFE/mdiNFE/Botao_Click	#P3#=	#P4#=	#P5#=MembEventProcPrivate	#P6#=20250805091641	#P7#=0	#P8#=1	.
