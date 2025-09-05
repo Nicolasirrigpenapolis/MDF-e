@@ -1,0 +1,74 @@
+MDFE_ConfigGravarValor
+Método usado para gravar um determinado item  da configuração.
+
+
+
+Comando: MDFE_ConfigGravarValor(eSessao, eChave, sValor);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+eSessao
+
+String
+
+Não
+
+Nome da sessão de configuração.
+
+02
+
+eChave
+
+String
+
+Não
+
+Nome da chave da sessão.
+
+03
+
+sValor
+
+String
+
+Não
+
+Valor para ser gravado na configuração lembrando que o mesmo deve ser um valor string compatível com a configuração.
+
+
+
+RETORNO
+
+Valor
+
+Descrição
+
+0
+
+Indica que a biblioteca foi inicializada corretamente.
+
+-1
+
+Indica que a biblioteca não foi inicializada.
+
+-3
+
+Indica que houve erro ao ler a configuração informada.
+
+
+
+Nota:
+
+Consulte as chave e as configurações no tópico Configurações da Biblioteca.

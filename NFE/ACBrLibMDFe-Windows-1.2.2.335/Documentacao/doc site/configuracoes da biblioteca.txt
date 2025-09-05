@@ -1,0 +1,464 @@
+Configurações da Biblioteca
+Configurações da Biblioteca
+
+
+
+Neste tópico você vai encontrar todas as chaves possíveis da biblioteca e também uma explicação para cada chave, algumas configurações você vai encontrar no tópico: Configurações da Biblioteca (Geral) e Configurações DFe.
+
+
+
+[MDFe]
+
+CHAVE
+
+DESCRIÇÃO
+
+PathSalvar
+
+Caminho onde será salvo os XML em geral.
+
+PathSchemas
+
+Caminho onde se encontra os arquivos XSD (Schemas).
+
+IniServicos
+
+Caminho e nome do arquivo INI que contem as URLs de homologação e produção.
+
+SalvarGer
+
+Define se os XMLs de envio e retorno serão salvos em disco:
+
+0 = Não
+
+1 = Sim
+
+AdicionarLiteral
+
+Define se na estrutura de pastas será criada uma com o literal MDFe:
+
+0 = Não
+
+1 = Sim
+
+SepararPorCNPJ
+
+Define se na estrutura de pastas os XML serão separados por CNPJ:
+
+0 = Não 
+
+1 = Sim
+
+SepararPorModelo
+
+Define se na estrutura de pastas os XML serão separados por Modelo:
+
+0 = Não 
+
+1 = Sim
+
+SepararPorAno
+
+Define se na estrutura de pastas os XML serão separados por Ano:
+
+0 = Não 
+
+1 = Sim
+
+SepararPorMes
+
+Define se na estrutura de pastas os XML serão separados por Mês:
+
+0 = Não 
+
+1 = Sim
+
+SepararPorDia
+
+Define se na estrutura de pastas os XML serão separados por Dia:
+
+0 = Não 
+
+1 = Sim
+
+EmissaoPathMDFe
+
+Define se vai levar em consideração a data de emissão do MDFe:
+
+0 = Não 
+
+1 = Sim
+
+PathMDFe
+
+Caminho onde será salvo os XML do MDFe.
+
+PathEvento
+
+Caminho onde será salvo os XML do envio e retorno de um evento.
+
+PathArquivoMunicipios
+
+Caminho onde esta o arquivo TXT para a normatização.
+
+Download.PathDownload
+
+Caminho onde será salvo os arquivos retornados pelo método DistribuicaoDFe.
+
+Download.SepararPorNome
+
+Define se vai levar em consideração ou não o nome do emitente e criar uma pasta para cada um ao baixar os MDFe através do método DistribuicaoDFe:
+
+0 = Não 
+
+1 = Sim
+
+FormaEmissao
+
+Define a forma de emissão que o MDF-e será emitido:
+
+0 = teNormal
+
+1 = teContingencia
+
+2 = teSCAN
+
+3 = teDPEC
+
+4 = teFSDA
+
+5 = teSVCAN
+
+6 = teSVCRS
+
+7 = teSVCSP
+
+8 = teOffLine
+
+ExibirErroSchema
+
+Define se o erro de validação será exibido ou não:
+
+0 = Não 
+
+1 = Sim
+
+FormatoAlerta
+
+Formato de exibição da mensagem de erro de validação:
+
+Padrão = TAG:%TAGNIVEL% ID:%ID%/%TAG%(%DESCRICAO%) - %MSG%.
+
+RetirarAcentos
+
+Define se acentos e cedilha serão removidos do XML antes do seu envio:
+
+0 = Não 
+
+1 = Sim
+
+RetirarEspacos
+
+Define se espaços em branco antes ou depois de uma informação serão removidos:
+
+0 = Não 
+
+1 = Sim
+
+IdentarXML
+
+Define se o XML será indentado:
+
+0 = Não 
+
+1 = Sim
+
+ValidarDigest
+
+Define se o DigestValue do certificado será comparado com o DigestValue retornado com o protocolo de autorização:
+
+0 = Não 
+
+1 = Sim
+
+VersaoDF
+
+Define a versão do MDF-e:
+
+0 = ve100
+
+1 = ve300
+
+Ambiente
+
+Define o ambiente que vai receber os XML do MDF-e:
+
+0 = taProducao
+
+1 = taHomologacao
+
+Timeout
+
+Define o tempo em milissegundos de espera por uma resposta do webservice:
+
+Padrão = 5000
+
+TimeoutPorThread
+
+Define o tempo em milissegundos de espera por Thread:
+
+Padrão = 0
+
+Visualizar
+
+Define se as mensagens de retorno dos webservices serão apresentadas na tela:
+
+0 = Não 
+
+1 = Sim
+
+SalvarWS
+
+Define se os XML de envio e de retorno com os envelopes serão salvos em disco:
+
+0 = Não 
+
+1 = Sim
+
+AjustaAguardaConsultaRet
+
+Define se o tempo entre uma consulta e outra será ajustada automaticamente:
+
+0 = Não 
+
+1 = Sim
+
+AguardarConsultaRet
+
+Define o tempo em milissegundos entre o envio e a consulta que com o retorno:
+
+Padrão = 0
+
+IntervaloTentativas
+
+Define o tempo em milissegundos entre uma consulta e outra:
+
+Padrão = 1000
+
+Tentativas
+
+Define o numero de tentativas de consulta:
+
+Padrão = 5
+
+SSLType
+
+Define o tipo de comunicação segura a ser utilizada:
+
+0 = LT_all
+
+1 = LT_SSLv2
+
+2 = LT_SSLv3
+
+3 = LT_TLSv1
+
+4 = LT_TLSv1_1
+
+5 = LT_TLSv1_2
+
+6 = LT_SSHv2
+
+QuebradeLinha
+
+Define o caracter utilizado como quebra de linha:
+
+Padrão = | (pipe)
+
+SalvarArq
+
+Define se os XML dos eventos serão salvos em disco:
+
+0 = Não 
+
+1 = Sim
+
+SalvarApenasMDFeProcessados
+
+Define se somente os XML dos MDFe processados (autorizados) serão salvos:
+
+0 = Não 
+
+1 = Sim
+
+NormatizarMunicipios
+
+Define se ao gerar o XML do MDF-e as tags que contem os nomes dos municípios serão: normatizados
+
+0 = Não 
+
+1 = Sim
+
+
+
+[DAMDFe]
+
+CHAVE
+
+DESCRIÇÃO
+
+PathPDF
+
+Define caminho onde será salvo o PDF.
+
+UsaSeparadorPathPDF
+
+Define se deve usar as definições de separação ao salvar o PDF:
+
+0 = Não 
+
+1 = Sim
+
+Impressora
+
+Define o nome da impressora padrão a ser utilizada pela impressão.
+
+NomeDocumento
+
+Define o nome do documento PDF.
+
+MostraSetup
+
+Define se deverá ser exibido a tela de configuração de impressão:
+
+0 = Não 
+
+1 = Sim
+
+MostraPreview
+
+Define se deverá ser exibido a tela de pré-visualização da impressão:
+
+0 = Não 
+
+1 = Sim
+
+MostraStatus
+
+Define se deverá ser exibido a tela de progresso da impressão:
+
+0 = Não 
+
+1 = Sim
+
+Copias
+
+Define o número de copias que será impresso.
+
+PathLogo
+
+Define o caminho do logótipo a ser impresso.
+
+MargemInferior
+
+Define a margem inferior da impressão.
+
+MargemSuperior
+
+Define a margem superior da impressão.
+
+MargemEsquerda
+
+Define a margem esquerda da impressão.
+
+MargemDireita
+
+Define a margem direita da impressão.
+
+ExpandeLogoMarca
+
+Define se deve expandir o logo para ocupar todo o local de impressão:
+
+0 = Não 
+
+1 = Sim
+
+CasasDecimais.Formato
+
+Define qual formato será usado para formatação dos campos numéricos.
+
+CasasDecimais.MaskqCom
+
+Define a mascara para valores quantitativos.
+
+CasasDecimais.MaskvUnCom
+
+Define a mascara para valores de unidade.
+
+CasasDecimais.qCom
+
+Define a quantidade de casas decimais para os campos de quantidade.
+
+CasasDecimais.vUnCom
+
+Define a quantidade de casas decimais para os campos de unidade comercial.
+
+ImprimeHoraSaida
+
+Define se vai usar a hora informada na configuração [ImprimirHoraSaida_Hora]:
+
+0 = Não 
+
+1 = Sim
+
+ImprimirHoraSaida_Hora
+
+Define um horário personalizado para impressão no DACTe (Requer que a configuração [ImprimirHoraSaida] esteja ativa).
+
+TipoDAMDFe
+
+Define o tipo de impressão do DAMDFe:
+
+0 = tiSemGeracao
+
+1 = tiRetrato
+
+2 = tiPaisagem
+
+TamanhoPapel
+
+Define o tamanho do papel para impressão:
+
+0 = tpA4
+
+1 = tpA4_2vias
+
+2 = tpA5
+
+Protocolo
+
+Define o protocolo a ser impresso.
+
+Cancelada
+
+Define se vai imprimir a faixa de cancelada:
+
+0 = Não 
+
+1 = Sim
+
+Encerrado
+
+Define se o MDFe já foi encerrado:
+
+0 = Não 
+
+1 = Sim
+
+ExibirMunicipioDescarregamento
+
+Define se imprime Município de Descarregamento para cada documento (OBS: A documentação oficial do DAMFe, NÃO orienta a impressão do Município de descarregamento ):
+
+0 = Não 
+
+1 = Sim

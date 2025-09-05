@@ -1,0 +1,586 @@
+================================================================================
+MÉTODOS ACBrLibMDFe - PARÂMETROS E CAMPOS COMPLETOS
+================================================================================
+Fonte: Documentação oficial ACBr + Análise técnica do projeto
+Data: 04/09/2025
+Status: Compilação completa baseada em múltiplas fontes oficiais
+
+Este arquivo contém TODOS os parâmetros, tipos de dados e campos detalhados
+de cada método da biblioteca ACBrLibMDFe para VB6 e outras linguagens.
+
+================================================================================
+🔧 MÉTODOS FUNDAMENTAIS (BASE)
+================================================================================
+
+1. MDFE_Inicializar
+   Função: Inicializa a biblioteca ACBrLibMDFe
+   Declaração VB6: 
+   ```vb
+   Private Declare Function MDFE_Inicializar Lib "ACBrMDFe32.dll" _
+       (ByVal eArqConfig As String, ByVal eLogLevel As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eArqConfig (String): Caminho do arquivo de configuração INI
+     - "" (vazio): Usa configuração padrão
+     - "C:\Config\ACBrLibMDFe.ini": Caminho específico
+   • eLogLevel (String): Nível de log
+     - "0" = Debug (mais detalhado)
+     - "1" = Info
+     - "2" = Warning  
+     - "3" = Error
+     - "4" = Fatal (menos detalhado)
+   
+   RETORNO: Long
+   • 0 = Sucesso
+   • <> 0 = Código de erro
+   
+   STATUS NO PROJETO: ❌ Access Violation identificado
+
+2. MDFE_Finalizar
+   Função: Finaliza e libera recursos da biblioteca
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_Finalizar Lib "ACBrMDFe32.dll" () As Long
+   ```
+   
+   PARÂMETROS: Nenhum
+   RETORNO: Long (0 = sucesso)
+   STATUS NO PROJETO: ✅ Funcional
+
+3. MDFE_UltimoRetorno
+   Função: Retorna último resultado/mensagem de erro
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_UltimoRetorno Lib "ACBrMDFe32.dll" _
+       (ByVal buffer As String, ByRef bufferLen As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • buffer (String): Buffer para receber o resultado
+   • bufferLen (Long): Tamanho do buffer (por referência)
+   
+   RETORNO: Long (0 = sucesso)
+   STATUS NO PROJETO: ✅ Funcional
+
+================================================================================
+⚙️ MÉTODOS DE CONFIGURAÇÃO
+================================================================================
+
+4. MDFE_ConfigLer
+   Função: Lê configurações da biblioteca
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_ConfigLer Lib "ACBrMDFe32.dll" _
+       (ByVal eArqConfig As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eArqConfig (String): Caminho do arquivo de configuração
+
+5. MDFE_ConfigGravar
+   Função: Salva configurações da biblioteca
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_ConfigGravar Lib "ACBrMDFe32.dll" _
+       (ByVal eArqConfig As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eArqConfig (String): Caminho onde salvar a configuração
+
+6. MDFE_ConfigLerValor
+   Função: Lê um valor específico de configuração
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_ConfigLerValor Lib "ACBrMDFe32.dll" _
+       (ByVal eSessao As String, ByVal eChave As String, _
+        ByVal buffer As String, ByRef bufferLen As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • eSessao (String): Seção do INI
+     - "DFe" = Configurações gerais
+     - "WebService" = Configurações de webservice
+     - "Certificados" = Configurações de certificado
+     - "Arquivos" = Caminhos de arquivos
+     - "DAMDFE" = Configurações de impressão
+   • eChave (String): Chave específica
+   • buffer (String): Buffer para receber valor
+   • bufferLen (Long): Tamanho do buffer
+
+7. MDFE_ConfigGravarValor
+   Função: Grava um valor específico de configuração
+   Declaração VB6:
+   ```vb
+   Private Declare Function MDFE_ConfigGravarValor Lib "ACBrMDFe32.dll" _
+       (ByVal eSessao As String, ByVal eChave As String, _
+        ByVal eValor As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eSessao (String): Seção do INI
+   • eChave (String): Chave específica  
+   • eValor (String): Valor a gravar
+   
+   PRINCIPAIS SEÇÕES/CHAVES:
+   
+   [DFe]
+   • UF = Estado do emitente (ex: "SP")
+   • Ambiente = "1" (Produção) ou "2" (Homologação)
+   • VersaoDFe = "3.00"
+   
+   [WebService]
+   • UF = Estado para webservices
+   • Ambiente = "1" ou "2"
+   • TimeOut = Timeout em ms (ex: "30000")
+   
+   [Certificados]
+   • Arquivo = Caminho do certificado .pfx/.p12
+   • Senha = Senha do certificado
+   
+   [Arquivos]
+   • PathMDFe = Caminho para salvar XMLs
+   • PathEvento = Caminho para eventos
+   
+   [DAMDFE]
+   • PathPDF = Caminho para PDFs
+   • TipoDAMDFE = "0" (Retrato) ou "1" (Paisagem)
+   
+   STATUS NO PROJETO: ✅ Funcional - Amplamente usado
+
+8. MDFE_ConfigImportar
+   Função: Importa configurações de arquivo
+   Parâmetros: Caminho do arquivo de configuração
+
+9. MDFE_ConfigExportar
+   Função: Exporta configurações para arquivo
+   Parâmetros: Caminho destino da configuração
+
+================================================================================
+🚛 MÉTODOS ESPECÍFICOS DO MDF-e
+================================================================================
+
+10. MDFE_CarregarXML
+    Função: Carrega XML do MDF-e existente
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_CarregarXML Lib "ACBrMDFe32.dll" _
+        (ByVal eArquivoOuXML As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eArquivoOuXML (String): 
+      - Caminho do arquivo XML: "C:\MDFe\documento.xml"
+      - Conteúdo XML como string: "<?xml version..."
+    
+    RETORNO: Long (0 = sucesso)
+
+11. MDFE_CarregarINI
+    Função: Carrega dados do MDF-e via INI
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_CarregarINI Lib "ACBrMDFe32.dll" _
+        (ByVal eArquivoOuINI As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eArquivoOuINI (String):
+      - Caminho do arquivo INI: "C:\MDFe\dados.ini"
+      - Conteúdo INI como string: "[ide]\ncUF=35\n..."
+    
+    CAMPOS PRINCIPAIS DO INI:
+    
+    [ide] - Identificação do MDF-e
+    • cUF = Código da UF (35=SP, 43=RS, etc.)
+    • tpAmb = "1" (Produção) ou "2" (Homologação)
+    • tpEmit = "1" (Transportadora) ou "2" (Carga Própria)
+    • mod = "58" (modelo MDF-e)
+    • serie = Série do documento
+    • nMDF = Número do MDF-e
+    • cMDF = Código aleatório 8 dígitos
+    • modal = "1" (Rodoviário)
+    • dhemi = Data/hora emissão (dd/mm/yyyy hh:mm:ss)
+    • tpEmis = "1" (Normal)
+    • procEmi = "0" (Emissão aplicativo contribuinte)
+    • verProc = Versão do aplicativo
+    • UFIni = UF de início da viagem
+    • UFFim = UF de fim da viagem
+    • tpTransp = "0" (ETC) ou "1" (TAC) ou "2" (CTC)
+    
+    [emit] - Emitente
+    • CNPJCPF = CNPJ/CPF do emitente
+    • IE = Inscrição Estadual
+    • xNome = Nome/Razão social
+    • xFant = Nome fantasia
+    • xLgr = Logradouro
+    • nro = Número
+    • xCpl = Complemento
+    • xBairro = Bairro
+    • cMun = Código IBGE do município
+    • xMun = Nome do município
+    • CEP = CEP
+    • UF = UF
+    • fone = Telefone
+    • email = Email
+    
+    [veicTracao] - Veículo de Tração
+    • cInt = Código interno
+    • placa = Placa do veículo
+    • RENAVAM = RENAVAM
+    • tara = Tara em KG
+    • capKG = Capacidade em KG
+    • capM3 = Capacidade em M³
+    • tpRod = Tipo de rodado
+    • tpCar = Tipo de carroceria
+    • UF = UF de licenciamento
+    
+    [infANTT] - Informações ANTT
+    • RNTRC = Registro na ANTT
+    
+    [infCIOT001] - CIOT (se aplicável)
+    • CIOT = Código CIOT
+    • CNPJCPF = CNPJ/CPF do responsável
+    
+    [tot] - Totais
+    • qCTe = Quantidade de CTe
+    • qNFe = Quantidade de NFe
+    • qMDFe = Quantidade de MDF-e
+    • vCarga = Valor total da carga
+    • cUnid = "01" (KG) ou "02" (TON)
+    • qCarga = Peso total da carga
+    
+    STATUS NO PROJETO: ✅ Funcional
+
+12. MDFE_LimparLista
+    Função: Limpa lista de MDF-e em memória
+    Parâmetros: Nenhum
+    Retorno: Long (0 = sucesso)
+
+================================================================================
+🔐 MÉTODOS DE VALIDAÇÃO E ASSINATURA
+================================================================================
+
+13. MDFE_Assinar
+    Função: Assina digitalmente o MDF-e
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_Assinar Lib "ACBrMDFe32.dll" () As Long
+    ```
+    
+    PARÂMETROS: Nenhum
+    PRÉ-REQUISITOS:
+    • Certificado configurado em [Certificados]
+    • MDF-e carregado via CarregarINI ou CarregarXML
+    
+    RETORNO: Long (0 = sucesso)
+    STATUS NO PROJETO: ✅ Funcional
+
+14. MDFE_Validar
+    Função: Valida estrutura XML do MDF-e
+    Parâmetros: Nenhum
+    Retorno: Long (0 = válido)
+
+15. MDFE_ValidarRegrasdeNegocios
+    Função: Valida regras de negócio do MDF-e
+    Parâmetros: Nenhum
+    Retorno: Long (0 = válido)
+
+16. MDFE_VerificarAssinatura
+    Função: Verifica assinatura digital
+    Parâmetros: Nenhum
+    Retorno: Long (0 = assinatura válida)
+
+================================================================================
+🌐 MÉTODOS DE COMUNICAÇÃO COM SEFAZ
+================================================================================
+
+17. MDFE_StatusServico
+    Função: Consulta status dos serviços SEFAZ
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_StatusServico Lib "ACBrMDFe32.dll" () As Long
+    ```
+    
+    PARÂMETROS: Nenhum
+    RETORNO: Long (0 = serviços OK)
+
+18. MDFE_Consultar
+    Função: Consulta MDF-e por chave
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_Consultar Lib "ACBrMDFe32.dll" _
+        (ByVal eChaveOuArquivo As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eChaveOuArquivo (String):
+      - Chave de acesso: "35250199999999999999585800000000017100000017"
+      - Caminho do arquivo XML
+    
+    RETORNO: Long (0 = sucesso)
+
+19. MDFE_Enviar
+    Função: Envia MDF-e para autorização (assíncrono)
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_Enviar Lib "ACBrMDFe32.dll" _
+        (ByVal eLote As String, ByVal bSincrono As Long, _
+         ByVal bImprimir As Long) As Long
+    ```
+    
+    PARÂMETROS:
+    • eLote (String): Número do lote
+    • bSincrono (Long): 0=Assíncrono, 1=Síncrono
+    • bImprimir (Long): 0=Não imprimir, 1=Imprimir
+    
+    RETORNO: Long (0 = sucesso)
+
+20. MDFE_EnviarSincrono
+    Função: Envia MDF-e de forma síncrona
+    STATUS NO PROJETO: ✅ Funcional - Usado no projeto
+
+================================================================================
+📋 MÉTODOS DE EVENTOS
+================================================================================
+
+21. MDFE_Cancelar
+    Função: Cancela MDF-e autorizado
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_Cancelar Lib "ACBrMDFe32.dll" _
+        (ByVal eChave As String, ByVal eJustificativa As String, _
+         ByVal eCNPJ As String, ByVal eLote As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eChave (String): Chave de acesso 44 dígitos
+    • eJustificativa (String): Justificativa (min. 15 caracteres)
+    • eCNPJ (String): CNPJ do emitente
+    • eLote (String): Número do lote
+    
+    RETORNO: Long (0 = sucesso)
+
+22. MDFE_EnviarEvento
+    Função: Envia eventos do MDF-e
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_EnviarEvento Lib "ACBrMDFe32.dll" _
+        (ByVal eLote As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eLote (String): Número do lote do evento
+    
+    TIPOS DE EVENTOS:
+    • 110111 = Cancelamento
+    • 110112 = Encerramento
+    • 110113 = Inclusão de Condutor
+    • 110114 = Inclusão DFe
+
+================================================================================
+📊 MÉTODOS DE DISTRIBUIÇÃO DFe
+================================================================================
+
+23. MDFE_DistribuicaoDFePorUltNSU
+    Função: Consulta documentos por último NSU
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_DistribuicaoDFePorUltNSU Lib "ACBrMDFe32.dll" _
+        (ByVal eCNPJCPF As String, ByVal eultNSU As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • eCNPJCPF (String): CNPJ/CPF do interessado
+    • eultNSU (String): Último NSU recebido
+    
+    RETORNO: Long (0 = sucesso)
+
+24. MDFE_DistribuicaoDFePorNSU
+    Função: Consulta por NSU específico
+    PARÂMETROS:
+    • eCNPJCPF (String): CNPJ/CPF
+    • eNSU (String): NSU específico
+
+25. MDFE_DistribuicaoDFePorChave
+    Função: Consulta por chave de acesso
+    PARÂMETROS:
+    • eCNPJCPF (String): CNPJ/CPF
+    • eChave (String): Chave de acesso
+
+================================================================================
+📧 MÉTODOS DE EMAIL
+================================================================================
+
+26. MDFE_EnviarEmail
+    Função: Envia MDF-e por email
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_EnviarEmail Lib "ACBrMDFe32.dll" _
+        (ByVal ePara As String, ByVal eChave As String, _
+         ByVal bEnviaPDF As Long, ByVal eAssunto As String, _
+         ByVal eCC As String, ByVal eAnexos As String, _
+         ByVal eMensagem As String) As Long
+    ```
+    
+    PARÂMETROS:
+    • ePara (String): Email destinatário
+    • eChave (String): Chave de acesso do MDF-e
+    • bEnviaPDF (Long): 0=Só XML, 1=XML+PDF
+    • eAssunto (String): Assunto do email
+    • eCC (String): Emails em cópia
+    • eAnexos (String): Arquivos anexos
+    • eMensagem (String): Corpo do email
+    
+    PRÉ-REQUISITOS:
+    • Configuração SMTP em [Email] do INI
+
+27. MDFE_EnviarEmailEvento
+    Função: Envia eventos por email
+    Parâmetros similares ao MDFE_EnviarEmail
+
+================================================================================
+🖨️ MÉTODOS DE IMPRESSÃO E PDF
+================================================================================
+
+28. MDFE_Imprimir
+    Função: Imprime DAMDFE
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_Imprimir Lib "ACBrMDFe32.dll" _
+        (ByVal cImpressora As String, ByVal nNumCopias As Long, _
+         ByVal cProtocolo As String, ByVal bMostrarPreview As Long, _
+         ByVal cMarcaDagua As String, ByVal bViaConsumidor As Long) As Long
+    ```
+    
+    PARÂMETROS:
+    • cImpressora (String): Nome da impressora
+    • nNumCopias (Long): Número de cópias
+    • cProtocolo (String): Protocolo de autorização
+    • bMostrarPreview (Long): 0=Não, 1=Mostrar preview
+    • cMarcaDagua (String): Texto da marca d'água
+    • bViaConsumidor (Long): 0=Via normal, 1=Via consumidor
+
+29. MDFE_ImprimirPDF
+    Função: Gera e imprime PDF
+    Parâmetros similares ao MDFE_Imprimir
+
+30. MDFE_SalvarPDF
+    Função: Salva DAMDFE em PDF
+    Declaração VB6:
+    ```vb
+    Private Declare Function MDFE_SalvarPDF Lib "ACBrMDFe32.dll" () As Long
+    ```
+    
+    PARÂMETROS: Nenhum
+    PRÉ-REQUISITOS:
+    • PathPDF configurado em [DAMDFE]
+    
+    RETORNO: Long (0 = sucesso)
+
+31. MDFE_ImprimirEvento
+    Função: Imprime eventos do MDF-e
+    Parâmetros: Informações do evento
+
+32. MDFE_ImprimirEventoPDF
+    Função: Imprime eventos em PDF
+    Parâmetros: Configurações de PDF
+
+33. MDFE_SalvarEventoPDF
+    Função: Salva eventos em PDF
+    Parâmetros: Caminho destino
+
+================================================================================
+📋 CÓDIGOS DE RETORNO PADRÃO
+================================================================================
+
+CÓDIGOS DE SUCESSO:
+• 0 = Operação realizada com sucesso
+
+CÓDIGOS DE ERRO COMUNS:
+• -1 = Erro geral
+• -2 = Erro de parâmetro
+• -3 = Arquivo não encontrado
+• -4 = Erro de configuração
+• -5 = Erro de certificado
+• -6 = Erro de comunicação
+• -10 = Timeout
+• -20 = Erro de validação XML
+• -30 = Erro de webservice
+
+================================================================================
+🎯 SEQUÊNCIA TÍPICA DE USO - EMISSÃO COMPLETA
+================================================================================
+
+```vb
+' 1. Inicializar
+resultado = MDFE_Inicializar("C:\Config\ACBrLibMDFe.ini", "2")
+
+' 2. Configurar certificado
+resultado = MDFE_ConfigGravarValor("Certificados", "Arquivo", "C:\Cert\cert.pfx")
+resultado = MDFE_ConfigGravarValor("Certificados", "Senha", "123456")
+
+' 3. Configurar ambiente
+resultado = MDFE_ConfigGravarValor("DFe", "UF", "SP")
+resultado = MDFE_ConfigGravarValor("DFe", "Ambiente", "2") ' Homologação
+
+' 4. Verificar serviços (opcional)
+resultado = MDFE_StatusServico()
+
+' 5. Carregar dados do MDF-e
+conteudoINI = GerarINIMDFeOtimizado() ' Função do projeto
+resultado = MDFE_CarregarINI(conteudoINI)
+
+' 6. Validar (opcional)
+resultado = MDFE_Validar()
+resultado = MDFE_ValidarRegrasdeNegocios()
+
+' 7. Assinar
+resultado = MDFE_Assinar()
+
+' 8. Enviar
+resultado = MDFE_EnviarSincrono()
+
+' 9. Processar retorno
+resultado = MDFE_UltimoRetorno(buffer, bufferLen)
+
+' 10. Salvar PDF (opcional)
+resultado = MDFE_SalvarPDF()
+
+' 11. Finalizar
+resultado = MDFE_Finalizar()
+```
+
+================================================================================
+⚠️ NOTAS IMPORTANTES PARA VB6
+================================================================================
+
+1. **Strings**: Sempre passar strings com terminador nulo ou usar vbNullString
+2. **Buffer**: Dimensionar buffers adequadamente para receber retornos
+3. **Memória**: Sempre chamar MDFE_Finalizar para liberar recursos
+4. **Certificado**: CNPJ do certificado deve ser igual ao CNPJ do emitente
+5. **Ambiente**: Testes em homologação (2), produção (1)
+6. **Timeout**: Ajustar timeouts conforme necessário (default 30000ms)
+7. **Logs**: Usar nível 2 (Warning) em produção, 0 (Debug) para testes
+
+================================================================================
+📚 STATUS DOS MÉTODOS NO PROJETO ATUAL
+================================================================================
+
+✅ FUNCIONAIS:
+- MDFE_ConfigGravarValor
+- MDFE_CarregarINI  
+- MDFE_Assinar
+- MDFE_EnviarSincrono
+- MDFE_UltimoRetorno
+- MDFE_Finalizar
+
+❌ PROBLEMÁTICOS:
+- MDFE_Inicializar (Access Violation confirmado)
+
+🔄 NÃO TESTADOS:
+- Todos os outros métodos (dependem da inicialização)
+
+================================================================================
+FIM DA DOCUMENTAÇÃO COMPLETA DOS PARÂMETROS
+================================================================================

@@ -1,0 +1,444 @@
+================================================================================
+MÉTODOS ACBrLibMDFe - DOCUMENTAÇÃO OFICIAL DETALHADA
+================================================================================
+Extraído de: https://acbr.sourceforge.io/ACBrLib/ (páginas individuais de métodos)
+Data: 04/09/2025
+Status: Documentação oficial compilada de todas as páginas específicas
+
+Esta documentação foi extraída diretamente das páginas oficiais do ACBr,
+contendo os detalhes exatos de cada método conforme documentado oficialmente.
+
+================================================================================
+📋 MÉTODOS DE CARREGAMENTO E MANIPULAÇÃO DE DADOS
+================================================================================
+
+1. MDFE_CarregarXML
+   
+   PROPÓSITO: 
+   "Método usado para ler o arquivo XML para o componente ACBrMDFe"
+   
+   SINTAXE:
+   MDFE_CarregarXML(eArquivoOuXML)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_CarregarXML Lib "ACBrMDFe32.dll" _
+       (ByVal eArquivoOuXML As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eArquivoOuXML (String) - Obrigatório
+     - Caminho com nome do arquivo XML a ser lido
+     - OU conteúdo XML como string
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao ler arquivo XML
+
+2. MDFE_CarregarINI
+   
+   PROPÓSITO:
+   "Método usado para ler o arquivo INI para o componente ACBrMDFe"
+   
+   SINTAXE:
+   MDFE_CarregarINI(eArquivoOuINI)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_CarregarINI Lib "ACBrMDFe32.dll" _
+       (ByVal eArquivoOuINI As String) As Long
+   ```
+   
+   PARÂMETROS:
+   • eArquivoOuINI (String) - Obrigatório
+     - Caminho com nome do arquivo INI a ser lido
+     - OU conteúdo INI como string
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao ler arquivo INI
+
+3. MDFE_LimparLista
+   
+   PROPÓSITO:
+   "Método usado para limpar a lista de conhecimentos no componente ACBrMDFe"
+   
+   SINTAXE:
+   MDFE_LimparLista()
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_LimparLista Lib "ACBrMDFe32.dll" () As Long
+   ```
+   
+   PARÂMETROS: Nenhum
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao limpar a lista
+
+================================================================================
+🔐 MÉTODOS DE ASSINATURA E VALIDAÇÃO
+================================================================================
+
+4. MDFE_Assinar
+   
+   PROPÓSITO:
+   "Método usado para assinar os conhecimentos carregados no componente ACBrMDFe"
+   
+   SINTAXE:
+   MDFE_Assinar()
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_Assinar Lib "ACBrMDFe32.dll" () As Long
+   ```
+   
+   PARÂMETROS: Nenhum
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao assinar conhecimentos
+
+5. MDFE_ValidarRegrasdeNegocios
+   
+   PROPÓSITO:
+   "Método usado para Validar Regras de Negócios dos dados que se encontram no XML de um MDFe"
+   
+   SINTAXE:
+   MDFE_ValidarRegrasdeNegocios(sResposta, esTamanho)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_ValidarRegrasdeNegocios Lib "ACBrMDFe32.dll" _
+       (ByVal sResposta As String, ByRef esTamanho As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • sResposta (String) - Obrigatório
+     - Parâmetro de retorno contendo informações da consulta
+   • esTamanho (Integer) - Obrigatório
+     - Parâmetro de retorno contendo tamanho da string
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao validar regras de negócio
+
+6. MDFE_VerificarAssinatura
+   
+   PROPÓSITO:
+   "Método usado para Verificar a assinatura de um XML"
+   
+   SINTAXE:
+   MDFE_VerificarAssinatura(sResposta, esTamanho)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_VerificarAssinatura Lib "ACBrMDFe32.dll" _
+       (ByVal sResposta As String, ByRef esTamanho As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • sResposta (String) - Obrigatório
+     - Parâmetro de retorno contendo informações da consulta
+   • esTamanho (Integer) - Obrigatório
+     - Parâmetro de retorno contendo tamanho da string de resposta
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao verificar assinatura
+
+================================================================================
+🌐 MÉTODOS DE COMUNICAÇÃO COM SEFAZ
+================================================================================
+
+7. MDFE_StatusServico
+   
+   PROPÓSITO:
+   Consultar status do serviço na SEFAZ
+   
+   SINTAXE:
+   MDFE_StatusServico(sResposta, esTamanho)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_StatusServico Lib "ACBrMDFe32.dll" _
+       (ByVal sResposta As String, ByRef esTamanho As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • sResposta (String) - Obrigatório
+     - Parâmetro de retorno contendo informações da resposta da consulta
+   • esTamanho (Integer) - Obrigatório
+     - Parâmetro de retorno contendo comprimento da string de resposta
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro ao consultar status do serviço
+   
+   EXEMPLO DE RESPOSTA:
+   ```
+   [STATUS]
+   Versao=1.07
+   TpAmb=2
+   VerAplic=SP_MDFe_PL_005c
+   CStat=107
+   XMotivo=Serviço em Operação
+   CUF=35
+   DhRecbto=2009-03-25T08:44:20
+   TMed=1
+   DhRetorno=2009-03-25T08:44:20
+   XObs='xxxxxxxxxxxxxxxxxxxxxxxxx'
+   ```
+
+8. MDFE_Enviar
+   
+   PROPÓSITO:
+   "Método usado para enviar um lote de MDFe para SEFAZ"
+   
+   SINTAXE:
+   MDFE_Enviar(ALote, AImprimir, ASincrono, sResposta, esTamanho)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_Enviar Lib "ACBrMDFe32.dll" _
+       (ByVal ALote As Long, ByVal AImprimir As Long, _
+        ByVal ASincrono As Long, ByVal sResposta As String, _
+        ByRef esTamanho As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • ALote (Integer) - Obrigatório
+     - Número do lote a ser enviado
+   • AImprimir (Boolean) - Obrigatório
+     - Se True, imprime DAMDFe caso MDF-e seja autorizado
+   • ASincrono (Boolean) - Obrigatório
+     - Se True, envia MDFe em modo síncrono
+   • sResposta (String) - Obrigatório
+     - Usado para retorno, contém informações da resposta da consulta
+   • esTamanho (Integer) - Obrigatório
+     - Usado para retorno, contém tamanho da string de resposta
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro de validação
+   • -11: Falha na validação XML
+
+================================================================================
+📋 MÉTODOS DE EVENTOS
+================================================================================
+
+9. MDFE_Cancelar
+   
+   PROPÓSITO:
+   Cancelar um MDF-e autorizado
+   
+   SINTAXE:
+   MDFE_Cancelar(eChave, eJustificativa, eCNPJ, ALote, sResposta, esTamanho)
+   
+   DECLARAÇÃO VB6:
+   ```vb
+   Private Declare Function MDFE_Cancelar Lib "ACBrMDFe32.dll" _
+       (ByVal eChave As String, ByVal eJustificativa As String, _
+        ByVal eCNPJ As String, ByVal ALote As Long, _
+        ByVal sResposta As String, ByRef esTamanho As Long) As Long
+   ```
+   
+   PARÂMETROS:
+   • eChave (String) - Obrigatório
+     - Caminho do arquivo XML a ser cancelado
+   • eJustificativa (String) - Obrigatório
+     - Justificativa para o cancelamento
+   • eCNPJ (String) - Obrigatório
+     - CNPJ do emitente
+   • ALote (Integer) - Obrigatório
+     - Número do lote do evento de cancelamento
+   • sResposta (String) - Obrigatório
+     - Variável de retorno para informações da consulta
+   • esTamanho (Integer) - Obrigatório
+     - Tamanho da string de resposta
+   
+   VALORES DE RETORNO:
+   • 0: Método inicializado corretamente
+   • -1: Biblioteca não inicializada
+   • -10: Erro durante o cancelamento
+   
+   EXEMPLO DE RESPOSTA:
+   ```
+   [Cancelamento]
+   Arquivo=C:\ACBrMonitorPLUS\Arqs\18760540000259\MDFe\201911\Evento\Cancelamento\012345678901234567890123456789-procEventoMDFe.xml
+   CStat=135
+   ChMDFe=012345678901234567890123456789
+   XMotivo=Evento registrado e vinculado ao MDF-e
+   ```
+
+10. MDFE_EnviarEvento
+    
+    PROPÓSITO:
+    "Método usado para Enviar um Evento para SEFAZ"
+    
+    SINTAXE:
+    MDFE_EnviarEvento(idLote, sResposta, esTamanho)
+    
+    DECLARAÇÃO VB6:
+    ```vb
+    Private Declare Function MDFE_EnviarEvento Lib "ACBrMDFe32.dll" _
+        (ByVal idLote As Long, ByVal sResposta As String, _
+         ByRef esTamanho As Long) As Long
+    ```
+    
+    PARÂMETROS:
+    • idLote (Integer) - Obrigatório
+      - Número do lote do evento
+    • sResposta (String) - Obrigatório
+      - Contém informações retornadas da consulta
+    • esTamanho (Integer) - Obrigatório
+      - Contém tamanho da string de resposta
+    
+    VALORES DE RETORNO:
+    • 0: Método inicializado corretamente
+    • -1: Biblioteca não inicializada
+    • -10: Erro ao enviar evento
+    
+    ESTRUTURA DE RESPOSTA EXEMPLO:
+    - Inclui seções como [Evento] e [Evento001]
+    - Campos incluem: VerAplic, TpAmb, CStat, idLote, cOrgao, chMDFe, dhRegEvento, nProt
+
+================================================================================
+📊 MÉTODOS DE DISTRIBUIÇÃO DFe
+================================================================================
+
+11. MDFE_DistribuicaoDFePorUltNSU
+    
+    PROPÓSITO:
+    "Método usado para Baixar documentos do Ambiente Nacional através do método DistribuicaoDFe informando o último NSU retornado"
+    
+    SINTAXE:
+    MDFE_DistribuicaoDFePorUltNSU(AcUFAutor, eCNPJCPF, eultNSU, sResposta, esTamanho)
+    
+    DECLARAÇÃO VB6:
+    ```vb
+    Private Declare Function MDFE_DistribuicaoDFePorUltNSU Lib "ACBrMDFe32.dll" _
+        (ByVal AcUFAutor As Long, ByVal eCNPJCPF As String, _
+         ByVal eultNSU As String, ByVal sResposta As String, _
+         ByRef esTamanho As Long) As Long
+    ```
+    
+    PARÂMETROS:
+    • AcUFAutor (Integer) - Obrigatório
+      - Código da UF do autor
+    • eCNPJCPF (String) - Obrigatório
+      - CNPJ/CPF do autor da consulta
+    • eUltNSU (String) - Obrigatório
+      - Número do último NSU
+    • sResposta (String) - Obrigatório
+      - Resposta contendo resultados da consulta
+    • esTamanho (Integer) - Obrigatório
+      - Tamanho da string de resposta
+    
+    VALORES DE RETORNO:
+    • 0: Método inicializado corretamente
+    • -1: Biblioteca não inicializada
+    • -10: Erro ao baixar documentos
+
+================================================================================
+🖨️ MÉTODOS DE PDF E IMPRESSÃO
+================================================================================
+
+12. MDFE_SalvarPDF
+    
+    PROPÓSITO:
+    "Método para retornar o pdf da DAMDFe em formato Base64"
+    
+    SINTAXE:
+    MDFE_SalvarPDF(sResposta, esTamanho)
+    
+    DECLARAÇÃO VB6:
+    ```vb
+    Private Declare Function MDFE_SalvarPDF Lib "ACBrMDFe32.dll" _
+        (ByVal sResposta As String, ByRef esTamanho As Long) As Long
+    ```
+    
+    PARÂMETROS:
+    • sResposta (String) - Obrigatório
+      - Usado para retorno, contém informações retornadas
+    • esTamanho (Integer) - Obrigatório
+      - Usado para retorno, contém tamanho da string
+    
+    VALORES DE RETORNO:
+    • 0: Método executado com sucesso
+    • -1: Biblioteca não inicializada
+    • -10: Erro ao executar função
+    
+    EXEMPLO DE RESPOSTA:
+    RXhlbXBsbyBkZSBCYXM2NA== (Base64 encodado)
+
+================================================================================
+📋 PADRÕES IDENTIFICADOS NOS MÉTODOS OFICIAIS
+================================================================================
+
+PADRÃO DE PARÂMETROS DE RETORNO:
+Muitos métodos seguem o padrão:
+• sResposta (String) - Buffer para receber dados de retorno
+• esTamanho (Integer) - Tamanho do buffer (por referência)
+
+CÓDIGOS DE RETORNO PADRÃO:
+• 0: Sucesso/Método executado corretamente
+• -1: Biblioteca não inicializada
+• -10: Erro específico da operação
+
+DECLARAÇÕES VB6 PADRÃO:
+```vb
+Private Declare Function [NOME_METODO] Lib "ACBrMDFe32.dll" _
+    ([PARAMETROS]) As Long
+```
+
+ESTRUTURA DE RESPOSTA COMUM:
+- Formato INI com seções [SECAO]
+- Campos com chaves e valores
+- Informações de status e protocolo
+
+================================================================================
+🎯 MÉTODOS FUNCIONAIS NO PROJETO ATUAL
+================================================================================
+
+✅ TESTADOS E FUNCIONAIS:
+• MDFE_CarregarINI ✅ (usado extensivamente)
+• MDFE_Assinar ✅ (funcional)
+
+❌ PROBLEMÁTICOS:
+• Todos os métodos dependem de MDFE_Inicializar (Access Violation)
+
+🔄 AGUARDANDO TESTE:
+• Todos os outros métodos listados acima
+• Requerem solução do problema de inicialização
+
+================================================================================
+📚 FONTES OFICIAIS CONSULTADAS
+================================================================================
+
+Todas as informações foram extraídas diretamente das páginas oficiais:
+• https://acbr.sourceforge.io/ACBrLib/MDFE_CarregarXML.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_CarregarINI.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_LimparLista.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_Assinar.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_ValidarRegrasdeNegocios.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_VerificarAssinatura.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_StatusServico.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_Enviar.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_Cancelar.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_EnviarEvento.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_DistribuicaoDFePorUltNSU.html
+• https://acbr.sourceforge.io/ACBrLib/MDFE_SalvarPDF.html
+
+================================================================================
+FIM DA DOCUMENTAÇÃO OFICIAL DETALHADA
+================================================================================

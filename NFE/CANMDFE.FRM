@@ -245,34 +245,34 @@ Attribute VB_Creatable = False
 Attribute VB_Exposed = False
 '* Sistema...: Emissor de MDF-e (Layout 3.00)
 '* Empresa...: Ygor Eduardo Dellalio
-'* Módulo....: CanMDFe
-'* Função....: Cancela Manifesto
+'* M?dulo....: CanMDFe
+'* Fun??o....: Cancela Manifesto
 '* CopyRight.: (C)2024 Ygor Eduardo Dellalio
-'* Criação...: GAS-2007 - Gerador Automático de Sistemas
+'* Cria??o...: GAS-2007 - Gerador Autom?tico de Sistemas
 '* Data......: 10/05/2024 15:57:37
 '* * * * * * *
 
 Option Explicit
 DefInt A-Z
 
-Public vgSituacao As Integer                      'situação de edição que do módulo
-Public vgCaracteristica As Integer                'caracteristica do módulo
-Public vgTipo As Integer                          'tipo do módulo
-Public vgPriVez As Integer                        'flag de carregamento do módulo  
-Public vgFormID As Long                           'identificador único para o módulo 
-Public vgIdentTab As String                       'nome da tabela principal do módulo 
-Public vgEmBrowse As Integer                      'flag se o módulo esta em grade 
-Public vgTemFiltro As Integer                     'flag se tem ou não filtro no módulo
-Public vgCancelou As Integer                      'flag cancela ou nao o processo do módulo  
-Public vgQueryAtual As String                     'expressão SQL definada para o módulo 
+Public vgSituacao As Integer                      'situa??o de edi??o que do m?dulo
+Public vgCaracteristica As Integer                'caracteristica do m?dulo
+Public vgTipo As Integer                          'tipo do m?dulo
+Public vgPriVez As Integer                        'flag de carregamento do m?dulo  
+Public vgFormID As Long                           'identificador ?nico para o m?dulo 
+Public vgIdentTab As String                       'nome da tabela principal do m?dulo 
+Public vgEmBrowse As Integer                      'flag se o m?dulo esta em grade 
+Public vgTemFiltro As Integer                     'flag se tem ou n?o filtro no m?dulo
+Public vgCancelou As Integer                      'flag cancela ou nao o processo do m?dulo  
+Public vgQueryAtual As String                     'express?o SQL definada para o m?dulo 
 
-Public vgFP As New frmPreview                     'formuário de preview do relatório 
-Public vgTooltips As New cTooltips                'classe de ajuda para os controes do módulo
-Public vgFG As frmGauge                           'formulário do gauge 
-Public vgQReg As Long                             'quantidade de já feira para o gauge  
+Public vgFP As New frmPreview                     'formu?rio de preview do relat?rio 
+Public vgTooltips As New cTooltips                'classe de ajuda para os controes do m?dulo
+Public vgFG As frmGauge                           'formul?rio do gauge 
+Public vgQReg As Long                             'quantidade de j? feira para o gauge  
 
-Dim txtCampo(1) As New FormataCampos              'classe dos compos tipo texto do módulo  
-Dim vgPodeFazerUnLoad As Boolean                  'flag se o módulo pode ou nao ser removido da memória
+Dim txtCampo(1) As New FormataCampos              'classe dos compos tipo texto do m?dulo  
+Dim vgPodeFazerUnLoad As Boolean                  'flag se o m?dulo pode ou nao ser removido da mem?ria
 Dim Justificativa As String, Nota As Double
 Public lblAjuste As Object, txtNota As Object
 
@@ -281,22 +281,22 @@ Private Sub Cancelamento()
       
    On Error GoTo DeuErro
       
-   If Nota = 0 Then MsgBox "Favor Informar a Seqüência do Manifesto.", vbExclamation + vbOKOnly, vaTitulo: Exit Sub
-   If MsgBox("Deseja Realmente Cancelar esse Manifesto?" & vbCrLf & "Essa Operação é Irreversível.", vbExclamation + vbYesNo, vaTitulo) = vbNo Then Exit Sub
+   If Nota = 0 Then MsgBox "Favor Informar a Seq??ncia do Manifesto.", vbExclamation + vbOKOnly, vaTitulo: Exit Sub
+   If MsgBox("Deseja Realmente Cancelar esse Manifesto?" & vbCrLf & "Essa Opera??o ? Irrevers?vel.", vbExclamation + vbYesNo, vaTitulo) = vbNo Then Exit Sub
    
-   vgDb.BeginTrans 'Inicia a transação
+   vgDb.BeginTrans 'Inicia a transa??o
    
    Set Tb = vgDb.OpenRecordSet("SELECT * From Manifesto WHERE [Sequencia do Manifesto] = " & Nota) 
                               
    If Tb![Numero Do Manifesto] > 0 And Tb!Autorizada Then
-      CancelaMDFe Tb![Chave de Acesso], Tb![Protocolo de Autorização], Tb![Sequencia Do Manifesto], Cancelou 'Cancelando...
+      CancelaMDFe Tb![Chave de Acesso], Tb![Protocolo de Autoriza??o], Tb![Sequencia Do Manifesto], Cancelou 'Cancelando...
    Else
       Cancelou = True
    End If
          
    If Cancelou = False Then
       vgDb.RollBackTrans
-      MsgBox "NÃO foi Possível Realizar o Cancelamento!!!", vbCritical + vbOKOnly, vaTitulo
+      MsgBox "N?O foi Poss?vel Realizar o Cancelamento!!!", vbCritical + vbOKOnly, vaTitulo
       Exit Sub
    End If
    
@@ -337,10 +337,13 @@ Private Sub CancelaMDFe(chaveMDFe As String, Protocolo As String, Nota As Long, 
    On Error GoTo DeuErro
    
    Screen.MousePointer = vbHourglass    ' ampulheta
-   Set objMDFEUtil = CreateObject("MDFe_Util.Util")
+   ' Criando instância da classe ACBrMDFe
+   Dim m_ACBrMDFe As ACBrMDFe
+   Set m_ACBrMDFe = CreateMDFe(App.Path & "\ACBrLibMDFe.ini", "")
+   
    Set Manifesto = vgDb.OpenRecordSet("SELECT * FROM Manifesto WHERE [Sequencia do Manifesto] = " & Nota)
    Set Emitente = VgDb.OpenRecordSet("SELECT * From [Emitentes MDFe] WHERE [Sequencia do Emitente] = " & Manifesto![Codigo Do Emitente])
-   NomeEmitente = UCASE(Mid(Emitente![Razão Social],1,5))
+   NomeEmitente = UCASE(Mid(Emitente![Raz?o Social],1,5))
    lblProgresso.Caption = "Cancelando MDFe..."
    Cancelou = False
    
@@ -350,43 +353,64 @@ Private Sub CancelaMDFe(chaveMDFe As String, Protocolo As String, Nota As Long, 
    versao = "3.00" 'Cancelamento como Evento a Versao passa a ser 3.00
    
    If Not Parametros_da_nfe![Horario de verao] Then ' Horario de Brasilia normal
-      dhEvento = ""'Format(Now,"yyyy-MM-ddThh:mm:ss-02:00") 'data de emissão em Formato UTC
+      dhEvento = ""'Format(Now,"yyyy-MM-ddThh:mm:ss-02:00") 'data de emiss?o em Formato UTC
    Else
-      dhEvento = ""'Format(Now,"yyyy-MM-ddThh:mm:ss-03:00") 'data de emissão em Formato UTC no Horario de Verão - Brasilia  
+      dhEvento = ""'Format(Now,"yyyy-MM-ddThh:mm:ss-03:00") 'data de emiss?o em Formato UTC no Horario de Ver?o - Brasilia  
    End If  
  
    If chaveMDFe = "" Then
-      MsgBox "Necessário informar a chave de acesso do MDFe para cancelamento do Mesmo.", vbCritical + vbOKOnly, vaTitulo
+      MsgBox "Necess?rio informar a chave de acesso do MDFe para cancelamento do Mesmo.", vbCritical + vbOKOnly, vaTitulo
       GoTo SaiDaSub
    End If
    
    If Protocolo = "" Then
-      MsgBox "Necessário informar o número do protocolo da autorização de uso para cancelamento do Mesmo.", vbCritical + vbOKOnly, vaTitulo
+      MsgBox "Necess?rio informar o n?mero do protocolo da autoriza??o de uso para cancelamento do Mesmo.", vbCritical + vbOKOnly, vaTitulo
       GoTo SaiDaSub
    End If
 
    JustificativaEvento = Replace(Justificativa, vbCrLf, " ")
    
    If Len(JustificativaEvento) < 15 Then
-      MsgBox "Necessário informar a justificativa com no mínimo 15 caracteres", vbCritical + vbOKOnly, vaTitulo
+      MsgBox "Necess?rio informar a justificativa com no m?nimo 15 caracteres", vbCritical + vbOKOnly, vaTitulo
       GoTo SaiDaSub
    End If
 
-   If Parametros_da_NFe!ambiente = 0 Then 'Produção
+   If Parametros_da_NFe!ambiente = 0 Then 'Produ??o
       ambiente = 1
-   Else 'Homologação
+   Else 'Homologa??o
       ambiente = 2
    End If
    
-   'Cancelando...
-   ProcCanMDFe = objMDFeUtil.CancelaMDFe(siglaWS, ambiente, certificado, versao, msgDados, msgRetWS, Resultado, msgResultado, chaveMDFe, Protocolo, JustificativaEvento, dhEvento, nProtocoloCanc, dProtocoloCanc, proxy, usuario, senha, licenca)
+   'Configurando ACBr para cancelamento
+   m_ACBrMDFe.ConfigGravarValor "DFe", "UF", siglaWS
+   m_ACBrMDFe.ConfigGravarValor "DFe", "AmbienteDFe", CStr(ambiente)
+   m_ACBrMDFe.ConfigGravarValor "DFe", "ArquivoPFX", certificado
+   m_ACBrMDFe.ConfigGravarValor "MDFe", "Versao", versao
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Servidor", proxy
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Usuario", usuario  
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Senha", senha
+   
+   'Cancelando MDFe via ACBr
+   Dim retornoCancelamento As String
+   retornoCancelamento = m_ACBrMDFe.Cancelar(chaveMDFe, JustificativaEvento, Emitente!Cnpj, 1)
+   
+   ' Parse do retorno para verificar resultado
+   If InStr(retornoCancelamento, "135") > 0 Then
+      Resultado = 135
+      msgResultado = "MDFe cancelado com sucesso"
+      ProcCanMDFe = retornoCancelamento
+   Else
+      Resultado = 0
+      msgResultado = "Erro no cancelamento: " & retornoCancelamento
+      ProcCanMDFe = retornoCancelamento
+   End If
       
    With Manifesto
       .Edit
-      If Vazio(!Observação) Then
-         !Observação = "Cancelando MDFe..."
+      If Vazio(!Observa??o) Then
+         !Observa??o = "Cancelando MDFe..."
       Else
-         !Observação = !Observação & vbCrLf & "Cancelando MDFe..."
+         !Observa??o = !Observa??o & vbCrLf & "Cancelando MDFe..."
       End If
       .Update
       .BookMark = .LastModified
@@ -400,7 +424,7 @@ Private Sub CancelaMDFe(chaveMDFe As String, Protocolo As String, Nota As Long, 
            
       With Manifesto
          .Edit
-         !Observação = !Observação & vbCrLf & "MDFe Cancelado com Sucesso!!!"
+         !Observa??o = !Observa??o & vbCrLf & "MDFe Cancelado com Sucesso!!!"
          .Update
          .BookMark = .LastModified
       End With
@@ -412,23 +436,23 @@ Private Sub CancelaMDFe(chaveMDFe As String, Protocolo As String, Nota As Long, 
       
       'Salvando o xml...
       Arq = FreeFile
-      If Parametros_da_NFe!ambiente = 0 Then 'Produção
-         Open Parametros_da_NFe![Diretorio 1 NFe Produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_CANCELADO.xml" For Append As #Arq
+      If Parametros_da_NFe!ambiente = 0 Then 'Produ??o
+         Open Parametros_da_NFe![Diretorio 1 NFe Produ??o] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_CANCELADO.xml" For Append As #Arq
             Print #Arq, ProcCanMDFe
          Close #Arq
-      Else 'Homologação
-         Open Parametros_da_NFe![Diretorio 1 NFe Homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_CANCELADO.xml" For Append As #Arq
+      Else 'Homologa??o
+         Open Parametros_da_NFe![Diretorio 1 NFe Homologa??o] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_CANCELADO.xml" For Append As #Arq
             Print #Arq, ProcCanMDFe
          Close #Arq
       End If
       GoTo SaiDaSub
    Else
-      MsgBox msgResultado, vbCritical + vbOKOnly, "Atenção: Cancelamento do MDFe Falhou"
+      MsgBox msgResultado, vbCritical + vbOKOnly, "Aten??o: Cancelamento do MDFe Falhou"
       
       'Historico
       With Manifesto
          .Edit
-         !Observação = !Observação & vbCrLf & "Erro ao Cancelar MDFe: " & msgResultado
+         !Observa??o = !Observa??o & vbCrLf & "Erro ao Cancelar MDFe: " & msgResultado
          .Update
          .BookMark = .LastModified
       End With
@@ -441,7 +465,7 @@ DeuErro:
    End If
    
 SaiDaSub:
-   Set objMDFeUtil = Nothing
+   Set m_ACBrMDFe = Nothing
    Screen.MousePointer = vbDefault ' normal
    lblProgresso.Caption = ""
          
@@ -449,19 +473,19 @@ End Sub
 
 'inicializa variaveis (apelidos) coms os campos correspondentes
 Private Sub InicializaApelidos(vgComOQue As Integer)
-   On Error Resume Next                           'prepara para possíveis erros
+   On Error Resume Next                           'prepara para poss?veis erros
    Justificativa = txtCampo(0).Value
    Nota = txtCampo(1).Value
-   If Err Then Err.Clear                          'se deu algum erro, vamos resetá-lo
+   If Err Then Err.Clear                          'se deu algum erro, vamos reset?-lo
 End Sub
 
-'executa processos/validacoes nos campos do formuário
+'executa processos/validacoes nos campos do formu?rio
 Public Function Executar(vgOq As String) As String
    Dim vgMsg As String, vgOk As Integer, vgNVez As Integer
    On Error Goto DeuErro                          'fica na espera de um erro...
    vgMsg$ = ""                                    'retorna uma msg dizendo o motivo
-   vgOk = True                                    'se a validação esta OK
-   vgNVez = 0                                     'porque não fez o processo/validacoes
+   vgOk = True                                    'se a valida??o esta OK
+   vgNVez = 0                                     'porque n?o fez o processo/validacoes
    If vgOq = INICIALIZACOES Then
       InicializaApelidos COM_TEXTBOX
       On Error Resume Next
@@ -470,31 +494,31 @@ Public Function Executar(vgOq As String) As String
       InicializaApelidos COM_REGISTRO
       ExecutaVisivel
    End If
-   Executar = vgMsg$                              'prepara saida da função
+   Executar = vgMsg$                              'prepara saida da fun??o
    Exit Function                                  'e cai fora...
 
 DeuErro:
    Select Case Err                                'vamos verificar se deu algum erro
-      Case 3197                                   'registro acabou de ser alterado por outro usuário
+      Case 3197                                   'registro acabou de ser alterado por outro usu?rio
          Resume
       Case 3046, 3158, 3186, 3187, 3188, 3189, 3218, 3260
-         vgNVez = vgNVez + 1                      'outro usuário acessando
+         vgNVez = vgNVez + 1                      'outro usu?rio acessando
          If vgNVez <= 10 Then                     'vamos tentar 10 vezes
             Delay 0.5                             'mais antes espera 1/2 segundo
             Resume                                'antes de tentar
          End If
    End Select
-   Executar = Err.Source + "|" + Trim$(str$(Err)) + "|" + Error$ 'não teve jeito o erro não pode ser evitado...
+   Executar = Err.Source + "|" + Trim$(str$(Err)) + "|" + Error$ 'n?o teve jeito o erro n?o pode ser evitado...
 End Function
 
-'coloca os campos visíveis segundo a condição
+'coloca os campos vis?veis segundo a condi??o
 Private Sub ExecutaVisivel()
    On Error Resume Next                           'prepara para possiveis erros
    txtCampo(1).Visible = (False)
    If Err Then Err.Clear                          'se houve erro, limpa...
 End Sub
 
-'evento - quando o conteúdo do campo for alterado
+'evento - quando o conte?do do campo for alterado
 Private Sub txtCp_Change(Index As Integer)
    If vgPriVez Or txtCampo(Index).PriVez Then Exit Sub
    InicializaApelidos COM_TEXTBOX                         'inicializa apelidos com o que esta sendo digitado
@@ -534,7 +558,7 @@ Private Sub txtCp_LostFocus(Index As Integer)
 End Sub
 
 
-'evento - inicialização do formulário
+'evento - inicializa??o do formul?rio
 Private Sub Form_Load()
    On Error GoTo DeuErro
    Screen.MousePointer = vbHourglass
@@ -577,17 +601,17 @@ DeuErro:
 End Sub
 
 
-'evento - quando o formulário receber o foco
+'evento - quando o formul?rio receber o foco
 Private Sub Form_Activate()
    AtivaForm Me
 End Sub
 
-'evento - redefinido o tamanho do formulário
+'evento - redefinido o tamanho do formul?rio
 Private Sub Form_Resize()
    AjustaPanFundo Me
 End Sub
 
-'define as propriedades das classe dos campos do formuário
+'define as propriedades das classe dos campos do formu?rio
 Public Sub DefineControles()
  On Error GoTo DeuErro
 
@@ -619,12 +643,12 @@ Public Sub DefineControles()
  CErr.Show
 End Sub
 
-'evento - valida digitações e prossegue a execução
+'evento - valida digita??es e prossegue a execu??o
 Private Sub botOk_Click()
    Dim k As String
    If vgPriVez Then Exit Sub
    vgPriVez = True
-   k$ = Executar(VALIDACOES)                      'faz validaçao dos campos
+   k$ = Executar(VALIDACOES)                      'faz valida?ao dos campos
    If Len(k$) > 0 Then                            'EPA!... tem campo errado
       If Instr(k$, "|") > 0 Then
          Err.Source = Parse$(k$, "|")
@@ -638,18 +662,18 @@ Private Sub botOk_Click()
       End If
       Screen.MousePointer = vbDefault             'reseta o pointer do mouse
       vgPriVez = False
-      Exit Sub                                    'e sai para continuar a ediçao ou inclusao
+      Exit Sub                                    'e sai para continuar a edi?ao ou inclusao
    End If                                         'OK. os campos estao certos
    Cancelamento  
    vgPriVez = False
 End Sub
 
-'evento - cancela formulário
+'evento - cancela formul?rio
 Private Sub botCancela_Click()
    Unload Me
 End Sub
 
-'evento - antes de descarregar o formulário
+'evento - antes de descarregar o formul?rio
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
    If vgPodeFazerUnLoad = False Then
       timUnLoad.Enabled = True
@@ -658,7 +682,7 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
    Cancel = Cancel Or(Not vgFG Is Nothing)
 End Sub
 
-'evento - descarregando o formulário da memória
+'evento - descarregando o formul?rio da mem?ria
 Private Sub Form_Unload(Cancel As Integer)
    Dim i As Integer
    On Error Resume Next
@@ -671,13 +695,13 @@ Private Sub Form_Unload(Cancel As Integer)
    Next
    Set vgFG = Nothing
    Set vgTooltips = Nothing
-   Set frmCanMDFe = Nothing                       'libera o segmento de código do form
+   Set frmCanMDFe = Nothing                       'libera o segmento de c?digo do form
 End Sub
 
-'evento - quando qq tecla for digitada no formulário
+'evento - quando qq tecla for digitada no formul?rio
 Private Sub Form_KeyPress(KeyAscii As Integer)
    If KeyAscii = vbKeyEscape Then                 'se teclou ESC
-      Unload Me                                   'tira este form da memória
+      Unload Me                                   'tira este form da mem?ria
    End If
 End Sub
 

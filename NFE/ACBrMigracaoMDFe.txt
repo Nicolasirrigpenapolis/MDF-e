@@ -1,0 +1,409 @@
+' ===================================================================
+' MÓDULO DE MIGRAÇÃO - FLEXDOCS PARA ACBr
+' Data: 03/09/2025
+' Arquivo: ACBrMigracaoMDFe.txt (renomear para .bas depois)
+' ===================================================================
+
+Option Explicit
+
+' ===================================================================
+' DECLARAÇÕES ACBrLibMDFe ADICIONAIS - FUNÇÕES ESPECÍFICAS
+' ===================================================================
+
+' Funções adicionais para migração completa
+Private Declare Function MDFE_CarregarXML Lib "C:\Projetos\MDFe\NFE\ACBrMDFe32.dll" _
+    (ByVal eArquivoOuXML As String) As Long
+
+Private Declare Function MDFE_EnviarEvento Lib "C:\Projetos\MDFe\NFE\ACBrMDFe32.dll" _
+    (ByVal AidLote As Long) As Long
+
+Private Declare Function MDFE_ImprimirPDF Lib "C:\Projetos\MDFe\NFE\ACBrMDFe32.dll" () As Long
+
+Private Declare Function MDFE_ObterXML Lib "C:\Projetos\MDFe\NFE\ACBrMDFe32.dll" _
+    (ByVal buffer As String, ByVal bufferLen As Long) As Long
+
+' ===================================================================
+' FUNÇÃO PRINCIPAL DE MIGRAÇÃO - SUBSTITUI SuperMDFe()
+' ===================================================================
+Public Function SuperMDFeACBr() As Boolean
+    On Error GoTo ErroSuperMDFeACBr
+    
+    ' Mesmo padrão de variáveis da função original
+    Dim TbPercurso As New GRecordSet, TbCarrega As New GRecordSet, TbEmitente As New GRecordSet
+    Dim TbCondutores As New GRecordSet, TbDescarga As New GRecordSet, TbNFeCarga As New GRecordSet
+    Dim TotalNFeCarga As New GRecordSet, ValorTotalCarga As New GRecordSet, QtdCarga As New GRecordSet
+    Dim NomeEmitente As String, TbDescargaCTe As New GRecordSet, TbCTeCarga As New GRecordSet, TotalCTeCarga As New GRecordSet
+    
+    ' Variáveis ACBr
+    Dim resultado As Long
+    Dim conteudoINI As String
+    Dim caminhoConfig As String
+    Dim numeroLote As Long
+    Dim xmlRetorno As String
+    
+    ' ===================================================================
+    ' 1. INICIALIZAR ACBr
+    ' ===================================================================
+    caminhoConfig = App.Path & "\ACBrLibMDFe.ini"
+    
+    resultado = MDFE_Inicializar(caminhoConfig, "")
+    If resultado <> 0 Then
+        MsgBox "ERRO: Falha na inicialização ACBr" & vbCrLf & ObterUltimoRetornoACBr(), vbCritical
+        SuperMDFeACBr = False
+        Exit Function
+    End If
+    
+    ' ===================================================================
+    ' 2. CONFIGURAR ACBr COM DADOS DO SISTEMA ATUAL
+    ' ===================================================================
+    Call ConfigurarACBrParaMDFe
+    
+    ' ===================================================================
+    ' 3. CARREGAR DADOS DO BANCO (mesmo código da função original)
+    ' ===================================================================
+    Call CarregarDadosDoSistema
+    
+    ' ===================================================================
+    ' 4. GERAR INI DO MDFE PARA ACBr
+    ' ===================================================================
+    conteudoINI = MontarINIMDFeACBr()
+    
+    ' ===================================================================
+    ' 5. CARREGAR INI NO ACBr
+    ' ===================================================================
+    resultado = MDFE_CarregarINI(conteudoINI)
+    If resultado <> 0 Then
+        MsgBox "ERRO: Falha ao carregar dados MDFe" & vbCrLf & ObterUltimoRetornoACBr(), vbCritical
+        Call MDFE_Finalizar
+        SuperMDFeACBr = False
+        Exit Function
+    End If
+    
+    ' ===================================================================
+    ' 6. ASSINAR MDFe
+    ' ===================================================================
+    resultado = MDFE_Assinar()
+    If resultado <> 0 Then
+        MsgBox "ERRO: Falha na assinatura MDFe" & vbCrLf & ObterUltimoRetornoACBr(), vbCritical
+        Call MDFE_Finalizar
+        SuperMDFeACBr = False
+        Exit Function
+    End If
+    
+    ' ===================================================================
+    ' 7. TRANSMITIR MDFe
+    ' ===================================================================
+    numeroLote = CLng(Format(Now, "yyyymmddhhnnss"))
+    resultado = MDFE_EnviarSincrono(numeroLote, False, True)
+    
+    If resultado = 0 Then
+        ' Obter XML de retorno
+        xmlRetorno = ObterUltimoRetornoACBr()
+        
+        ' Processar retorno (mesmo padrão da função original)
+        Call ProcessarRetornoACBr(xmlRetorno)
+        
+        SuperMDFeACBr = True
+    Else
+        MsgBox "ERRO: Falha na transmissão MDFe" & vbCrLf & ObterUltimoRetornoACBr(), vbCritical
+        SuperMDFeACBr = False
+    End If
+    
+    ' ===================================================================
+    ' 8. FINALIZAR ACBr
+    ' ===================================================================
+    Call MDFE_Finalizar
+    Exit Function
+    
+ErroSuperMDFeACBr:
+    Call MDFE_Finalizar
+    MsgBox "ERRO CRÍTICO em SuperMDFeACBr:" & vbCrLf & _
+           "Erro: " & Err.Number & vbCrLf & _
+           "Descrição: " & Err.Description, vbCritical
+    SuperMDFeACBr = False
+End Function
+
+' ===================================================================
+' CONFIGURAR ACBr COM DADOS DO SISTEMA ATUAL
+' ===================================================================
+Private Sub ConfigurarACBrParaMDFe()
+    ' Configurar certificado
+    If Len(Trim(Caminhocertificado)) > 0 Then
+        Call MDFE_ConfigGravarValor("Certificados", "Arquivo", Caminhocertificado)
+        Call MDFE_ConfigGravarValor("Certificados", "Senha", SenhaCertificado)
+    End If
+    
+    ' Configurar ambiente
+    Dim ambiente As String
+    ambiente = IIf(Parametros_da_nfe!Ambiente = 0, "1", "2") ' 1=Produção, 2=Homologação
+    Call MDFE_ConfigGravarValor("DFe", "Ambiente", ambiente)
+    Call MDFE_ConfigGravarValor("WebService", "Ambiente", ambiente)
+    
+    ' Configurar UF
+    Call MDFE_ConfigGravarValor("DFe", "UF", UfEmitente)
+    Call MDFE_ConfigGravarValor("WebService", "UF", UfEmitente)
+End Sub
+
+' ===================================================================
+' CARREGAR DADOS DO SISTEMA (igual à função original)
+' ===================================================================
+Private Sub CarregarDadosDoSistema()
+    ' Esta função mantém exatamente o mesmo código da SuperMDFe original
+    ' para carregar dados do banco de dados
+    
+    ' Carregar dados do manifesto
+    If vgTb.EOF Or vgTb.BOF Then
+        MsgBox "Não há manifesto selecionado!", vbExclamation
+        Exit Sub
+    End If
+    
+    ' Carregar tabelas auxiliares (mesmo código original)
+    TbCarrega.RsSource = "SELECT * FROM [Local de carregamento] WHERE ([Sequencia Do Manifesto] = " & Manifesto![Sequencia Do Manifesto] & ")"
+    TbPercurso.RsSource = "SELECT * FROM [Uf de percurso] WHERE ([Sequencia Do Manifesto] = " & Manifesto![Sequencia Do Manifesto] & ")"
+    TbCondutores.RsSource = "SELECT * FROM [Codutores] WHERE ([Sequencia Do Manifesto] = " & Manifesto![Sequencia Do Manifesto] & ")"
+    TbDescarga.RsSource = "SELECT * FROM [Descarregamento nfe] WHERE ([Sequencia Do Manifesto] = " & Manifesto![Sequencia Do Manifesto] & ")"
+    TbNFeCarga.RsSource = "SELECT * FROM [Nfe da carga] WHERE ([Sequencia Do Manifesto] = " & Manifesto![Sequencia Do Manifesto] & ")"
+    
+    ' Abrir recordsets
+    TbCarrega.Open
+    TbPercurso.Open
+    TbCondutores.Open
+    TbDescarga.Open
+    TbNFeCarga.Open
+End Sub
+
+' ===================================================================
+' MONTAR INI PARA ACBr (baseado na estrutura FlexDocs)
+' ===================================================================
+Private Function MontarINIMDFeACBr() As String
+    Dim ini As String
+    Dim contadorItem As Integer
+    
+    ' ===================================================================
+    ' [Identificacao] - Baseado nas variáveis da função original
+    ' ===================================================================
+    ini = ini & "[Identificacao]" & vbCrLf
+    ini = ini & "cUF=35" & vbCrLf ' São Paulo
+    ini = ini & "tpAmb=" & IIf(Parametros_da_nfe!Ambiente = 0, "1", "2") & vbCrLf
+    ini = ini & "tpEmit=" & IIf(Manifesto![Tipo de emitente] = "Prestador de Serviço de Transporte", "2", "1") & vbCrLf
+    ini = ini & "mod=58" & vbCrLf
+    ini = ini & "serie=1" & vbCrLf
+    ini = ini & "nMDF=" & Manifesto![Numero Do Manifesto] & vbCrLf
+    ini = ini & "cMDF=" & Codigo_numerico_aleatorio & vbCrLf
+    ini = ini & "cDV=" & Digito_verificador & vbCrLf
+    ini = ini & "modal=1" & vbCrLf
+    ini = ini & "dhEmi=" & Format(Data_de_emissao, "yyyy-mm-ddThh:nn:ss") & vbCrLf
+    ini = ini & "tpEmis=1" & vbCrLf
+    ini = ini & "procEmi=0" & vbCrLf
+    ini = ini & "verProc=DELLALIO MDF-E" & vbCrLf
+    ini = ini & "UFIni=" & Manifesto!UF & vbCrLf
+    ini = ini & "UFFim=" & Manifesto![Uf de descarregamento] & vbCrLf
+    ini = ini & "dhIniViagem=" & Format(Data_hora_inicio_viagem, "yyyy-mm-ddThh:nn:ss") & vbCrLf
+    
+    ' Transportador
+    If Len(Trim(Tipo_de_transportador)) > 0 Then
+        ini = ini & "tpTransp=" & Tipo_de_transportador & vbCrLf
+    End If
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [Emitente] - Dados do emitente
+    ' ===================================================================
+    ini = ini & "[Emitente]" & vbCrLf
+    ini = ini & "CNPJ=" & RemoveCaracteres(Cnpj_emitente) & vbCrLf
+    ini = ini & "IE=" & RemoveCaracteres(Ie_emitente) & vbCrLf
+    ini = ini & "xNome=" & SuperTiraAcentos(Nome_emitente) & vbCrLf
+    ini = ini & "xFant=" & SuperTiraAcentos(Nome_fantasia) & vbCrLf
+    ini = ini & "xLgr=" & SuperTiraAcentos(Endereco_emitente) & vbCrLf
+    ini = ini & "nro=" & Numero_emitente & vbCrLf
+    ini = ini & "xCpl=" & SuperTiraAcentos(Complemento_emitente) & vbCrLf
+    ini = ini & "xBairro=" & SuperTiraAcentos(Bairro_emitente) & vbCrLf
+    ini = ini & "cMun=" & Codigo_municipio_emitente & vbCrLf
+    ini = ini & "xMun=" & SuperTiraAcentos(Municipio_emitente) & vbCrLf
+    ini = ini & "CEP=" & RemoveCaracteres(Cep_emitente) & vbCrLf
+    ini = ini & "UF=" & Uf_emitente & vbCrLf
+    ini = ini & "fone=" & RemoveCaracteres(Telefone_emitente) & vbCrLf
+    ini = ini & "email=" & Email_emitente & vbCrLf
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [rodo] - Modal Rodoviário
+    ' ===================================================================
+    ini = ini & "[rodo]" & vbCrLf
+    ini = ini & "RNTRC=" & RemoveCaracteres(Rntrc) & vbCrLf
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [veicPrincipal] - Veículo Principal
+    ' ===================================================================
+    ini = ini & "[veicPrincipal]" & vbCrLf
+    ini = ini & "cInt=" & Codigo_interno_veiculo & vbCrLf
+    ini = ini & "placa=" & UCase(RemoveCaracteres(Placa)) & vbCrLf
+    ini = ini & "renavam=" & RemoveCaracteres(Renavam) & vbCrLf
+    ini = ini & "tara=" & Format(Tara_veiculo, "0") & vbCrLf
+    ini = ini & "capKG=" & Format(Capacidade_kg, "0") & vbCrLf
+    ini = ini & "capM3=" & Format(Capacidade_m3, "0.000") & vbCrLf
+    ini = ini & "tpRod=" & Tipo_de_rodado & vbCrLf
+    ini = ini & "tpCar=" & Tipo_de_carroceria & vbCrLf
+    ini = ini & "UF=" & Uf_do_veiculo & vbCrLf
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [prop] - Proprietário
+    ' ===================================================================
+    ini = ini & "[prop]" & vbCrLf
+    If Len(Trim(CpfProprietario)) > 0 Then
+        ini = ini & "CPF=" & RemoveCaracteres(CpfProprietario) & vbCrLf
+    ElseIf Len(Trim(CnpjProprietario)) > 0 Then
+        ini = ini & "CNPJ=" & RemoveCaracteres(CnpjProprietario) & vbCrLf
+    End If
+    ini = ini & "RNTRC=" & RemoveCaracteres(RntrcProprietario) & vbCrLf
+    ini = ini & "xNome=" & SuperTiraAcentos(NomeProprietario) & vbCrLf
+    ini = ini & "IE=" & RemoveCaracteres(IeProprietario) & vbCrLf
+    ini = ini & "UF=" & UfProprietario & vbCrLf
+    ini = ini & "tpProp=" & TipoProprietario & vbCrLf
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [condutor] - Condutores
+    ' ===================================================================
+    contadorItem = 1
+    If Not TbCondutores.EOF Then
+        TbCondutores.MoveFirst
+        Do While Not TbCondutores.EOF
+            ini = ini & "[condutor" & Format(contadorItem, "00") & "]" & vbCrLf
+            ini = ini & "xNome=" & SuperTiraAcentos(Trim(TbCondutores![Nome condutor])) & vbCrLf
+            ini = ini & "CPF=" & RemoveCaracteres(TbCondutores![Cpf condutor]) & vbCrLf
+            ini = ini & vbCrLf
+            contadorItem = contadorItem + 1
+            TbCondutores.MoveNext
+        Loop
+    End If
+    
+    ' ===================================================================
+    ' [infMunDescarga] - Municípios de descarga e NFe
+    ' ===================================================================
+    contadorItem = 1
+    If Not TbDescarga.EOF Then
+        TbDescarga.MoveFirst
+        Do While Not TbDescarga.EOF
+            ini = ini & "[infMunDescarga" & Format(contadorItem, "00") & "]" & vbCrLf
+            ini = ini & "cMunDescarga=" & TbDescarga![Codigo do ibge] & vbCrLf
+            ini = ini & "xMunDescarga=" & SuperTiraAcentos(Trim(TbDescarga![Descrição do municipio])) & vbCrLf
+            ini = ini & vbCrLf
+            
+            ' NFe deste município
+            Dim contadorNFe As Integer
+            contadorNFe = 1
+            If Not TbNFeCarga.EOF Then
+                TbNFeCarga.MoveFirst
+                Do While Not TbNFeCarga.EOF
+                    If TbNFeCarga![Municipio de descarga] = TbDescarga![Codigo do ibge] Then
+                        ini = ini & "[infMunDescarga" & Format(contadorItem, "00") & "_infNFe" & Format(contadorNFe, "00") & "]" & vbCrLf
+                        ini = ini & "chave=" & TbNFeCarga!Chave & vbCrLf
+                        ini = ini & vbCrLf
+                        contadorNFe = contadorNFe + 1
+                    End If
+                    TbNFeCarga.MoveNext
+                Loop
+            End If
+            
+            contadorItem = contadorItem + 1
+            TbDescarga.MoveNext
+        Loop
+    End If
+    
+    ' ===================================================================
+    ' [tot] - Totais
+    ' ===================================================================
+    ini = ini & "[tot]" & vbCrLf
+    ini = ini & "qCTe=" & QtdCte & vbCrLf
+    ini = ini & "qNFe=" & QtdNfe & vbCrLf
+    ini = ini & "qMDFe=0" & vbCrLf
+    ini = ini & "vCarga=" & Format(Valor_total_da_carga, "0.00") & vbCrLf
+    ini = ini & "cUnid=01" & vbCrLf
+    ini = ini & "qCarga=" & Format(Peso_total_da_carga, "0.0000") & vbCrLf
+    ini = ini & vbCrLf
+    
+    ' ===================================================================
+    ' [infAdic] - Informações Adicionais
+    ' ===================================================================
+    If Len(Trim(Manifesto!Historico)) > 0 Then
+        ini = ini & "[infAdic]" & vbCrLf
+        ini = ini & "infCpl=" & SuperTiraAcentos(Left(Trim(Manifesto!Historico), 5000)) & vbCrLf
+        ini = ini & vbCrLf
+    End If
+    
+    ' ===================================================================
+    ' [seg] - Seguro
+    ' ===================================================================
+    If Len(Trim(N_averbacao)) > 0 Then
+        ini = ini & "[seg]" & vbCrLf
+        ini = ini & "respSeg=" & RespSeguro & vbCrLf
+        If Len(Trim(CnpjSeguro)) > 0 Then
+            ini = ini & "CNPJ=" & RemoveCaracteres(CnpjSeguro) & vbCrLf
+        End If
+        ini = ini & "xSeg=" & SuperTiraAcentos(NomeSeguradora) & vbCrLf
+        ini = ini & "nApol=" & NumeroApolice & vbCrLf
+        ini = ini & "nAver=" & RemoveCaracteres(N_averbacao) & vbCrLf
+        ini = ini & vbCrLf
+    End If
+    
+    MontarINIMDFeACBr = ini
+End Function
+
+' ===================================================================
+' PROCESSAR RETORNO ACBr (baseado no processamento FlexDocs)
+' ===================================================================
+Private Sub ProcessarRetornoACBr(xmlRetorno As String)
+    Dim cStat As Integer
+    Dim xMotivo As String
+    Dim nProt As String
+    Dim dhRecbto As String
+    
+    ' Extrair informações do XML (usar as mesmas funções do sistema atual)
+    cStat = ExtrairValorXML(xmlRetorno, "cStat")
+    xMotivo = ExtrairValorXML(xmlRetorno, "xMotivo")
+    nProt = ExtrairValorXML(xmlRetorno, "nProt")
+    dhRecbto = ExtrairValorXML(xmlRetorno, "dhRecbto")
+    
+    ' Processar conforme status (mesmo padrão da função original)
+    Select Case cStat
+        Case 100 ' Autorizado
+            MsgBox "MDF-e autorizado com sucesso!" & vbCrLf & _
+                   "Protocolo: " & nProt & vbCrLf & _
+                   "Data/Hora: " & dhRecbto, vbInformation
+            
+            ' Salvar no banco (mesmo código original)
+            With vgTb
+                .Edit
+                !Protocolo_de_autorizacao = nProt
+                !Data_e_hora_do_mdfe = dhRecbto
+                ![Xml autorizado] = xmlRetorno
+                !Transmitido = True
+                !Autorizada = True
+                .Update
+            End With
+            
+            ' Atualizar interface
+            Autorizada = True
+            Transmitido = True
+            Call MostraFormulas
+            
+        Case 101, 150 ' Cancelado
+            MsgBox "MDF-e cancelado: " & xMotivo, vbInformation
+            Nota_cancelada = True
+            
+        Case Else ' Rejeitado
+            MsgBox "MDF-e rejeitado:" & vbCrLf & _
+                   "Status: " & cStat & vbCrLf & _
+                   "Motivo: " & xMotivo, vbCritical
+            
+            ' Log do erro no banco
+            With vgTb
+                .Edit
+                !Observação = "Rejeitado: " & cStat & " - " & xMotivo
+                .Update
+            End With
+    End Select
+End Sub

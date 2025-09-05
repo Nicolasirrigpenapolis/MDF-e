@@ -1,17 +1,17 @@
 VERSION 5.00
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "tabctl32.ocx"
 Begin VB.Form frmMDFe 
-   ClientHeight    =   8595
-   ClientLeft      =   3330
-   ClientTop       =   1680
-   ClientWidth     =   11640
+   ClientHeight    =   8715
+   ClientLeft      =   3270
+   ClientTop       =   1620
+   ClientWidth     =   11760
    ForeColor       =   &H80000008&
    KeyPreview      =   -1  'True
    LinkTopic       =   "MDFe"
    LockControls    =   -1  'True
    MDIChild        =   -1  'True
-   ScaleHeight     =   8595
-   ScaleWidth      =   11640
+   ScaleHeight     =   8715
+   ScaleWidth      =   11760
    Begin NFE.GPainel Painel 
       Height          =   8565
       Index           =   0
@@ -24,96 +24,6 @@ Begin VB.Form frmMDFe
       _ExtentY        =   15108
       BevelOuter      =   0
       Stretch         =   -1  'True
-      Begin NFE.GBotao Botao 
-         Height          =   435
-         Index           =   3
-         Left            =   4770
-         TabIndex        =   34
-         Top             =   135
-         Width           =   1590
-         _ExtentX        =   0
-         _ExtentY        =   0
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Caption         =   "Teste ACBr"
-         CaptionAlign    =   4
-         CaptionOffset   =   50
-      End
-      Begin NFE.GBotao Botao 
-         Height          =   435
-         Index           =   2
-         Left            =   6360
-         TabIndex        =   33
-         Top             =   135
-         Width           =   1590
-         _ExtentX        =   0
-         _ExtentY        =   0
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Caption         =   "Encerrar"
-         CaptionAlign    =   4
-         CaptionOffset   =   50
-      End
-      Begin NFE.GBotao Botao 
-         Height          =   435
-         Index           =   1
-         Left            =   7995
-         TabIndex        =   17
-         TabStop         =   0   'False
-         Top             =   555
-         Width           =   1590
-         _ExtentX        =   0
-         _ExtentY        =   0
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Caption         =   "Cancelar"
-         CaptionAlign    =   4
-         CaptionOffset   =   50
-      End
-      Begin NFE.GBotao Botao 
-         Height          =   435
-         Index           =   0
-         Left            =   7995
-         TabIndex        =   16
-         TabStop         =   0   'False
-         Top             =   120
-         Width           =   1590
-         _ExtentX        =   0
-         _ExtentY        =   0
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Caption         =   "DAMDFE"
-         CaptionAlign    =   4
-         CaptionOffset   =   50
-      End
       Begin NFE.GCpMM mmCampo 
          Height          =   1245
          Index           =   0
@@ -230,89 +140,79 @@ Begin VB.Form frmMDFe
          Tab(0).ControlCount=   20
          TabCaption(1)   =   "2 - Veiculo de Tração"
          Tab(1).ControlEnabled=   0   'False
-         Tab(1).Control(0)=   "Label(10)"
-         Tab(1).Control(1)=   "txtCp(6)"
-         Tab(1).Control(2)=   "Label(11)"
-         Tab(1).Control(3)=   "txtCp(7)"
-         Tab(1).Control(4)=   "Label(12)"
-         Tab(1).Control(5)=   "labFdo8"
-         Tab(1).Control(6)=   "bottxtCampo8(2)"
-         Tab(1).Control(6).Enabled=   0   'False
-         Tab(1).Control(7)=   "txtCp(8)"
-         Tab(1).Control(8)=   "Label(13)"
-         Tab(1).Control(9)=   "txtCp(9)"
-         Tab(1).Control(10)=   "Label(14)"
+         Tab(1).Control(0)=   "Painel(3)"
+         Tab(1).Control(1)=   "txtCp(13)"
+         Tab(1).Control(2)=   "Label(17)"
+         Tab(1).Control(3)=   "txtCp(12)"
+         Tab(1).Control(4)=   "Label(16)"
+         Tab(1).Control(5)=   "txtCp(11)"
+         Tab(1).Control(6)=   "bottxtCampo11(2)"
+         Tab(1).Control(7)=   "labFdo11"
+         Tab(1).Control(8)=   "Label(15)"
+         Tab(1).Control(9)=   "txtCp(10)"
+         Tab(1).Control(10)=   "bottxtCampo10(2)"
          Tab(1).Control(11)=   "labFdo10"
-         Tab(1).Control(12)=   "bottxtCampo10(2)"
-         Tab(1).Control(12).Enabled=   0   'False
-         Tab(1).Control(13)=   "txtCp(10)"
-         Tab(1).Control(14)=   "Label(15)"
-         Tab(1).Control(15)=   "labFdo11"
-         Tab(1).Control(16)=   "bottxtCampo11(2)"
-         Tab(1).Control(16).Enabled=   0   'False
-         Tab(1).Control(17)=   "txtCp(11)"
-         Tab(1).Control(18)=   "Label(16)"
-         Tab(1).Control(19)=   "txtCp(12)"
-         Tab(1).Control(20)=   "Label(17)"
-         Tab(1).Control(21)=   "txtCp(13)"
-         Tab(1).Control(22)=   "Painel(3)"
+         Tab(1).Control(12)=   "Label(14)"
+         Tab(1).Control(13)=   "txtCp(9)"
+         Tab(1).Control(14)=   "Label(13)"
+         Tab(1).Control(15)=   "txtCp(8)"
+         Tab(1).Control(16)=   "bottxtCampo8(2)"
+         Tab(1).Control(17)=   "labFdo8"
+         Tab(1).Control(18)=   "Label(12)"
+         Tab(1).Control(19)=   "txtCp(7)"
+         Tab(1).Control(20)=   "Label(11)"
+         Tab(1).Control(21)=   "txtCp(6)"
+         Tab(1).Control(22)=   "Label(10)"
          Tab(1).ControlCount=   23
          TabCaption(2)   =   "3 - Proprietário Veiculo"
          Tab(2).ControlEnabled=   0   'False
-         Tab(2).Control(0)=   "Painel(4)"
+         Tab(2).Control(0)=   "Painel(5)"
          Tab(2).Control(1)=   "ChkCp(0)"
-         Tab(2).Control(2)=   "Painel(5)"
+         Tab(2).Control(2)=   "Painel(4)"
          Tab(2).ControlCount=   3
          TabCaption(3)   =   "4 - NF-e"
          Tab(3).ControlEnabled=   0   'False
-         Tab(3).Control(0)=   "Painel(7)"
-         Tab(3).Control(1)=   "Painel(8)"
+         Tab(3).Control(0)=   "Painel(8)"
+         Tab(3).Control(1)=   "Painel(7)"
          Tab(3).ControlCount=   2
          TabCaption(4)   =   "5 - CT-e"
          Tab(4).ControlEnabled=   0   'False
-         Tab(4).Control(0)=   "Painel(9)"
-         Tab(4).Control(1)=   "Painel(10)"
+         Tab(4).Control(0)=   "Painel(10)"
+         Tab(4).Control(1)=   "Painel(9)"
          Tab(4).ControlCount=   2
          TabCaption(5)   =   "6 - MDF-e"
          Tab(5).ControlEnabled=   0   'False
-         Tab(5).Control(0)=   "Label(31)"
-         Tab(5).Control(1)=   "txtCp(21)"
-         Tab(5).Control(1).Enabled=   0   'False
-         Tab(5).Control(2)=   "Label(32)"
+         Tab(5).Control(0)=   "txtCp(24)"
+         Tab(5).Control(1)=   "txtCp(23)"
+         Tab(5).Control(2)=   "Label(33)"
          Tab(5).Control(3)=   "txtCp(22)"
-         Tab(5).Control(3).Enabled=   0   'False
-         Tab(5).Control(4)=   "Label(33)"
-         Tab(5).Control(5)=   "txtCp(23)"
-         Tab(5).Control(5).Enabled=   0   'False
-         Tab(5).Control(6)=   "txtCp(24)"
-         Tab(5).Control(6).Enabled=   0   'False
+         Tab(5).Control(4)=   "Label(32)"
+         Tab(5).Control(5)=   "txtCp(21)"
+         Tab(5).Control(6)=   "Label(31)"
          Tab(5).ControlCount=   7
          TabCaption(6)   =   "7 - Seguro"
          Tab(6).ControlEnabled=   0   'False
-         Tab(6).Control(0)=   "Label(34)"
-         Tab(6).Control(1)=   "labFdo25"
-         Tab(6).Control(2)=   "bottxtCampo25(2)"
-         Tab(6).Control(2).Enabled=   0   'False
-         Tab(6).Control(3)=   "txtCp(25)"
-         Tab(6).Control(4)=   "Label(35)"
-         Tab(6).Control(5)=   "opcTabs0Cp(0)"
-         Tab(6).Control(5).Enabled=   0   'False
-         Tab(6).Control(6)=   "labopcTabs0"
-         Tab(6).Control(7)=   "opcTabs0Cp(1)"
-         Tab(6).Control(7).Enabled=   0   'False
-         Tab(6).Control(8)=   "Label(36)"
-         Tab(6).Control(9)=   "txtCp(26)"
+         Tab(6).Control(0)=   "txtCp(31)"
+         Tab(6).Control(1)=   "Label(41)"
+         Tab(6).Control(2)=   "txtCp(30)"
+         Tab(6).Control(3)=   "Label(40)"
+         Tab(6).Control(4)=   "txtCp(29)"
+         Tab(6).Control(5)=   "Label(39)"
+         Tab(6).Control(6)=   "txtCp(28)"
+         Tab(6).Control(7)=   "Label(38)"
+         Tab(6).Control(8)=   "txtCp(27)"
+         Tab(6).Control(9)=   "Label(37)"
          Tab(6).Control(10)=   "Linha(1)"
-         Tab(6).Control(11)=   "Label(37)"
-         Tab(6).Control(12)=   "txtCp(27)"
-         Tab(6).Control(13)=   "Label(38)"
-         Tab(6).Control(14)=   "txtCp(28)"
-         Tab(6).Control(15)=   "Label(39)"
-         Tab(6).Control(16)=   "txtCp(29)"
-         Tab(6).Control(17)=   "Label(40)"
-         Tab(6).Control(18)=   "txtCp(30)"
-         Tab(6).Control(19)=   "Label(41)"
-         Tab(6).Control(20)=   "txtCp(31)"
+         Tab(6).Control(11)=   "txtCp(26)"
+         Tab(6).Control(12)=   "Label(36)"
+         Tab(6).Control(13)=   "opcTabs0Cp(1)"
+         Tab(6).Control(14)=   "labopcTabs0"
+         Tab(6).Control(15)=   "opcTabs0Cp(0)"
+         Tab(6).Control(16)=   "Label(35)"
+         Tab(6).Control(17)=   "txtCp(25)"
+         Tab(6).Control(18)=   "bottxtCampo25(2)"
+         Tab(6).Control(19)=   "labFdo25"
+         Tab(6).Control(20)=   "Label(34)"
          Tab(6).ControlCount=   21
          Begin NFE.GPainel Painel 
             Height          =   2610
@@ -339,13 +239,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -663,13 +563,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -942,13 +842,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -1453,13 +1353,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -1513,13 +1413,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -1573,13 +1473,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -1633,13 +1533,13 @@ Begin VB.Form frmMDFe
                EditTextColor   =   -2147483640
                CellTextColor   =   -2147483640
                StripesBackColor=   14737632
-               RowHeight       =   285
+               RowHeight       =   330
                ShowGridCaption =   0   'False
                SaveGridStripes =   0   'False
                Caption         =   ""
                BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
                   Name            =   "MS Sans Serif"
-                  Size            =   8.25
+                  Size            =   9.75
                   Charset         =   0
                   Weight          =   400
                   Underline       =   0   'False
@@ -2693,6 +2593,52 @@ Begin VB.Form frmMDFe
          Top             =   1815
          Width           =   4350
       End
+      Begin NFE.GBotao Botao 
+         Height          =   435
+         Index           =   0
+         Left            =   7995
+         TabIndex        =   16
+         TabStop         =   0   'False
+         Top             =   120
+         Width           =   1590
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Microsoft Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "DAMDFE"
+         CaptionAlign    =   4
+         CaptionOffset   =   50
+      End
+      Begin NFE.GBotao Botao 
+         Height          =   435
+         Index           =   1
+         Left            =   7995
+         TabIndex        =   17
+         TabStop         =   0   'False
+         Top             =   555
+         Width           =   1590
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Microsoft Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "Cancelar"
+         CaptionAlign    =   4
+         CaptionOffset   =   50
+      End
       Begin VB.TextBox txtCp 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -2766,6 +2712,28 @@ Begin VB.Form frmMDFe
          TabIndex        =   19
          Top             =   6840
          Width           =   6885
+      End
+      Begin NFE.GBotao Botao 
+         Height          =   435
+         Index           =   2
+         Left            =   6360
+         TabIndex        =   33
+         Top             =   135
+         Width           =   1590
+         _ExtentX        =   0
+         _ExtentY        =   0
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "MS Sans Serif"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Caption         =   "Encerrar"
+         CaptionAlign    =   4
+         CaptionOffset   =   50
       End
       Begin VB.Frame Frame 
          Height          =   1410
@@ -3326,85 +3294,49 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 '* Sistema...: Emissor de MDF-e (Layout 3.00)
 '* Empresa...: Ygor Eduardo Dellalio
-'* Módulo....: MDFe
-'* Função....: MDF-e
+'* Modulo....: MDFe
+'* Funcao....: MDF-e
 '* CopyRight.: (C)2024 Ygor Eduardo Dellalio
-'* Criação...: GAS-2007 - Gerador Automático de Sistemas
+'* Criacao...: GAS-2007 - Gerador Automatico de Sistemas
 '* Data......: 10/05/2024 15:57:36
 '* * * * * * *
 
 Option Explicit
 DefInt A-Z
 
-' Declaração da API Windows para Sleep
-Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
-
-' ===================================================================
-' DECLARAÇÕES ACBrLibMDFe - MIGRAÇÃO FLEXDOCS PARA ACBR
-' ===================================================================
-' Declarações das funções da biblioteca ACBrMDFe32.dll
-Private Declare Function MDFE_Inicializar Lib "ACBrMDFe32.dll" _
-    (ByVal eArqConfig As String, ByVal eChaveCrypt As String) As Long
-
-Private Declare Function MDFE_Finalizar Lib "ACBrMDFe32.dll" () As Long
-
-Private Declare Function MDFE_UltimoRetorno Lib "ACBrMDFe32.dll" _
-    (ByVal buffer As String, ByVal bufferLen As Long) As Long
-
-Private Declare Function MDFE_ConfigLerValor Lib "ACBrMDFe32.dll" _
-    (ByVal ASessao As String, ByVal AChave As String, ByVal buffer As String, ByVal bufferLen As Long) As Long
-
-Private Declare Function MDFE_ConfigGravarValor Lib "ACBrMDFe32.dll" _
-    (ByVal ASessao As String, ByVal AChave As String, ByVal AValor As String) As Long
-
-Private Declare Function MDFE_StatusServico Lib "ACBrMDFe32.dll" () As Long
-
-Private Declare Function MDFE_CarregarINI Lib "ACBrMDFe32.dll" _
-    (ByVal eArquivoOuINI As String) As Long
-
-Private Declare Function MDFE_Assinar Lib "ACBrMDFe32.dll" () As Long
-
-Private Declare Function MDFE_EnviarSincrono Lib "ACBrMDFe32.dll" _
-    (ByVal ANumLote As Long, ByVal AImprimir As Boolean, ByVal ASincrono As Boolean) As Long
-
-' Variável de controle da inicialização ACBr
-Private m_ACBrInicializada As Boolean
-' ===================================================================
-
-Public vgSituacao As Integer                      'situação de edição que do módulo
-Public vgCaracteristica As Integer                'caracteristica do módulo
-Public vgTipo As Integer                          'tipo do módulo
-Public vgFiltroInicial As String                  'filtro inicial do módulo
-Public vgOrdemInicial As String                   'ordem inicial do módulo
-Public vgUltimaOrdem As String                    'última ordenação feita no módulo
-Public vgUltimoFiltro As String                   'último filtro definido no módulo
-Public vgUltimoFiltroComTit As String             'titulo do último filtro definido no módulo
-Public vgUltimaOrdemComTit As String              'titulo da última ordenação feita no módulo
-Public vgUltimoTabIndex As Integer                'último campo com foco do módulo
-'Public vgNovoFluxoMDFe As Boolean                'REMOVIDA - não é mais necessária
-Public vgPriVez As Integer                        'flag de carregamento do módulo
-Public WithEvents vgTb As GRecordSet              'tabela de dados do módulo
+Public vgSituacao As Integer                      'situacao de edicao que do modulo
+Public vgCaracteristica As Integer                'caracteristica do modulo
+Public vgTipo As Integer                          'tipo do modulo
+Public vgFiltroInicial As String                  'filtro inicial do modulo
+Public vgOrdemInicial As String                   'ordem inicial do modulo
+Public vgUltimaOrdem As String                    'ultima ordenacao feita no modulo
+Public vgUltimoFiltro As String                   'ultimo filtro definido no modulo
+Public vgUltimoFiltroComTit As String             'titulo do ultimo filtro definido no modulo
+Public vgUltimaOrdemComTit As String              'titulo da ultima ordenacao feita no modulo
+Public vgUltimoTabIndex As Integer                'ultimo campo com foco do modulo
+Public vgPriVez As Integer                        'flag de carregamento do modulo
+Public WithEvents vgTb As GRecordSet              'tabela de dados do modulo
 Attribute vgTb.VB_VarHelpID = -1
-Public vgSQL As String                            'expressão SQL que define o módulo
-Public vgTemInclusao As Integer                   'flag se tem ou não inclusão no módulo
-Public vgTemExclusao As Integer                   'flag se tem ou não exclusão no módulo
-Public vgTemProcura As Integer                    'flag se tem ou não procura no módulo
-Public vgTemFiltro As Integer                     'flag se tem ou não filtro no módulo
-Public vgTemAlteracao As Integer                  'flag se tem ou não alteração no módulo
-Public vgTemAlteracaoGrids As Integer              'flag se tem ou não alteração nos grids
-Public vgTemBrowse As Integer                     'flag se tem ou não janela em grade no módulo
-Public vgSemVincDados As Integer                  'Flag para definir formulários sem vinculo com dados
-Public vgTemCondicoesEsp As Integer               'flag se tem expresão de validação para inclusão/alteração ou exclusão
-Public vgEmBrowse As Integer                      'flag se o módulo esta em grade
+Public vgSQL As String                            'expressao SQL que define o modulo
+Public vgTemInclusao As Integer                   'flag se tem ou nao inclusao no modulo
+Public vgTemExclusao As Integer                   'flag se tem ou nao exclusao no modulo
+Public vgTemProcura As Integer                    'flag se tem ou nao procura no modulo
+Public vgTemFiltro As Integer                     'flag se tem ou nao filtro no modulo
+Public vgTemAlteracao As Integer                  'flag se tem ou nao alteracao no modulo
+Public vgTemAlteracaoGrids As Integer              'flag se tem ou nao alteracao nos grids
+Public vgTemBrowse As Integer                     'flag se tem ou nao janela em grade no modulo
+Public vgSemVincDados As Integer                  'Flag para definir formularios sem vinculo com dados
+Public vgTemCondicoesEsp As Integer               'flag se tem expressao de validacao para inclusao/alteracao ou exclusao
+Public vgEmBrowse As Integer                      'flag se o modulo esta em grade
 Public vgFiltroEmUso As Integer                   'Indice do Filtro atual em uso
-Public vgIndDefault As String                     'indice default do módulo
-Public vgFormID As Long                           'identificador único para o módulo
-Public vgIdentTab As String                       'nome da tabela principal do módulo
+Public vgIndDefault As String                     'indice default do modulo
+Public vgFormID As Long                           'identificador unico para o modulo
+Public vgIdentTab As String                       'nome da tabela principal do modulo
 Public vgFrmImpCons As New frmImpCons             'impressao de consutlas
-Public vgTooltips As New cTooltips                'classe de ajuda para os controes do módulo
+Public vgTooltips As New cTooltips                'classe de ajuda para os controes do modulo
 Public vgFiltroOriginal As String
-Dim txtCampo(40) As New FormataCampos             'classe dos campos tipo texto do módulo
-Dim chkCampo(0) As New FormataCampos              'classe dos campos tipo lógico do módulo
+Dim txtCampo(40) As New FormataCampos             'classe dos campos tipo texto do modulo
+Dim chkCampo(0) As New FormataCampos              'classe dos campos tipo logico do modulo
 Dim opcFrame0(1) As New FormataCampos
 Dim opcPainel6(1) As New FormataCampos
 Dim opcTabs0(1) As New FormataCampos
@@ -3423,7 +3355,7 @@ Dim Historico As String, Proprietario As Boolean, Cpf_Proprietario As String
 Dim Cnpj_Proprietario As String, Rntrc_proprietario As String, Nome_Proprietario As String
 Dim Ie_Proprietario As String, Uf_proprietario As String, Tipo_de_proprietario As String
 Dim Tipo_documento As Integer, Numero_do_recibo As String, Chave_de_acesso As String
-Dim xmlAssinado As String, Protocolo_de_autorizacao As String, Data_e_hora_do_mdfe As String
+Dim XmlAssinado As String, Protocolo_de_autorizacao As String, Data_e_hora_do_mdfe As String
 Dim XmlAutorizado As String, Encerrado As Boolean, Responsavel_do_seguro As String
 Dim Tipo_do_responsavel As Integer
 Public lblNota2 As Object, txtIE As Object, Lbldoc As Object
@@ -3435,7 +3367,6 @@ Public Lblcnpjcon As Object, Txtcnpjcon As Object
 Dim Manifesto As New GRecordSet, Local_de_carregamento As New GRecordSet, Uf_de_percurso As New GRecordSet
 Dim Codutores As New GRecordSet, Descarregamento_nfe As New GRecordSet, Descarregamento_cte As New GRecordSet
 Dim Nfe_da_carga As New GRecordSet, Cte_da_carga As New GRecordSet
-Dim TbDescarga As New GRecordSet, TbDescargaCTe As New GRecordSet
 
 Private Function PegaSequencial() As Long
 Dim Tb As New GRecordSet
@@ -3448,1186 +3379,454 @@ Dim Tb As New GRecordSet
 End Function
 
 
-'Private Sub GBotao1_Click()
- '  DuplicarMDFe
-'End Sub
-
 Private Sub Tabs_Click(Index As Integer, PreviousTab As Integer)
    MudaTamCampos Me
 End Sub
 
-
 Private Sub SuperMDFe()
-   'Avulsa - Função corrigida: Integra geração XML + transmissão (removida redundância com SuperMDFeNovo)
-   Dim objMDFeUtil As Object, TbPercurso As New GRecordSet, TbCarrega As New GRecordSet, TbEmitente As New GRecordSet
-   Dim TbCondutores As New GRecordSet, TbDescarga As New GRecordSet, TbNFeCarga As New GRecordSet, Arq As Long
-   Dim TotalNFeCarga As New GRecordSet, ValorTotalCarga As New GRecordSet, QtdCarga As New GRecordSet
-   Dim NomeEmitente As String, TbDescargaCTe As New GRecordSet, TbCTeCarga As New GRecordSet, TotalCTeCarga As New GRecordSet
-   'Identificação do Documento
-   Dim Ide As String, ide_cUF As Integer, ide_tpAmb As Integer, ide_tpEmit As Integer, ide_mod As Integer, ide_serie As Integer
-   Dim ide_nMDF As Long, ide_cMDF As Long, ide_cDV As Long, ide_Modal As String, ide_dhEmi As String, ide_tpEmis As Integer
-   Dim ide_procEmi As Integer, ide_verProc As String, ide_UFIni As String, ide_UFFim As String, infMunCarrega As String, infPercurso As String
-   'Campos Novos Layout 3.00
-   Dim Ide_tpTransp As String, Ide_dhIniViagem As String
-   'Municipios de Carregamento
-   Dim cMunCarrega As String, xMunCarrega As String
-   'Chave de Acesso
-   Dim CriaChave As String, Chave_cUF As String, Chave_Ano As String, Chave_Mes As String, Chave_Cnpj As String, Chave_Modelo As String, Chave_Serie As String
-   Dim Chave_Numero As String, Chave_tpEmis As String, Chave_CodigoSeguranca As String, Chave_msgResultado As String, Chave_cDFe As String, Chave_cDV As String, Chave_MDFe As String
-   ' UFS do Percurso
-   Dim UFPer As String
-   ' Dados do Emitente
-   Dim Emit As String, Emit_Cnpj As String, Emit_IE As String, Emit_xNome As String, Emit_xFant As String, Emit_xLgr As String, Emit_UF As String, Emit_Email As String
-   Dim Emit_nro As String, Emit_Cpl As String, Emit_xBairro As String, Emit_cMun As String, Emit_xMun As String, Emit_CEP As String, Emit_Fone As String
-   ' Modal
-   Dim Rodo As String, VersaoModal As String, RNTRC_Modal As String, CIOT As String, VeicTracao As String, veicReboque As String, ValePed As String
-   ' Veiculo com a Tração
-   Dim veicPrincipal_v10a As String, Veic_cInt As String, Veic_Placa As String, Veic_Tara As String, Veic_CapKG As String, Veic_CapM3 As String
-   Dim Veic_Condutor As String, Veic_Prop As String, Veic_tpRod As String, Veic_tpCar As String, Veic_UF As String
-   'Campos Novos Versao 3.00
-   Dim Veic_Renavam As String
-   'Condutor
-   Dim Condutor As String, xNome As String, Con_Cpf As String
-   'Proprietario do Veiculo
-   Dim Prop As String, Prop_CPF As String, Prop_CNPJ As String, Prop_RNTRC As String, Prop_xNome As String
-   Dim Prop_IE As String, Prop_UF As String, Prop_Tipo As Integer
-   ' Documentos Vinculados
-   Dim infDoc As String, Doc_cMunDescarga As String, Doc_xMunDescarga As String, Doc_infCTe As String
-   Dim Doc_infCT As String, Doc_infNFe As String, Doc_infNF As String
-   'NFe da Carga
-   Dim infNFeNovo As String
-   'CTe da Carga
-   Dim infCTeNovo As String
-   'ANTT informações do contratante
-   Dim infANTT As String, InfContratante As String
-   Dim CPF_Contratante As String, CNPJ_Contratante As String
-   'Seguro da Carga versao 3.00
-   Dim Seguro_da_Carga As String, respSeg As String, CNPJ_respSeg As String, CPF_respSeg As String
-   Dim InfSeg_xSeg As String, infSeg_CNPJ As String, InfSeg_nApol As String, InfSeg_nAver As String
-   'Totalizadores
-   Dim tot As String, qCTe As Integer, qCT As Integer, qNFe As Integer, qNF As Integer, vCarga As Double, cUnid As String, qCarga As Double
-   'Dados Adicionais
-   Dim infAdic As String, infAdFisco As String, infCpl As String
-   'Consolidação da Merda do Manifesto
-   Dim Consolidacao As String
-   'Responsavel Tecnico
-   Dim infRespTec As String, RespTec_CNPJ As String, RespTec_Contato As String
-   Dim RespTec_email As String, RespTec_Fone As String, RespTec_idCSRT As String
-   Dim RespTec_hashCSRT As String, RespTec_ChaveMDFe As String
-   'QRCode
-   Dim infMDFeSupl As String, RCode_URL As String, RCode_ChaveMDFe As String, RCode_Certificado As String, RCode_qrCode As String
-   Dim RCode_Resultado As Long, RCode_msgResultado As String
-   'Produto Predominante
-   Dim prodPred As String, TpCarga As String, xProd As String
+  'Avulsa
+  Dim objMDFeUtil As Object, TbPercurso As New GRecordSet, TbCarrega As New GRecordSet, TbEmitente As New GRecordSet
+  Dim TbCondutores As New GRecordSet, TbDescarga As New GRecordSet, TbNFeCarga As New GRecordSet, Arq As Long
+  Dim TotalNFeCarga As New GRecordSet, ValorTotalCarga As New GRecordSet, QtdCarga As New GRecordSet
+  Dim NomeEmitente As String, TbDescargaCTe As New GRecordSet, TbCTeCarga As New GRecordSet, TotalCTeCarga As New GRecordSet
+  'Identificacao do Documento
+  Dim Ide As String, ide_cUF As Integer, ide_tpAmb As Integer, ide_tpEmit As Integer, ide_mod As Integer, ide_serie As Integer
+  Dim ide_nMDF As Long, ide_cMDF As Long, ide_cDV As Long, ide_Modal As String, ide_dhEmi As String, ide_tpEmis As Integer
+  Dim ide_procEmi As Integer, ide_verProc As String, ide_UFIni As String, ide_UFFim As String, infMunCarrega As String, infPercurso As String
+  'Campos Novos Layout 3.00
+  Dim Ide_tpTransp As String, Ide_dhIniViagem As String
+  'Municipios de Carregamento
+  Dim cMunCarrega As String, xMunCarrega As String
+  'Chave de Acesso
+  Dim CriaChave As String, Chave_cUF As String, Chave_Ano As String, Chave_Mes As String, Chave_Cnpj As String, Chave_Modelo As String, Chave_Serie As String
+  Dim Chave_Numero As String, Chave_tpEmis As String, Chave_CodigoSeguranca As String, Chave_msgResultado As String, Chave_cDFe As String, Chave_cDV As String, Chave_MDFe As String
+  ' UFS do Percurso
+  Dim UFPer As String
+  ' Dados do Emitente
+  Dim Emit As String, Emit_Cnpj As String, Emit_IE As String, Emit_xNome As String, Emit_xFant As String, Emit_xLgr As String, Emit_UF As String, Emit_Email As String
+  Dim Emit_nro As String, Emit_Cpl As String, Emit_xBairro As String, Emit_cMun As String, Emit_xMun As String, Emit_CEP As String, Emit_Fone As String
+  ' Modal
+  Dim Rodo As String, VersaoModal As String, RNTRC_Modal As String, CIOT As String, VeicTracao As String, veicReboque As String, ValePed As String
+  ' Veiculo com a Tracao
+  Dim veicPrincipal_v10a As String, Veic_cInt As String, Veic_Placa As String, Veic_Tara As String, Veic_CapKG As String, Veic_CapM3 As String
+  Dim Veic_Condutor As String, Veic_Prop As String, Veic_tpRod As String, Veic_tpCar As String, Veic_UF As String
+  'Campos Novos Versao 3.00
+  Dim Veic_Renavam As String
+  'Condutor
+  Dim Condutor As String, xNome As String, Con_Cpf As String
+  'Proprietario do Veiculo
+  Dim Prop As String, Prop_CPF As String, Prop_CNPJ As String, Prop_RNTRC As String, Prop_xNome As String
+  Dim Prop_IE As String, Prop_UF As String, Prop_Tipo As Integer
+  ' Documentos Vinculados
+  Dim infDoc As String, Doc_cMunDescarga As String, Doc_xMunDescarga As String, Doc_infCTe As String
+  Dim Doc_infCT As String, Doc_infNFe As String, Doc_infNF As String
+  'NFe da Carga
+  Dim infNFeNovo As String
+  'CTe da Carga
+  Dim infCTeNovo As String
+  'ANTT informacoes do contratante
+  Dim infANTT As String, InfContratante As String
+  Dim CPF_Contratante As String, CNPJ_Contratante As String
+  'Seguro da Carga versao 3.00
+  Dim Seguro_da_Carga As String, respSeg As String, CNPJ_respSeg As String, CPF_respSeg As String
+  Dim InfSeg_xSeg As String, infSeg_CNPJ As String, InfSeg_nApol As String, InfSeg_nAver As String
+  'Totalizadores
+  Dim tot As String, qCTe As Integer, qCT As Integer, qNFe As Integer, qNF As Integer, vCarga As Double, cUnid As String, qCarga As Double
+  'Dados Adicionais
+  Dim infAdic As String, infAdFisco As String, infCpl As String
+  'Consolidacao da Merda do Manifesto
+  Dim Consolidacao As String
+  'Responsavel Tecnico
+  Dim infRespTec As String, RespTec_CNPJ As String, RespTec_Contato As String
+  Dim RespTec_email As String, RespTec_Fone As String, RespTec_idCSRT As String
+  Dim RespTec_hashCSRT As String, RespTec_ChaveMDFe As String
+  'QRCode
+  Dim infMDFeSupl As String, RCode_URL As String, RCode_ChaveMDFe As String, RCode_Certificado As String, RCode_qrCode As String
+  Dim RCode_Resultado As Long, RCode_msgResultado As String
+  'Produto Predominante
+  Dim prodPred As String, TpCarga As String, xProd As String
+  'Inf Lotacao
+  Dim infLotacao As String, LP_CEP As String, LC_Latitude As Double, LC_Longitude As Double
+  Dim LD_CEP As String, LD_latitude As Double, LD_longitude As Double
    
-   'Inf Lotação
-   Dim infLotacao As String, LP_CEP As String, LC_Latitude As Double, LC_Longitude As Double
-   Dim LD_CEP As String, LD_latitude As Double, LD_longitude As Double
-   ' Variáveis para transmissão integradas (da Novo, consultando changelog DLL 3.0.4 para envio síncrono)
-   Dim xmlAssinado As String, mdfeProc As String, nRec As String
-   Dim caminhoGerado As String, caminhoAutorizado As String
-   Dim chaveAccesso As String, Protocolo As String, dhRecbto As String
-   Dim cStat As String, xMotivo As String
-   Dim TbValidacao As New GRecordSet, Delay As Integer, tentativas As Integer
-    
-   ' Inicialização de variáveis opcionais para evitar erro de objeto
-   infRespTec = ""
-   infMDFeSupl = ""
-   prodPred = ""
-   infAdic = ""
-   Seguro_da_Carga = ""
-   infLotacao = ""
-   
-   Screen.MousePointer = vbHourglass
-   lblProgresso.Caption = "Processando MDF-e..."
-   
-   ' Verificações iniciais dos campos obrigatórios antes da geração
-   
-   ' Validações Iniciais Integradas (da Novo, consultando changelog DLL: campos obrigatórios como RNTRC em 3.0.6+)
-   lblProgresso.Caption = "Validando dados do MDF-e..."
-   Set TbValidacao = vgDb.OpenRecordSet("SELECT COUNT(*) as Total FROM [Local de Carregamento] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-   If TbValidacao.EOF Or TbValidacao!Total = 0 Then
-      MsgBox "Informe o(s) Local de Carregamento", vbCritical, "Dados Obrigatórios"
-      GoTo SaiDaSub
-   End If
-   TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-   
-   Set TbValidacao = vgDb.OpenRecordSet("SELECT (SELECT COUNT(*) FROM [NFe da Carga] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto & ") + (SELECT COUNT(*) FROM [CTe da Carga] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto & ") as Total")
-   If TbValidacao.EOF Or TbValidacao!Total = 0 Then
-      MsgBox "Informe o(s)Documento da Carga (NFe ou CTe)", vbCritical, "Dados Obrigatórios"
-      GoTo SaiDaSub
-   End If
-   TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-   
-   Set TbValidacao = vgDb.OpenRecordSet("SELECT COUNT(*) as Total FROM [Codutores] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-   If TbValidacao.EOF Or TbValidacao!Total = 0 Then
-      MsgBox "Informe o(s) Condutor do Veiculo", vbCritical, "Dados Obrigatórios"
-      GoTo SaiDaSub
-   End If
-   TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-   
-   ' Carregamento de RecordSets (original, sem duplicações)
-   Set TbPercurso = vgDb.OpenRecordSet("SELECT * From [Uf de Percurso] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto & " Order By Sequencia")
-   Set TbCarrega = vgDb.OpenRecordSet("SELECT * From [Local de Carregamento] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto & " Order By Sequencia")
-   MsgBox "DEBUG 0.1: Codigo_do_emitente = " & Codigo_do_emitente, vbInformation, "DEBUG OBJETO"
-   Set TbEmitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
-   MsgBox "DEBUG 0.2: TbEmitente.EOF = " & TbEmitente.EOF, vbInformation, "DEBUG OBJETO"
-   NomeEmitente = UCase(Mid(TbEmitente![Razão Social], 1, 5))
-   Set TbCondutores = vgDb.OpenRecordSet("SELECT * From Codutores Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-   
-   Set TbDescarga = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
-                                       "FROM [Descarregamento nfe] " & _
-                                       "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
+  On Error GoTo DeuErro
+  
+  Set TbPercurso = vgDb.OpenRecordSet("SELECT * From [Uf de Percurso] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto & " Order By Sequencia")
+  Set TbCarrega = vgDb.OpenRecordSet("SELECT * From [Local de Carregamento] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto & " Order By Sequencia")
+  Set TbEmitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
+      NomeEmitente = UCase(Mid(TbEmitente![Razão social], 1, 5))
+  Set TbCondutores = vgDb.OpenRecordSet("SELECT * From Codutores Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
+  
+  Set TbDescarga = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
+                                      "FROM [Descarregamento nfe] " & _
+                                      "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
+                                      
+  Set TbDescargaCTe = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
+                                         "FROM [Descarregamento cte] " & _
+                                         "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
                                        
-   Set TbDescargaCTe = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
-                                          "FROM [Descarregamento cte] " & _
-                                          "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
+  '=======================Identificacao do Documento===========================
+  ide_cUF = "35" 'Codigo da UF tabelo do IBGE
+  ide_tpAmb = IIf(Parametros_da_nfe!Ambiente = 0, 1, 2) ' ambiente de envio da NFe 1-producao / 2 - homologacao
+  
+  If Manifesto![Tipo de Emitente] = "Prestador de Serviço de Transporte" Then
+     ide_tpEmit = 1 ' Prestador de Servico de Transporte
+  Else
+     ide_tpEmit = 2  ' Transporte de Carga Propria
+  End If
    
-   '=======================Identificação do Documento===========================
-   ide_cUF = "35" 'Codigo da UF tabelo do IBGE
-   ide_tpAmb = IIf(Parametros_da_nfe!Ambiente = 0, 1, 2) ' ambiente de envio da NFe 1-produção / 2 - homologação
+  ide_mod = 58 ' Modelo do Documento Fiscal
+  ide_serie = 1
+  ide_nMDF = Manifesto![Numero Do Manifesto]
+  ide_Modal = 1
+  Ide_tpTransp = ""
+  If Not Parametros_da_nfe![Horario de verao] Then ' Horario de Brasilia normal
+     ide_dhEmi = Format(Now, "yyyy-MM-ddThh:mm:ss-02:00") 'data de emissao em Formato UTC
+     Ide_dhIniViagem = "" 'Permite Omitir
+  Else
+     ide_dhEmi = Format(Now, "yyyy-MM-ddThh:mm:ss-03:00") 'data de emissao em Formato UTC no Horario de Verao - Brasilia
+     Ide_dhIniViagem = "" 'Permite Omitir
+  End If
+  ide_tpEmis = 1
+  ide_procEmi = 0
+  ide_verProc = "DELLALIO MDF-E"
+  ide_UFIni = Manifesto!UF
+  ide_UFFim = Manifesto![Uf de descarregamento]
   
-   If Manifesto![Tipo de emitente] = "Prestador de Serviço de Transporte" Then
-      ide_tpEmit = 1 ' Prestador de Serviço de Transporte
-   Else
-      ide_tpEmit = 2 ' Transporte de Carga Propria
-   End If
-   
-   ide_mod = 58 ' Modelo do Documento Fiscal
-   ide_serie = 1
-   ide_nMDF = Manifesto![Numero Do Manifesto]
-   ide_Modal = 1
-   ' NÃO informar tpTransp quando não há proprietário do veículo
-   Ide_tpTransp = "" ' Deixar vazio - SEFAZ determina automaticamente
-   If Not Parametros_da_nfe![Horario de verao] Then ' Horario de Brasilia normal
-      ide_dhEmi = Format(Now, "yyyy-MM-ddThh:mm:ss-02:00") 'data de emissão em Formato UTC
-      Ide_dhIniViagem = "" 'Permite Omitir
-   Else
-      ide_dhEmi = Format(Now, "yyyy-MM-ddThh:mm:ss-03:00") 'data de emissão em Formato UTC no Horario de Verão - Brasilia
-      Ide_dhIniViagem = "" 'Permite Omitir
-   End If
-   ide_tpEmis = 1
-   ide_procEmi = 0
-   ide_verProc = "DELLALIO MDF-E"
-   ide_UFIni = Manifesto!UF
-   ide_UFFim = Manifesto![Uf de descarregamento]
+  Set objMDFeUtil = CreateObject("MDFe_Util.Util")
+ 
+  Do While Not TbCarrega.EOF
+  infMunCarrega = infMunCarrega + objMDFeUtil.infMunCarrega(TbCarrega![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbCarrega![Descrição do municipio])), True))
+  TbCarrega.MoveNext
+  Loop
+  TbCarrega.MoveFirst
+
+  Chave_cUF = Trim(Str(ide_cUF))
+  Chave_Ano = Mid(ide_dhEmi, 3, 2) 'Mid(ide_dhEmi,9,2)
+  Chave_Mes = Mid(ide_dhEmi, 6, 2) 'Mid(ide_dhEmi,4,2)
+  Chave_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
+  Chave_Modelo = "58"
+  Chave_Serie = "1"
+  Chave_Numero = Manifesto![Numero Do Manifesto]
+  Chave_tpEmis = "1"
+  Chave_CodigoSeguranca = "Segredo"
   
-   On Error GoTo ErroCreateObject
-   Set objMDFeUtil = CreateObject("MDFe_Util.Util")
-   On Error GoTo DeuErro
-  
-   'Verificação de segurança para TbCarrega
-   If Not TbCarrega Is Nothing And TbCarrega.RecordCount > 0 Then
-      Do While Not TbCarrega.EOF
-         infMunCarrega = infMunCarrega + objMDFeUtil.infMunCarrega(TbCarrega![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbCarrega![Descrição do municipio])), True))
-         TbCarrega.MoveNext
-      Loop
-      TbCarrega.MoveFirst
-   End If
-   
-   Chave_cUF = Trim(Str(ide_cUF))
-   Chave_Ano = Mid(ide_dhEmi, 3, 2) 'Mid(ide_dhEmi,9,2)
-   Chave_Mes = Mid(ide_dhEmi, 6, 2) 'Mid(ide_dhEmi,4,2)
-   Chave_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
-   Chave_Modelo = "58"
-   Chave_Serie = "1"
-   Chave_Numero = Manifesto![Numero Do Manifesto]
-   Chave_tpEmis = "1"
-   Chave_CodigoSeguranca = "Segredo"
-  
-   CriaChave = objMDFeUtil.CriaChaveDFe(Chave_cUF, Chave_Ano, Chave_Mes, Chave_Cnpj, Chave_Modelo, Chave_Serie, Chave_Numero, Chave_tpEmis, Chave_CodigoSeguranca, Chave_msgResultado, Chave_cDFe, Chave_cDV, Chave_MDFe)
+  CriaChave = objMDFeUtil.CriaChaveDFe(Chave_cUF, Chave_Ano, Chave_Mes, Chave_Cnpj, Chave_Modelo, Chave_Serie, Chave_Numero, Chave_tpEmis, Chave_CodigoSeguranca, Chave_msgResultado, Chave_cDFe, Chave_cDV, Chave_MDFe)
     
-    If CriaChave <> "5601" Then
-       MsgBox "Ocorreu um Erro ao Gerar a Chave de Acesso " + Chave_msgResultado, vbCritical, vaTitulo
-       With vgTb
-          .Edit
-          If Vazio(!Observação) Then
-             !Observação = "Erro ao Gerar a Chave de Acesso"
-          Else
-             !Observação = !Observação & vbCrLf & "Erro ao Gerar a Chave de Acesso"
-          End If
-          .Update
-          .BookMark = .LastModified
-       End With
-       GoTo SaiDaSub
-    End If
+   If CriaChave <> "5601" Then
+      MsgBox "Ocorreu um Erro ao Gerar a Chave de Acesso " + Chave_msgResultado, vbCritical, vaTitulo
+      With vgTb
+         .Edit
+         If Vazio(!Observação) Then
+            !Observação = "Erro ao Gerar a Chave de Acesso"
+         Else
+            !Observação = !Observação & vbCrLf & "Erro ao Gerar a Chave de Acesso"
+         End If
+         .Update
+         .BookMark = .LastModified
+      End With
+      GoTo SaiDaSub
+   End If
     
-    ide_cMDF = Val(Chave_cDFe)
-    ide_cDV = Val(Chave_cDV)
+   ide_cMDF = Val(Chave_cDFe)
+   ide_cDV = Val(Chave_cDV)
                       
-    'Ufs de Percurso
-   If Not TbPercurso Is Nothing And TbPercurso.RecordCount > 0 Then
-    Do While Not TbPercurso.EOF
-    infPercurso = infPercurso + objMDFeUtil.infPercurso(TbPercurso!UF)
-    TbPercurso.MoveNext
-    Loop
-    TbPercurso.MoveFirst
-   End If
-    'Identificação
-    'Versão Antiga
-    'Ide = objMDFeUtil.ide(ide_cUF, ide_tpAmb, ide_tpEmit, ide_mod, ide_serie, ide_nMDF, ide_cMDF, ide_cDV, ide_Modal, ide_dhEmi, ide_tpEmis, ide_procEmi, ide_verProc, ide_UFIni, ide_UFFim, infMunCarrega, infPercurso)
-    'Identificação Versao Atual
-     Ide = objMDFeUtil.ide_v3(ide_cUF, ide_tpAmb, ide_tpEmit, Ide_tpTransp, ide_mod, ide_serie, ide_nMDF, ide_cMDF, ide_cDV, ide_Modal, ide_dhEmi, ide_tpEmis, ide_procEmi, ide_verProc, ide_UFIni, ide_UFFim, infMunCarrega, infPercurso, Ide_dhIniViagem)
-    'Dados do Emitente
-     If Parametros_da_nfe!Ambiente = 0 Then
-       Emit_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
-       Emit_IE = RemoveCaracteres(TbEmitente!Ie)
-       Emit_xNome = RemoveCaracteres(TbEmitente![Razão Social])
-       Emit_xFant = RemoveCaracteres(TbEmitente![Nome fantasia])
+   'Ufs de Percurso
+  If TbPercurso.RecordCount > 0 Then
+   Do While Not TbPercurso.EOF
+   infPercurso = infPercurso + objMDFeUtil.infPercurso(TbPercurso!UF)
+   TbPercurso.MoveNext
+   Loop
+   TbPercurso.MoveFirst
+  End If
+   'Identificacao
+   'Versao Antiga
+   'Ide = objMDFeUtil.ide(ide_cUF, ide_tpAmb, ide_tpEmit, ide_mod, ide_serie, ide_nMDF, ide_cMDF, ide_cDV, ide_Modal, ide_dhEmi, ide_tpEmis, ide_procEmi, ide_verProc, ide_UFIni, ide_UFFim, infMunCarrega, infPercurso)
+   'Identificacao Versao Atual
+    Ide = objMDFeUtil.ide_v3(ide_cUF, ide_tpAmb, ide_tpEmit, Ide_tpTransp, ide_mod, ide_serie, ide_nMDF, ide_cMDF, ide_cDV, ide_Modal, ide_dhEmi, ide_tpEmis, ide_procEmi, ide_verProc, ide_UFIni, ide_UFFim, infMunCarrega, infPercurso, Ide_dhIniViagem)
+   'Dados do Emitente
+    If Parametros_da_nfe!Ambiente = 0 Then
+      Emit_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
+      Emit_IE = RemoveCaracteres(TbEmitente!IE)
+      Emit_xNome = RemoveCaracteres(TbEmitente![Razão social])
+      Emit_xFant = RemoveCaracteres(TbEmitente![Nome fantasia])
+    Else
+      Emit_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
+      Emit_IE = RemoveCaracteres(TbEmitente!IE)
+      Emit_xNome = "MDF-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL"
+      Emit_xFant = "MDF-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL"
+    End If
+      Emit_xLgr = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Logradouro)), True)
+      Emit_nro = TbEmitente!Nro
+      Emit_Cpl = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Complemento)), True)
+      Emit_xBairro = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Bairro)), True)
+      Emit_cMun = TbEmitente![Codigo do ibge]
+      Emit_xMun = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!municipio)), True)
+      Emit_CEP = RemoveCaracteres(TbEmitente!Cep)
+      Emit_UF = TbEmitente!UF
+      Emit_Fone = RemoveCaracteres(Substitui(TbEmitente!Fone, " ", "", SO_UM))
+      Emit_Email = ""
+      
+      'Emitente
+      Emit = objMDFeUtil.Emit(Emit_Cnpj, Emit_IE, Emit_xNome, Emit_xFant, Emit_xLgr, Emit_nro, Emit_Cpl, Emit_xBairro, Emit_cMun, Emit_xMun, Emit_CEP, Emit_UF, Emit_Fone, Emit_Email)
+      
+      'Modal Rodoviario
+      VersaoModal = "3.00"
+      RNTRC_Modal = Manifesto!Rntrc
+      CIOT = ""
+      
+      
+      If Manifesto![Tipo de contratante] = 0 Then ' Fisica
+         InfContratante = objMDFeUtil.infCont(RemoveCaracteres(Manifesto![Documento Do contratante]), "")
+      Else ' Juridica
+          InfContratante = objMDFeUtil.infCont("", RemoveCaracteres(Manifesto![Documento Do contratante]))
+      End If
+      
+      infANTT = objMDFeUtil.infANTT(RNTRC_Modal, "", "", InfContratante)
+      
+      'Veiculo com Tracao
+      Veic_cInt = ""
+      Veic_Placa = RemoveCaracteres(Manifesto!Placa)
+      Veic_Tara = RemoveCaracteres(Manifesto!Tara)
+      Veic_CapKG = RemoveCaracteres(Manifesto![Capacidade kg])
+      Veic_CapM3 = ""
+      'Dados do Condutor
+      Do While Not TbCondutores.EOF
+      Condutor = Condutor + objMDFeUtil.Condutor(RemoveCaracteres(TbCondutores![Nome Condutor]), RemoveCaracteres(TbCondutores![Cpf Condutor]))
+      TbCondutores.MoveNext
+      Loop
+      TbCondutores.MoveFirst
+      Veic_Condutor = Condutor
+      'Grupo Proprietario do veiculo so preencher qdo o veicylo nao for do emitente
+      If Proprietario Then
+        If Manifesto![Tipo documento] = 0 Then
+           Prop_CPF = RemoveCaracteres(Manifesto![Cpf Proprietario])
+        Else
+           Prop_CPF = ""
+        End If
+        If Manifesto![Tipo documento] = 1 Then
+           Prop_CNPJ = RemoveCaracteres(Manifesto![Cnpj Proprietario])
+        Else
+           Prop_CNPJ = ""
+        End If
+           Prop_RNTRC = Manifesto![Rntrc proprietario]
+           Prop_xNome = RemoveCaracteres(Manifesto![Nome Proprietario])
+             If Not Vazio(Manifesto![Ie Proprietario]) Then
+                Prop_IE = RemoveCaracteres(Manifesto![Ie Proprietario])
+             Else
+                Prop_IE = ""
+             End If
+           Prop_UF = Manifesto![Uf proprietario]
+           
+           If Manifesto![Tipo de proprietario] = "TAC Agregado" Then
+              Prop_Tipo = 0
+           ElseIf Manifesto![Tipo de proprietario] = "TAC Independente" Then
+              Prop_Tipo = 1
+           Else
+              Prop_Tipo = 2
+           End If
+           
+      Prop = objMDFeUtil.prop_v10a(Prop_CPF, Prop_CNPJ, Prop_RNTRC, Prop_xNome, Prop_IE, Prop_UF, Prop_Tipo)
+      Else
+      Prop = ""
+      End If
+      
+      If Manifesto![Tipo de rodado] = "Truck" Then
+         Veic_tpRod = "01"
+      ElseIf Manifesto![Tipo de rodado] = "Toco" Then
+         Veic_tpRod = "02"
+      ElseIf Manifesto![Tipo de rodado] = "Cavalo Mecanico" Then
+         Veic_tpRod = "03"
+      ElseIf Manifesto![Tipo de rodado] = "Van" Then
+         Veic_tpRod = "04"
+      ElseIf Manifesto![Tipo de rodado] = "Utilitario" Then
+         Veic_tpRod = "05"
+      Else
+         Veic_tpRod = "6"
+      End If
+      
+      If Manifesto![Tipo de carroceria] = "Não Aplicavel" Then
+         Veic_tpCar = "00"
+      ElseIf Manifesto![Tipo de carroceria] = "Aberta" Then
+         Veic_tpCar = "01"
+      ElseIf Manifesto![Tipo de carroceria] = "Fechada" Then
+         Veic_tpCar = "02"
+      ElseIf Manifesto![Tipo de carroceria] = "Granelera" Then
+         Veic_tpCar = "03"
+      ElseIf Manifesto![Tipo de carroceria] = "Porta Container" Then
+         Veic_tpCar = "04"
+      ElseIf Manifesto![Tipo de carroceria] = "Sider" Then
+         Veic_tpCar = "05"
+      End If
+      Veic_UF = Manifesto![Uf Do veiculo]
+      Veic_Renavam = ""
+      'Dados Veiculos
+      'Versao Anterior
+      'veicPrincipal_v10a = objMDFeUtil.veicPrincipal_v10a(Veic_cInt, Veic_Placa, Veic_Tara, Veic_CapKG, Veic_CapM3, Prop, Veic_Condutor, Veic_tpRod, Veic_tpCar, Veic_UF)
+      veicPrincipal_v10a = objMDFeUtil.veicPrincipal_v3(Veic_cInt, Veic_Placa, Veic_Renavam, Veic_Tara, Veic_CapKG, Veic_CapM3, Prop, Veic_Condutor, Veic_tpRod, Veic_tpCar, Veic_UF)
+      'Modal
+      'Rodo = objMDFeUtil.rodo(VersaoModal, RNTRC_Modal, CIOT, veicPrincipal_v10a,"","")
+       Rodo = objMDFeUtil.rodo_v3(VersaoModal, infANTT, veicPrincipal_v10a, "", "", "")
+      'Documentos Vinculados NFe
+       If TbDescarga.RecordCount > 0 Then
+        Do While Not TbDescarga.EOF
+          Set TbNFeCarga = vgDb.OpenRecordSet("SELECT [Chave da NFe] Chave From [NFe da Carga] Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " and [Descrição do Municipio] = '" & TbDescarga![Descrição do municipio] & "'")
+           Do While Not TbNFeCarga.EOF
+              infNFeNovo = infNFeNovo + objMDFeUtil.infNFe_v3(TbNFeCarga!Chave, "", "", "", "")
+           TbNFeCarga.MoveNext
+           Loop
+           TbNFeCarga.MoveFirst
+           infDoc = infDoc + objMDFeUtil.infMunDescarga(TbDescarga![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbDescarga![Descrição do municipio])), True), "", infNFeNovo, "")
+           infNFeNovo = "" 'Limpa as Chaves para comecar outro municipio
+        TbDescarga.MoveNext
+        Loop
+        TbDescarga.MoveFirst
+       End If
+       'Documentos Vinculados CTe
+       If TbDescargaCTe.RecordCount > 0 Then
+        Do While Not TbDescargaCTe.EOF
+          Set TbCTeCarga = vgDb.OpenRecordSet("SELECT [Chave do CTe] Chave From [CTe da Carga] Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " and [Descrição do Municipio] = '" & TbDescargaCTe![Descrição do municipio] & "'")
+           Do While Not TbCTeCarga.EOF
+              infCTeNovo = infCTeNovo + objMDFeUtil.infCTe_v3(TbCTeCarga!Chave, "", "", "", "")
+           TbCTeCarga.MoveNext
+           Loop
+           TbCTeCarga.MoveFirst
+           infDoc = infDoc + objMDFeUtil.infMunDescarga(TbDescargaCTe![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbDescargaCTe![Descrição do municipio])), True), infCTeNovo, "", "")
+           infCTeNovo = "" 'Limpa as Chaves para comecar outro municipio
+        TbDescargaCTe.MoveNext
+        Loop
+        TbDescargaCTe.MoveFirst
+       End If
+     'Totalizadores
+     Set TotalCTeCarga = vgDb.OpenRecordSet("SELECT * From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
+     qCTe = TotalCTeCarga.RecordCount
+     qCT = 0
+     qNF = 0
+     cUnid = "01"
+     Set TotalNFeCarga = vgDb.OpenRecordSet("SELECT * From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
+     qNFe = TotalNFeCarga.RecordCount
+     If TbDescarga.RecordCount > 0 Then
+        Set ValorTotalCarga = vgDb.OpenRecordSet("SELECT Sum([Valor Total]) Total From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
      Else
-       Emit_Cnpj = RemoveCaracteres(TbEmitente!Cnpj)
-       Emit_IE = RemoveCaracteres(TbEmitente!Ie)
-       Emit_xNome = "MDF-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL"
-       Emit_xFant = "MDF-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL"
+        Set ValorTotalCarga = vgDb.OpenRecordSet("SELECT Sum([Valor Total]) Total From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
      End If
-       Emit_xLgr = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Logradouro)), True)
-       If Not IsNull(TbEmitente!Nro) Then
-          Emit_nro = TbEmitente!Nro
+     vCarga = ValorTotalCarga!Total
+     If TbDescarga.RecordCount > 0 Then
+        Set QtdCarga = vgDb.OpenRecordSet("SELECT Sum([Peso Bruto]) Peso From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
+     Else
+        Set QtdCarga = vgDb.OpenRecordSet("SELECT Sum([Peso Bruto]) Peso From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
+     End If
+     qCarga = QtdCarga!Peso
+     'Totalizando
+     'Anterior
+     'Tot = objMDFEUtil.tot(qCTe, qCT, qNFe, qNF, vCarga, cUnid, qCarga)
+     tot = objMDFeUtil.tot_v3(qCTe, qNFe, 0, vCarga, cUnid, qCarga) ' Layout 3.00
+     'Dados Adicionais
+     If Not Vazio(Manifesto!Historico) Then
+        infAdic = objMDFeUtil.infAdic("", Substitui(Substitui(SuperTiraAcentos(Trim(Manifesto!Historico)), vbCrLf, ".;", 1), "&", "E", 1))
+     End If
+     
+     'Dados do Seguro versao 3.00
+       If Responsavel_do_seguro = "Emitente do MDFe" Then
+          respSeg = "1"
        Else
-          Emit_nro = ""
+          respSeg = "2"
        End If
-       Emit_Cpl = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Complemento)), True)
-       Emit_xBairro = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!Bairro)), True)
-       Emit_cMun = TbEmitente![Codigo do ibge]
-       Emit_xMun = RemoveCaracteres(SuperTiraAcentos(Trim(TbEmitente!municipio)), True)
-       Emit_CEP = RemoveCaracteres(TbEmitente!Cep)
-       Emit_UF = TbEmitente!UF
-       Emit_Fone = RemoveCaracteres(Substitui(TbEmitente!Fone, " ", "", SO_UM))
-       Emit_Email = ""
-      
-       'Emitente
-       Emit = objMDFeUtil.Emit(Emit_Cnpj, Emit_IE, Emit_xNome, Emit_xFant, Emit_xLgr, Emit_nro, Emit_Cpl, Emit_xBairro, Emit_cMun, Emit_xMun, Emit_CEP, Emit_UF, Emit_Fone, Emit_Email)
        
-       'Modal Rodoviario
-       VersaoModal = "3.00"
-       If Not IsNull(Manifesto!Rntrc) Then
-          RNTRC_Modal = Manifesto!Rntrc
-       Else
-          RNTRC_Modal = ""
-       End If
-       CIOT = ""
-      
-      
-       If Manifesto![Tipo de contratante] = 0 Then ' Fisica
-          If Not IsNull(Manifesto![Documento do contratante]) Then
-             InfContratante = objMDFeUtil.infCont_NT2022001("", RemoveCaracteres(Manifesto![Documento do contratante]), "", "", "", 0)
-          Else
-             InfContratante = objMDFeUtil.infCont_NT2022001("", "", "", "", "", 0)
-          End If
+       If Tipo_do_responsavel = 0 Then 'Fisica
+          CNPJ_respSeg = ""
+          CPF_respSeg = RemoveCaracteres(Documento_do_responsavel)
        Else ' Juridica
-          If Not IsNull(Manifesto![Documento do contratante]) Then
-             InfContratante = objMDFeUtil.infCont_NT2022001("", "", RemoveCaracteres(Manifesto![Documento do contratante]), "", "", 0)
-          Else
-             InfContratante = objMDFeUtil.infCont_NT2022001("", "", "", "", "", 0)
-          End If
+          CNPJ_respSeg = RemoveCaracteres(Documento_do_responsavel)
+          CPF_respSeg = ""
        End If
+       InfSeg_xSeg = RemoveCaracteres(Nome_da_seguradora)
+       infSeg_CNPJ = RemoveCaracteres(Cnpj_da_seguradora)
+       InfSeg_nApol = RemoveCaracteres(N_da_apolice)
+       InfSeg_nAver = objMDFeUtil.nAver(RemoveCaracteres(N_averbacao))
        
-       ' Criar infPag usando versão atual NT2022001 com ordem correta
-       Dim InfPag As String
-       ' Ordem: xNome_Opc, CPF, CNPJ, idEstrangeiro, Comp, vContrato, indPag, infPrazo, codBanco, codAgencia, CNPJIPEF, PIX, indAltoDesemp_Opc, vAdiant_Opc, indAntecipaAdiant_Opc, tpAntecip_Opc
-       ' Usar versão compatível com infANTT_NT2021001
-       ' Usar assinatura REAL da DLL atual: infPag_NT2022001
-       ' (xNome_Opc, CPF, CNPJ, idEstrangeiro, Comp, vContrato, indPag, infPrazo, codBanco, codAgencia, CNPJIPEF, PIX, indAltoDesemp_Opc, vAdiant_Opc, indAntecipaAdiant_Opc, tpAntecip_Opc)
-       InfPag = objMDFeUtil.infPag_NT2022001("", "", RemoveCaracteres(Manifesto![Documento do contratante]), "", "01", 21, "0", "", "", "", "", "", "", 0, "", "")
-       
-       MsgBox "DEBUG 1: Usando infANTT_NT2021001 COM infPag NT2022001", vbInformation, "DEBUG OBJETO"
-       
-       ' Usar versão atual NT2021001 com infPag NT2022001
-       infANTT = objMDFeUtil.infANTT_NT2021001(RNTRC_Modal, "", "", InfContratante, InfPag)
-       MsgBox "DEBUG 4: infANTT criado com sucesso COM infPag", vbInformation, "DEBUG OBJETO"
-       
-       'Veiculo com Tração
-       Veic_cInt = ""
-       Veic_Placa = RemoveCaracteres(Manifesto!Placa)
-       If Not IsNull(Manifesto!Tara) Then
-          Veic_Tara = RemoveCaracteres(Manifesto!Tara)
-       Else
-          Veic_Tara = ""
-       End If
-       If Not IsNull(Manifesto![Capacidade kg]) Then
-          Veic_CapKG = RemoveCaracteres(Manifesto![Capacidade kg])
-       Else
-          Veic_CapKG = ""
-       End If
-       Veic_CapM3 = ""
-       'Dados do Condutor
-       If Not TbCondutores Is Nothing And TbCondutores.RecordCount > 0 Then
-          Do While Not TbCondutores.EOF
-          Condutor = Condutor + objMDFeUtil.Condutor(RemoveCaracteres(TbCondutores![Nome condutor]), RemoveCaracteres(TbCondutores![Cpf condutor]))
-          TbCondutores.MoveNext
-          Loop
-          TbCondutores.MoveFirst
-       End If
-       Veic_Condutor = Condutor
-       'Grupo Proprietario do veiculo so preencher qdo o veicylo não for do emitente
-       If Proprietario Then
-         If Manifesto![Tipo documento] = 0 Then
-            If Not IsNull(Manifesto![Cpf Proprietario]) Then
-               Prop_CPF = RemoveCaracteres(Manifesto![Cpf Proprietario])
-            Else
-               Prop_CPF = ""
-            End If
-         Else
-            Prop_CPF = ""
-         End If
-         If Manifesto![Tipo documento] = 1 Then
-            If Not IsNull(Manifesto![Cnpj Proprietario]) Then
-               Prop_CNPJ = RemoveCaracteres(Manifesto![Cnpj Proprietario])
-            Else
-               Prop_CNPJ = ""
-            End If
-         Else
-            Prop_CNPJ = ""
-         End If
-            If Not IsNull(Manifesto![Rntrc proprietario]) Then
-               Prop_RNTRC = Manifesto![Rntrc proprietario]
-            Else
-               Prop_RNTRC = ""
-            End If
-            If Not IsNull(Manifesto![Nome Proprietario]) Then
-               Prop_xNome = RemoveCaracteres(Manifesto![Nome Proprietario])
-            Else
-               Prop_xNome = ""
-            End If
-              If Not IsNull(Manifesto![Ie Proprietario]) And Not Vazio(Manifesto![Ie Proprietario]) Then
-                 Prop_IE = RemoveCaracteres(Manifesto![Ie Proprietario])
-              Else
-                 Prop_IE = ""
-              End If
-            If Not IsNull(Manifesto![Uf proprietario]) Then
-               Prop_UF = Manifesto![Uf proprietario]
-            Else
-               Prop_UF = ""
-            End If
-            
-            If Manifesto![Tipo de proprietario] = "TAC Agregado" Then
-               Prop_Tipo = 0
-            ElseIf Manifesto![Tipo de proprietario] = "TAC Independente" Then
-               Prop_Tipo = 1
-            Else
-               Prop_Tipo = 2
-            End If
-            
-       Prop = objMDFeUtil.prop_v10a(Prop_CPF, Prop_CNPJ, Prop_RNTRC, Prop_xNome, Prop_IE, Prop_UF, Prop_Tipo)
-       Else
-       Prop = ""
-       End If
-      
-       If Manifesto![Tipo de rodado] = "Truck" Then
-          Veic_tpRod = "01"
-       ElseIf Manifesto![Tipo de rodado] = "Toco" Then
-          Veic_tpRod = "02"
-       ElseIf Manifesto![Tipo de rodado] = "Cavalo Mecanico" Then
-          Veic_tpRod = "01"
-       ElseIf Manifesto![Tipo de rodado] = "Van" Then
-          Veic_tpRod = "04"
-       ElseIf Manifesto![Tipo de rodado] = "Utilitario" Then
-          Veic_tpRod = "05"
-       Else
-          Veic_tpRod = "06"
-       End If
-      
-       If Manifesto![Tipo de carroceria] = "Não Aplicavel" Then
-          Veic_tpCar = "00"
-       ElseIf Manifesto![Tipo de carroceria] = "Aberta" Then
-          Veic_tpCar = "01"
-       ElseIf Manifesto![Tipo de carroceria] = "Fechada" Then
-          Veic_tpCar = "02"
-       ElseIf Manifesto![Tipo de carroceria] = "Granelera" Then
-          Veic_tpCar = "03"
-       ElseIf Manifesto![Tipo de carroceria] = "Porta Container" Then
-          Veic_tpCar = "04"
-       ElseIf Manifesto![Tipo de carroceria] = "Sider" Then
-          Veic_tpCar = "05"
-       End If
-       If Not IsNull(Manifesto![Uf do veiculo]) Then
-          Veic_UF = Manifesto![Uf do veiculo]
-       Else
-          Veic_UF = ""
-       End If
-       Veic_Renavam = ""
-       'Dados Veiculos
-       'Versao Anterior
-       'veicPrincipal_v10a = objMDFeUtil.veicPrincipal_v10a(Veic_cInt, Veic_Placa, Veic_Tara, Veic_CapKG, Veic_CapM3, Prop, Veic_Condutor, Veic_tpRod, Veic_tpCar, Veic_UF)
-       veicPrincipal_v10a = objMDFeUtil.veicPrincipal_v3(Veic_cInt, Veic_Placa, Veic_Renavam, Veic_Tara, Veic_CapKG, Veic_CapM3, Prop, Veic_Condutor, Veic_tpRod, Veic_tpCar, Veic_UF)
-       'Modal
-       'Rodo = objMDFeUtil.rodo(VersaoModal, RNTRC_Modal, CIOT, veicPrincipal_v10a,"","")
-        Rodo = objMDFeUtil.rodo_v3(VersaoModal, infANTT, veicPrincipal_v10a, "", "", "")
-      
-       'Inicialização de variáveis importantes
-       infDoc = ""
-       infNFeNovo = ""
-       infCTeNovo = ""
-      
-       'Documentos Vinculados NFe
-        If Not TbDescarga Is Nothing And TbDescarga.RecordCount > 0 Then
-         Do While Not TbDescarga.EOF
-           Set TbNFeCarga = vgDb.OpenRecordSet("SELECT [Chave da NFe] Chave From [NFe da Carga] Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " and [Descrição do Municipio] = '" & TbDescarga![Descrição do municipio] & "'")
-            If Not TbNFeCarga Is Nothing And TbNFeCarga.RecordCount > 0 Then
-               Do While Not TbNFeCarga.EOF
-                  infNFeNovo = infNFeNovo + objMDFeUtil.infNFe_v3(TbNFeCarga!Chave, "", "", "", "")
-               TbNFeCarga.MoveNext
-               Loop
-               TbNFeCarga.MoveFirst
-            End If
-            infDoc = infDoc + objMDFeUtil.infMunDescarga(TbDescarga![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbDescarga![Descrição do municipio])), True), "", infNFeNovo, "")
-            infNFeNovo = "" 'Limpa as Chaves para começar outro municipio
-         TbDescarga.MoveNext
-         Loop
-         TbDescarga.MoveFirst
-        End If
-        'Documentos Vinculados CTe
-        If Not TbDescargaCTe Is Nothing And TbDescargaCTe.RecordCount > 0 Then
-         Do While Not TbDescargaCTe.EOF
-           Set TbCTeCarga = vgDb.OpenRecordSet("SELECT [Chave do CTe] Chave From [CTe da Carga] Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " and [Descrição do Municipio] = '" & TbDescargaCTe![Descrição do municipio] & "'")
-            If Not TbCTeCarga Is Nothing And TbCTeCarga.RecordCount > 0 Then
-               Do While Not TbCTeCarga.EOF
-                  infCTeNovo = infCTeNovo + objMDFeUtil.infCTe_NT2024002(TbCTeCarga!Chave, "", "", "", "", "", "")
-               TbCTeCarga.MoveNext
-               Loop
-               TbCTeCarga.MoveFirst
-            End If
-            infDoc = infDoc + objMDFeUtil.infMunDescarga(TbDescargaCTe![Codigo do ibge], RemoveCaracteres(SuperTiraAcentos(Trim(TbDescargaCTe![Descrição do municipio])), True), infCTeNovo, "", "")
-            infCTeNovo = "" 'Limpa as Chaves para começar outro municipio
-         TbDescargaCTe.MoveNext
-         Loop
-         TbDescargaCTe.MoveFirst
-        End If
-      'Totalizadores
-      Set TotalCTeCarga = vgDb.OpenRecordSet("SELECT * From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      If Not TotalCTeCarga Is Nothing Then
-         qCTe = TotalCTeCarga.RecordCount
-      Else
-         qCTe = 0
-      End If
-      qCT = 0
-      qNF = 0
-      cUnid = "01"
-      Set TotalNFeCarga = vgDb.OpenRecordSet("SELECT * From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      If Not TotalNFeCarga Is Nothing Then
-         qNFe = TotalNFeCarga.RecordCount
-      Else
-         qNFe = 0
-      End If
-      If TbDescarga.RecordCount > 0 Then
-         Set ValorTotalCarga = vgDb.OpenRecordSet("SELECT Sum([Valor Total]) Total From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      Else
-         Set ValorTotalCarga = vgDb.OpenRecordSet("SELECT Sum([Valor Total]) Total From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      End If
-      If Not ValorTotalCarga Is Nothing And Not IsNull(ValorTotalCarga!Total) Then
-         vCarga = ValorTotalCarga!Total
-      Else
-         vCarga = 0
-      End If
-      If TbDescarga.RecordCount > 0 Then
-         Set QtdCarga = vgDb.OpenRecordSet("SELECT Sum([Peso Bruto]) Peso From [NFe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      Else
-         Set QtdCarga = vgDb.OpenRecordSet("SELECT Sum([Peso Bruto]) Peso From [CTe da Carga] Where [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-      End If
-      If Not QtdCarga Is Nothing And Not IsNull(QtdCarga!Peso) Then
-         qCarga = QtdCarga!Peso
-      Else
-         qCarga = 0
-      End If
-      'Totalizando
-      'Anterior
-      'Tot = objMDFEUtil.tot(qCTe, qCT, qNFe, qNF, vCarga, cUnid, qCarga)
-      tot = objMDFeUtil.tot_v3(qCTe, qNFe, 0, vCarga, cUnid, qCarga) ' Layout 3.00
-      'Dados Adicionais
-      infAdic = ""
-      If Not IsNull(Manifesto!Historico) And Not Vazio(Manifesto!Historico) Then
-         infAdic = objMDFeUtil.infAdic("", Substitui(Substitui(SuperTiraAcentos(Trim(Manifesto!Historico)), vbCrLf, ".;", 1), "&", "E", 1))
-      End If
+       Seguro_da_Carga = objMDFeUtil.Seg(respSeg, CNPJ_respSeg, CPF_respSeg, InfSeg_xSeg, infSeg_CNPJ, InfSeg_nApol, InfSeg_nAver)
      
-      'Dados do Seguro versao 3.00
-        If Responsavel_do_seguro = "Emitente do MDFe" Then
-           respSeg = "1"
-        Else
-           respSeg = "2"
-        End If
-       
-        If Tipo_do_responsavel = 0 Then 'Fisica
-           CNPJ_respSeg = ""
-           CPF_respSeg = RemoveCaracteres(Documento_do_responsavel)
-        Else ' Juridica
-           CNPJ_respSeg = RemoveCaracteres(Documento_do_responsavel)
-           CPF_respSeg = ""
-        End If
-       
-        InfSeg_xSeg = RemoveCaracteres(Nome_da_seguradora)
-        infSeg_CNPJ = RemoveCaracteres(Cnpj_da_seguradora)
-        InfSeg_nApol = RemoveCaracteres(N_da_apolice)
-        ' Aceitar qualquer valor de averbação (incluindo "Em Emissão")
-        InfSeg_nAver = objMDFeUtil.nAver(RemoveCaracteres(N_averbacao))
-       
-        Seguro_da_Carga = objMDFeUtil.seg(respSeg, CNPJ_respSeg, CPF_respSeg, InfSeg_xSeg, infSeg_CNPJ, InfSeg_nApol, InfSeg_nAver)
-     
-        'Responsavel Tecnico
-        RespTec_CNPJ = "66521436000134"
-        RespTec_Contato = "Jose Carlos"
-        RespTec_email = "antares@antaresinformatica.srv.br"
-        RespTec_Fone = "1836523842"
-        RespTec_idCSRT = ""
-        RespTec_hashCSRT = ""
-        RespTec_ChaveMDFe = Chave_MDFe
+       'Responsavel Tecnico
+       RespTec_CNPJ = "66521436000134"
+       RespTec_Contato = "Jose Carlos"
+       RespTec_email = "antares@antaresinformatica.srv.br"
+       RespTec_Fone = "1836523842"
+       RespTec_idCSRT = ""
+       RespTec_hashCSRT = ""
+       RespTec_ChaveMDFe = Chave_MDFe
     
-        infRespTec = objMDFeUtil.infRespTec2(RespTec_CNPJ, RespTec_Contato, RespTec_email, RespTec_Fone, RespTec_idCSRT, RespTec_hashCSRT, RespTec_ChaveMDFe)
+       infRespTec = objMDFeUtil.infRespTec2(RespTec_CNPJ, RespTec_Contato, RespTec_email, RespTec_Fone, RespTec_idCSRT, RespTec_hashCSRT, RespTec_ChaveMDFe)
      
-        'QRCode
-        RCode_URL = "https://dfe-portal.svrs.rs.gov.br/mdfe/qrCode"
-        RCode_ChaveMDFe = Chave_MDFe
-        If Not IsNull(TbEmitente![Certificado Digital]) Then
-           RCode_Certificado = TbEmitente![Certificado Digital]
-        Else
-           RCode_Certificado = ""
-        End If
-        RCode_qrCode = ""
-        RCode_Resultado = 0
-        RCode_msgResultado = ""
+       'QRCode
+       RCode_URL = "https://dfe-portal.svrs.rs.gov.br/mdfe/qrCode"
+       RCode_ChaveMDFe = Chave_MDFe
+       RCode_Certificado = TbEmitente![Certificado Digital]
+       RCode_qrCode = ""
+       RCode_Resultado = 0
+       RCode_msgResultado = ""
        
-        infMDFeSupl = objMDFeUtil.infMDFeSupl(RCode_URL, RCode_ChaveMDFe, ide_tpAmb, RCode_Certificado, RCode_qrCode, RCode_Resultado, RCode_msgResultado)
-        
-        ' Verificar se QR Code foi gerado com sucesso (6200 = sucesso)
-        If RCode_Resultado <> 0 And RCode_Resultado <> 6200 Then
-           MsgBox "Aviso: Erro na geração do QR Code:" & vbCrLf & RCode_msgResultado, vbExclamation, "QR Code"
-           infMDFeSupl = "" ' Continuar sem QR Code se houver erro
-        End If
-        'infLotacao
-        If Not IsNull(Manifesto![Latitude de Carregamento]) Then
-           LC_Latitude = Manifesto![Latitude de Carregamento]
-        Else
-           LC_Latitude = 0
-        End If
-        If Not IsNull(Manifesto![Longitude de Carregamento]) Then
-           LC_Longitude = Manifesto![Longitude de Carregamento]
-        Else
-           LC_Longitude = 0
-        End If
-        If Not IsNull(Manifesto![Latitude de Descrregamento]) Then
-           LD_latitude = Manifesto![Latitude de Descrregamento]
-        Else
-           LD_latitude = 0
-        End If
-        If Not IsNull(Manifesto![Longitude de Descarregamento]) Then
-           LD_longitude = Manifesto![Longitude de Descarregamento]
-        Else
-           LD_longitude = 0
-        End If
+       infMDFeSupl = objMDFeUtil.infMDFeSupl(RCode_URL, RCode_ChaveMDFe, ide_tpAmb, RCode_Certificado, RCode_qrCode, RCode_Resultado, RCode_msgResultado)
+       'infLotacao
+       LC_Latitude = Manifesto![Latitude de Carregamento]
+       LC_Longitude = Manifesto![Longitude de Carregamento]
+       LD_latitude = Manifesto![Latitude de Descrregamento]
+       LD_longitude = Manifesto![Longitude de Descarregamento]
        
-        Dim CEP_Carregamento As String, CEP_Descarregamento As String
-        If Not IsNull(Manifesto![CEP Carregamento]) Then
-           CEP_Carregamento = RemoveCaracteres(Manifesto![CEP Carregamento])
-        Else
-           CEP_Carregamento = ""
-        End If
-        If Not IsNull(Manifesto![CEP Descarregamento]) Then
-           CEP_Descarregamento = RemoveCaracteres(Manifesto![CEP Descarregamento])
-        Else
-           CEP_Descarregamento = ""
-        End If
-        ' infLotacao obrigatório (evitar erro 726)
-        infLotacao = objMDFeUtil.infLotacao(CEP_Carregamento, LC_Latitude, LC_Longitude, CEP_Descarregamento, LD_latitude, LD_longitude)
-        Dim Produto_Predominante As String
-        If Not IsNull(Manifesto![Produto Predominante]) Then
-           Produto_Predominante = RemoveCaracteres(Manifesto![Produto Predominante])
-        Else
-           Produto_Predominante = ""
-        End If
-        ' NCM obrigatório na v3.10 - usando NCM correto para homologação
-        Dim ncmProduto As String
-        ncmProduto = "00000000" ' NCM genérico para homologação (8 zeros)
-        prodPred = objMDFeUtil.prodPred("05", Produto_Predominante, "", ncmProduto, infLotacao)
+       infLotacao = objMDFeUtil.infLotacao(RemoveCaracteres(Manifesto![CEP Carregamento]), LC_Latitude, LC_Longitude, RemoveCaracteres(Manifesto![CEP Descarregamento]), LD_latitude, LD_longitude)
+       prodPred = objMDFeUtil.prodPred("05", RemoveCaracteres(Manifesto![Produto Predominante]), "", "", infLotacao)
        
+     
+     'Consolidacao ate quemfim merda dukralho
+      'Consolidacao = objMDFEUtil.MDFe_NT2018002("3.00", Chave_MDFe, Ide, emit, Rodo, infDoc, Seguro_da_Carga, Tot, "", "", InfAdic, infRespTec)
+      Consolidacao = objMDFeUtil.MDFe_NT2020001("3.00", Chave_MDFe, Ide, Emit, Rodo, infDoc, Seguro_da_Carga, tot, "", "", infAdic, infRespTec, infMDFeSupl, prodPred)
       
-      'Validação crítica antes de gerar XML
-      If Trim(infDoc) = "" Then
-         MsgBox "Erro: Nenhum documento (NFe ou CTe) foi encontrado para incluir no MDF-e!" & vbCrLf & _
-                "Verifique se há documentos de carga cadastrados para este manifesto.", vbCritical, "Erro - Documentos Obrigatórios"
-         GoTo SaiDaSub
-      End If
-      
-      'Consolidação ate quemfim merda dukralho
-       'Consolidacao = objMDFEUtil.MDFe_NT2018002("3.00", Chave_MDFe, Ide, emit, Rodo, infDoc, Seguro_da_Carga, Tot, "", "", InfAdic, infRespTec)
-       On Error GoTo ErroGeracaoXML
-       
-       MsgBox "DEBUG 5: Iniciando geração XML MDFe_NT2020001", vbInformation, "DEBUG OBJETO"
-       
-       On Error GoTo ErroMDFeNT2020001
-       Consolidacao = objMDFeUtil.MDFe_NT2020001("3.00", Chave_MDFe, Ide, Emit, Rodo, infDoc, Seguro_da_Carga, tot, "", "", infAdic, infRespTec, infMDFeSupl, prodPred)
-       MsgBox "DEBUG 6: XML MDFe_NT2020001 gerado com sucesso", vbInformation, "DEBUG OBJETO"
-       On Error GoTo DeuErro
-       On Error GoTo ErroGeracaoXML
-       On Error GoTo 0
-      
-       'CORREÇÃO: Verificando se o XML foi gerado corretamente ANTES de transmitir
-       
-       ' Verificação segura para evitar erro com Null/Empty
-       If IsNull(Consolidacao) Or IsEmpty(Consolidacao) Or Len(CStr(Consolidacao)) = 0 Then
-         MsgBox "Erro: A função MDFe_NT2020001 retornou XML vazio!" & vbCrLf & _
-                "Verifique se todos os dados obrigatórios estão preenchidos:" & vbCrLf & _
-                "- Chave MDF-e: " & Chave_MDFe & vbCrLf & _
-                "- IDE válido: " & IIf(Len(Ide) > 0, "OK", "VAZIO") & vbCrLf & _
-                "- Emitente válido: " & IIf(Len(Emit) > 0, "OK", "VAZIO") & vbCrLf & _
-                "- Rodo válido: " & IIf(Len(Rodo) > 0, "OK", "VAZIO"), vbCritical, "Erro - XML Vazio"
-         GoTo SaiDaSub
-       ElseIf Left(CStr(Consolidacao), 5) <> "<?xml" Then
-         'Verifica se não foi já transmitido e autorizado
-         If Transmitido = True Then
-            MsgBox "XML mal formatado detectado, mas MDF-e já foi transmitido." & vbCrLf & _
-                   "Verifique os dados no sistema.", vbInformation, "MDF-e já transmitido"
-            'Para método síncrono, não precisamos buscar recibo - dados já estão no banco
-            GoTo SaiDaSub
-         Else
-            MsgBox "Erro: XML gerado mas mal formatado!" & vbCrLf & _
-                   "Início do conteúdo: " & Left(CStr(Consolidacao), 100) & "...", vbCritical, "Erro - XML Mal Formatado"
-            GoTo SaiDaSub
-         End If
-       ElseIf InStr(CStr(Consolidacao), "</MDFe>") = 0 Then
-         MsgBox "Erro: XML incompleto - tag de fechamento </MDFe> não encontrada!", vbCritical, "Erro - XML Incompleto"
-         GoTo SaiDaSub
-       End If
-       
-      
-        'Salvando o xml...
-       Arq = FreeFile
-       
-       ' Verificação de segurança para Parametros_da_nfe
-       If Parametros_da_nfe Is Nothing Then
-          MsgBox "ERRO CRÍTICO: Parametros_da_nfe não está inicializado!", vbCritical, "Erro - Parametros"
-          GoTo SaiDaSub
-       End If
-       
-       On Error Resume Next
-       Dim TempAmbiente As Variant
-       TempAmbiente = Parametros_da_nfe!Ambiente
-       If Err.Number <> 0 Then
-          MsgBox "ERRO ao acessar Parametros_da_nfe!Ambiente: " & Err.Description, vbCritical, "Erro - Parametros"
-          On Error GoTo DeuErro
-          GoTo SaiDaSub
-       End If
-       On Error GoTo DeuErro
-       
-         If TempAmbiente = 0 Then 'Produção
-            If Dir(Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
-         
-         On Error Resume Next
-         Dim CaminhoArquivo As String
-         CaminhoArquivo = Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao montar caminho do arquivo: " & Err.Description, vbCritical, "Erro - Caminho"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         
-         Open CaminhoArquivo For Output As #Arq
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao abrir arquivo para escrita: " & Err.Description & vbCrLf & "Caminho: " & CaminhoArquivo, vbCritical, "Erro - Arquivo"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         On Error GoTo DeuErro
-         
-         
-         ' Escrita do XML no arquivo (Produção)
-         
-         On Error Resume Next
-         Print #Arq, CStr(Consolidacao)
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao escrever no arquivo produção: " & Err.Description & vbCrLf & _
-                   "File handle: " & Arq, vbCritical, "Erro - Escrita Arquivo Produção"
-            Close #Arq
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         On Error GoTo DeuErro
-         
-         Close #Arq
-       Else 'Homologação (TempAmbiente <> 0)
-         
-         ' Verificação prévia das variáveis antes do Dir
-         On Error Resume Next
-         Dim TempNumManifesto As Variant
-         TempNumManifesto = Manifesto![Numero Do Manifesto]
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao acessar número do manifesto: " & Err.Description, vbCritical, "Erro - Número Manifesto"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         
-         Dim TempCaminhoCheck As String
-         TempCaminhoCheck = Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(TempNumManifesto, "000000") & "_GERADO.xml"
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao montar caminho para verificação: " & Err.Description, vbCritical, "Erro - Caminho Check"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         On Error GoTo DeuErro
-         
-         If Dir(TempCaminhoCheck, vbArchive) <> "" Then Kill TempCaminhoCheck
-         
-         ' Preparação para escrita em homologação
-         
-         On Error Resume Next
-         Dim CaminhoArquivoHom As String
-         Dim NumeroManifesto As Variant
-         NumeroManifesto = Manifesto![Numero Do Manifesto]
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao acessar Manifesto![Numero Do Manifesto]: " & Err.Description, vbCritical, "Erro - Manifesto"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         
-         CaminhoArquivoHom = Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(NumeroManifesto, "000000") & "_GERADO.xml"
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao montar caminho do arquivo homologação: " & Err.Description, vbCritical, "Erro - Caminho Homologação"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         
-         Open CaminhoArquivoHom For Output As #Arq
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao abrir arquivo homologação para escrita: " & Err.Description & vbCrLf & "Caminho: " & CaminhoArquivoHom, vbCritical, "Erro - Arquivo Homologação"
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         On Error GoTo DeuErro
-         
-         
-         ' Escrita do XML no arquivo (Homologação)
-         
-         On Error Resume Next
-         Print #Arq, CStr(Consolidacao)
-         If Err.Number <> 0 Then
-            MsgBox "ERRO ao escrever no arquivo: " & Err.Description & vbCrLf & _
-                   "File handle: " & Arq, vbCritical, "Erro - Escrita Arquivo"
-            Close #Arq
-            On Error GoTo DeuErro
-            GoTo SaiDaSub
-         End If
-         On Error GoTo DeuErro
-         
-         Close #Arq
-     End If
-     
-   
-     'Histórico
-     
-     ' Verificação de segurança para vgTb
-     If vgTb Is Nothing Then
-        MsgBox "ERRO CRÍTICO: vgTb não está inicializado!", vbCritical, "Erro - vgTb"
-        GoTo SaiDaSub
-     End If
-     
-     On Error Resume Next
-     With vgTb
-        .Edit
-        If Err.Number <> 0 Then
-           MsgBox "ERRO ao iniciar .Edit em vgTb: " & Err.Description, vbCritical, "Erro - Edit"
-           On Error GoTo DeuErro
-           GoTo SaiDaSub
-        End If
-        
-        If Vazio(!Observação) Then
-           !Observação = "Gerando XML..."
-        Else
-           !Observação = !Observação & vbCrLf & "=================================================="
-           !Observação = !Observação & vbCrLf & vbCrLf & "Gerando XML..."
-        End If
-        
-        .Update
-        If Err.Number <> 0 Then
-           MsgBox "ERRO ao fazer .Update em vgTb: " & Err.Description, vbCritical, "Erro - Update"
-           On Error GoTo DeuErro
-           GoTo SaiDaSub
-        End If
-        
-       .BookMark = .LastModified
-     End With
-     On Error GoTo DeuErro
-     
-     ' Transmissão Integrada (da Novo: usa EnviaMDFeSincrono do changelog 3.0.4)
-     xmlAssinado = CStr(Consolidacao) ' XML gerado é o assinado - conversão segura
-     lblProgresso.Caption = "Transmitindo para SEFAZ..."
-     
-     Dim msgDados As String, msgRetWS As String, msgResultado As String, siglaWS As String, Certificado As String
-     Dim Licenca As String, nroProtocolo As String, cStatInt As Long, Versao As String, dhProtocolo As String
-     Dim proxy As String, usuario As String, Senha As String
-     
-     ' Voltar para RS temporariamente para diagnóstico
-     siglaWS = "RS" ' SEFAZ-RS funciona melhor em homologação
-     Certificado = TbEmitente![Certificado Digital]
-     ' SIMPLES: Licença direta
-     Licenca = IIf(IsNull(TbEmitente![Chave Flexdocs]), "", TbEmitente![Chave Flexdocs])
-     Versao = "3.00"
-     proxy = ""
-     usuario = ""
-     Senha = ""
-     
-     ' Inicializar variáveis de saída
-     msgDados = ""
-     msgRetWS = ""
-     msgResultado = ""
-     nroProtocolo = ""
-     dhProtocolo = ""
-     
-     MsgBox "DEBUG 7: Iniciando transmissão", vbInformation, "DEBUG OBJETO"
-     
-     ' Validações básicas antes da transmissão
-     If Len(Trim(Certificado)) = 0 Then
-        MsgBox "ERRO: Certificado digital está vazio!", vbCritical, "Erro - Transmissão"
-        Screen.MousePointer = vbDefault
-        lblProgresso.Caption = ""
-        Exit Sub
-     End If
-     
-     If Len(Trim(xmlAssinado)) < 100 Then
-        MsgBox "ERRO: XML está muito pequeno ou vazio!", vbCritical, "Erro - Transmissão"
-        Screen.MousePointer = vbDefault
-        lblProgresso.Caption = ""
-        Exit Sub
-     End If
-     
-     MsgBox "DEBUG 8: Validações básicas OK, chamando EnviaMDFeSincrono", vbInformation, "DEBUG OBJETO"
-     
-     ' Chamada EnviaMDFeSincrono CORRIGIDA conforme documentação v3.10
-     Dim protocoloOut As String, MDFeAssinadoOut As String
-     
-     ' Assinatura CORRETA v3.10: EnviaMDFeSincrono(siglaWS, MDFe, nomeCertificado, versao, out msgDados, out msgRetWS, out cStat, out msgResultado, out protocolo, out nroProtocolo, out dhProtocolo, out MDFeAssinado, proxy, usuario, senha, licenca)
-     On Error GoTo ErroEnviaMDFeSincrono
-     Protocolo = objMDFeUtil.EnviaMDFeSincrono(siglaWS, xmlAssinado, Certificado, Versao, msgDados, msgRetWS, cStatInt, msgResultado, protocoloOut, nroProtocolo, dhProtocolo, MDFeAssinadoOut, proxy, usuario, Senha, Licenca)
-     
-     ' DEBUG DETALHADO da resposta completa
-     MsgBox "DEBUG 9: EnviaMDFeSincrono executado!" & vbCrLf & _
-            "cStat: " & cStatInt & vbCrLf & _
-            "msgResultado: " & msgResultado & vbCrLf & vbCrLf & _
-            "msgRetWS: " & msgRetWS, vbInformation, "DEBUG RESPOSTA"
-     On Error GoTo DeuErro
-     
-     cStat = CStr(cStatInt)
-     
-     ' Processar retorno (simplificado)
-     If cStatInt = 100 Then
-        ' Autorizado - salvar procMDFe
-        If Len(msgRetWS) > 0 Then
-           mdfeProc = msgRetWS
-        Else
-           mdfeProc = Protocolo
-        End If
-        nRec = ""
-     Else
-        ' Não autorizado - extrair nRec se necessário
-        If InStr(msgRetWS, "<nRec>") > 0 Then
-           nRec = Mid(msgRetWS, InStr(msgRetWS, "<nRec>") + 6)
-           nRec = Left(nRec, InStr(nRec, "</nRec>") - 1)
-        Else
-           nRec = ""
-        End If
-     End If
-     
-     ' Processamento v3.10 - EnviaMDFeSincrono cuida de tudo
-     Select Case cStatInt
-        Case 100 ' Autorizado
-           ' SOLUÇÃO SIMPLES: Montar procMDFe manualmente GARANTINDO que fique completo
-           
-           ' Usar XML assinado + protocolo da resposta para montar procMDFe completo
-           Dim xmlCompleto As String
-           
-           ' Se temos protocolo no msgRetWS, extrair
-           If Len(msgRetWS) > 0 And InStr(msgRetWS, "<protMDFe") > 0 Then
-              ' Extrair apenas o protocolo do msgRetWS
-              Dim protocoloXML As String
-              protocoloXML = Mid(msgRetWS, InStr(msgRetWS, "<protMDFe"))
-              protocoloXML = Left(protocoloXML, InStr(protocoloXML, "</protMDFe>") + 10)
-              
-              ' Montar procMDFe completo: XML assinado + protocolo
-              xmlCompleto = Replace(xmlAssinado, "</MDFe>", "") & vbCrLf & protocoloXML & vbCrLf & "</procMDFe>"
-              xmlCompleto = "<?xml version=""1.0"" encoding=""UTF-8""?>" & vbCrLf & _
-                           "<procMDFe versao=""3.00"" xmlns=""http://www.portalfiscal.inf.br/mdfe"">" & vbCrLf & _
-                           Replace(xmlCompleto, "<?xml version=""1.0"" encoding=""UTF-8""?>", "")
-              mdfeProc = xmlCompleto
-           Else
-              ' Fallback: usar msgRetWS completo se disponível
-              mdfeProc = IIf(Len(msgRetWS) > 0, msgRetWS, protocoloOut)
-           End If
-           
-        Case 103, 105, 106 ' Lote em processamento (v3.10 deveria ser síncrono)
-           MsgBox "AVISO: MDF-e retornou status assíncrono (" & cStat & ") na v3.10" & vbCrLf & _
-                  "A v3.10 deveria processar sincronamente." & vbCrLf & _
-                  "Verifique a configuração da DLL.", vbExclamation, "Status Inesperado"
-           
-           ' Marcar como transmitido mas não autorizado
-           With vgTb
-              .Edit
-              !Transmitido = True
-              ![Numero do recibo] = nRec
-              If Vazio(!Observação) Then
-                 !Observação = "MDF-e transmitido mas processamento assíncrono (inesperado na v3.10)"
-              Else
-                 !Observação = !Observação & vbCrLf & "MDF-e transmitido mas processamento assíncrono"
-              End If
-              .Update
-           End With
-           Screen.MousePointer = vbDefault
-           lblProgresso.Caption = ""
-           Exit Sub
-           
-        Case 556 ' Erro específico de conectividade/DLL
-           MsgBox "Erro 556: Problema na transmissão ou configuração da DLL." & vbCrLf & _
-                  "Possíveis causas:" & vbCrLf & _
-                  "- DLL MDFe_Util v3.10 não registrada corretamente" & vbCrLf & _
-                  "- Certificado digital com problema" & vbCrLf & _
-                  "- Erro de conectividade com SEFAZ" & vbCrLf & _
-                  "- Licença Flexdocs inválida/vencida" & vbCrLf & vbCrLf & _
-                  "Detalhes: " & msgResultado, vbCritical, "Erro 556 - Transmissão"
-           Screen.MousePointer = vbDefault
-           lblProgresso.Caption = ""
-           Exit Sub
-           
-        Case Else ' Rejeitado ou erro
-           ' Extrair xMotivo do XML de retorno
-           Dim motivoErro As String
-           If InStr(msgResultado, "<xMotivo>") > 0 Then
-              motivoErro = Mid(msgResultado, InStr(msgResultado, "<xMotivo>") + 9)
-              motivoErro = Left(motivoErro, InStr(motivoErro, "</xMotivo>") - 1)
-           Else
-              motivoErro = "Erro na transmissão - verifique conectividade"
-           End If
-                  
-           MsgBox "MDF-e rejeitado ou erro na transmissão." & vbCrLf & _
-                  "Status: " & cStat & vbCrLf & _
-                  "Motivo: " & motivoErro, vbCritical, "Erro na Transmissão"
-           
-           ' Marcar como transmitido mas rejeitado
-           With vgTb
-              .Edit
-              !Transmitido = True
-              If Vazio(!Observação) Then
-                 !Observação = "MDF-e rejeitado - Status " & cStat & ": " & motivoErro
-              Else
-                 !Observação = !Observação & vbCrLf & "MDF-e rejeitado - Status " & cStat & ": " & motivoErro
-              End If
-              .Update
-           End With
-           Screen.MousePointer = vbDefault
-           lblProgresso.Caption = ""
-           Exit Sub
-     End Select
-     
-     ' Processar resultado final
-     If cStatInt = 100 And Len(Trim(mdfeProc)) > 0 Then
-        ' AUTORIZADO - extrair dados do protocolo
-       
-        
-        ' Nome do emitente (5 primeiros caracteres da razão social)
-        NomeEmitente = UCase(Left(TbEmitente![Razão Social], 5))
-        
-        ' Extrair protocolo
-        If InStr(mdfeProc, "<nProt>") > 0 Then
-           Protocolo = Mid(mdfeProc, InStr(mdfeProc, "<nProt>") + 7)
-           Protocolo = Left(Protocolo, InStr(Protocolo, "</nProt>") - 1)
-        End If
-        
-        ' Extrair data/hora
-        If InStr(mdfeProc, "<dhRecbto>") > 0 Then
-           dhRecbto = Mid(mdfeProc, InStr(mdfeProc, "<dhRecbto>") + 10)
-           dhRecbto = Left(dhRecbto, InStr(dhRecbto, "</dhRecbto>") - 1)
-        End If
-        
-        ' GARANTIR QUE XML AUTORIZADO SEJA SEMPRE COMPLETO
-        If Parametros_da_nfe!Ambiente = 0 Then
-           caminhoAutorizado = Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-        Else
-           caminhoAutorizado = Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-        End If
-        
-        On Error Resume Next
-        If Dir(caminhoAutorizado) <> "" Then Kill caminhoAutorizado
-        On Error GoTo DeuErro
-        
-        ' SEMPRE salvar o XML mais completo disponível
-        Dim xmlParaSalvar As String
-        If Len(Trim(mdfeProc)) > 1000 Then
-           xmlParaSalvar = mdfeProc  ' Usar procMDFe se completo
-        ElseIf Len(Trim(xmlAssinado)) > 1000 Then
-           xmlParaSalvar = xmlAssinado  ' Fallback: XML assinado completo
-        Else
-           xmlParaSalvar = "<!-- XML INCOMPLETO -->" & vbCrLf & mdfeProc
-        End If
-        
-        Arq = FreeFile
-        Open caminhoAutorizado For Output As #Arq
-           Print #Arq, xmlParaSalvar
+       'Salvando o xml...
+      Arq = FreeFile
+        If Parametros_da_nfe!Ambiente = 0 Then 'Producao
+           If Dir(Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
+        Open Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml" For Append As #Arq
+           Print #Arq, Consolidacao
         Close #Arq
-        
-        ' Atualizar banco de dados - marcar como autorizado
-        Set TbValidacao = vgDb.OpenRecordSet("SELECT * FROM [Manifesto] WHERE [Numero Do Manifesto] = '" & Manifesto![Numero Do Manifesto] & "'")
-        
-        If Not TbValidacao.EOF Then
-           With TbValidacao
-              .Edit
-              !Transmitido = True
-              !Autorizada = True
-              ![Status do mdfe] = "Autorizado"
-              If Len(Trim(Protocolo)) > 0 Then
-                 ![Protocolo de Autorização] = Protocolo
-                 ![Numero do protocolo] = Protocolo
-              End If
-              If Len(Trim(dhRecbto)) > 0 Then
-                 ![Data e hora do mdfe] = dhRecbto
-              End If
-              If Len(Trim(Chave_MDFe)) = 44 Then
-                 ![Chave de Acesso] = Chave_MDFe
-              End If
-              .Update
-              .BookMark = .LastModified
-           End With
-        End If
-        TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-        
-        ' Atualizar vgTb (tabela principal)
-        With vgTb
-           .Edit
-           !Transmitido = True
-           !Autorizada = True
-           ![Status do mdfe] = "Autorizado"
-           If Len(Trim(Protocolo)) > 0 Then
-              ![Protocolo de Autorização] = Protocolo
-           End If
-           .Update
-           .BookMark = .LastModified
-        End With
-        
-        Reposition
-        MostraFormulas ' Atualizar botão para DAMDFE
-        MsgBox "MDF-e autorizado com sucesso!", vbInformation, "Sucesso"
-        
-     ElseIf Len(Trim(mdfeProc)) > 0 And InStr(mdfeProc, "<cStat>") > 0 Then
-        ' REJEITADO
-        cStat = Mid(mdfeProc, InStr(mdfeProc, "<cStat>") + 7)
-        cStat = Left(cStat, InStr(cStat, "</cStat>") - 1)
-        
-        xMotivo = Mid(mdfeProc, InStr(mdfeProc, "<xMotivo>") + 9)
-        xMotivo = Left(xMotivo, InStr(xMotivo, "</xMotivo>") - 1)
-        
-        ' Atualizar BD (transmitido mas rejeitado)
-        Set TbValidacao = vgDb.OpenRecordSet("SELECT * FROM [Manifesto] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-        If Not TbValidacao.EOF Then
-           With TbValidacao
-              .Edit
-              !Transmitido = True
-              !Autorizada = False
-              !xmlAssinado = xmlAssinado
-              .Update
-              .BookMark = .LastModified
-           End With
-        End If
-        TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-        
-        Reposition
-        MostraFormulas
-        MsgBox "MDF-e rejeitado pela SEFAZ:" & vbCrLf & "Código: " & cStat & vbCrLf & "Motivo: " & xMotivo, vbCritical, "MDF-e Rejeitado"
-        
-     Else
-        ' TIMEOUT/PENDENTE
-        Set TbValidacao = vgDb.OpenRecordSet("SELECT * FROM [Manifesto] WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-        If Not TbValidacao.EOF Then
-           With TbValidacao
-              .Edit
-              !Transmitido = True
-              !Autorizada = False
-              !xmlAssinado = xmlAssinado
-              If Len(Trim(Chave_MDFe)) = 44 Then
-                 ![Chave de Acesso] = Chave_MDFe
-              End If
-              If Len(Trim(nRec)) > 0 And Len(nRec) <= 50 Then
-                 ![Numero do recibo] = nRec
-              End If
-              .Update
-              .BookMark = .LastModified
-           End With
-        End If
-        TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-        
-        Reposition
-        MostraFormulas
-        MsgBox "MDF-e transmitido mas ainda está sendo processado pela SEFAZ." & vbCrLf & _
-               "Status: Aguardando processamento" & vbCrLf & _
-               "Você pode consultar o status posteriormente.", vbInformation, "MDF-e em Processamento"
-     End If
+      Else 'Homologacao
+        If Dir(Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
+        Open Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml" For Append As #Arq
+           Print #Arq, Consolidacao
+        Close #Arq
+    End If
    
-
-ErroInfPag:
-   MsgBox "DEBUG ERRO infPag: " & Err.Number & " - " & Err.Description & vbCrLf & "Source: " & Err.Source, vbCritical, "Erro infPag"
-   Screen.MousePointer = vbDefault
-   lblProgresso.Caption = ""
-   Exit Sub
-
-ErroInfANTT:
-   MsgBox "DEBUG ERRO infANTT: " & Err.Number & " - " & Err.Description & vbCrLf & "Source: " & Err.Source, vbCritical, "Erro infANTT"
-   Screen.MousePointer = vbDefault
-   lblProgresso.Caption = ""
-   Exit Sub
-
-ErroMDFeNT2020001:
-   MsgBox "DEBUG ERRO MDFe_NT2020001: " & Err.Number & " - " & Err.Description & vbCrLf & "Source: " & Err.Source, vbCritical, "Erro XML"
-   Screen.MousePointer = vbDefault
-   lblProgresso.Caption = ""
-   Exit Sub
-
-ErroEnviaMDFeSincrono:
-   MsgBox "DEBUG ERRO EnviaMDFeSincrono: " & Err.Number & " - " & Err.Description & vbCrLf & "Source: " & Err.Source, vbCritical, "Erro Transmissão"
-   Screen.MousePointer = vbDefault
-   lblProgresso.Caption = ""
-   Exit Sub
-
+    'Historico
+    With vgTb
+       .Edit
+       If Vazio(!Observação) Then
+          !Observação = "Gerando XML..."
+       Else
+          !Observação = !Observação & vbCrLf & "=================================================="
+          !Observação = !Observação & vbCrLf & vbCrLf & "Gerando XML..."
+       End If
+      .Update
+      .BookMark = .LastModified
+    End With
+    
+    TransmitirMDFe Consolidacao, Chave_MDFe
+                
 DeuErro:
-   If Err <> 0 Then
-      MsgBox "Erro geral no processamento do MDF-e:" & vbCrLf & Err.Number & " - " & Err.Description & vbCrLf & "Source: " & Err.Source, vbCritical, "Erro Geral"
-   End If
+  If Err <> 0 Then
+     MsgBox Err.Description, vbCritical + vbOKOnly, vaTitulo
+  End If
    
 SaiDaSub:
-   lblProgresso.Caption = ""
-   Screen.MousePointer = vbDefault
+  Reposition
+  Screen.MousePointer = vbDefault ' normal
+  Set objMDFeUtil = Nothing
    
-   ' Cleanup integrado (fechar todos RecordSets para evitar leaks)
-   On Error Resume Next
-   If Not TbPercurso Is Nothing Then TbPercurso.CloseRecordset: Set TbPercurso = Nothing
-   If Not TbCarrega Is Nothing Then TbCarrega.CloseRecordset: Set TbCarrega = Nothing
-   If Not TbEmitente Is Nothing Then TbEmitente.CloseRecordset: Set TbEmitente = Nothing
-   If Not TbCondutores Is Nothing Then TbCondutores.CloseRecordset: Set TbCondutores = Nothing
-   If Not TbDescarga Is Nothing Then TbDescarga.CloseRecordset: Set TbDescarga = Nothing
-   If Not TbNFeCarga Is Nothing Then TbNFeCarga.CloseRecordset: Set TbNFeCarga = Nothing
-   If Not TotalNFeCarga Is Nothing Then TotalNFeCarga.CloseRecordset: Set TotalNFeCarga = Nothing
-   If Not ValorTotalCarga Is Nothing Then ValorTotalCarga.CloseRecordset: Set ValorTotalCarga = Nothing
-   If Not QtdCarga Is Nothing Then QtdCarga.CloseRecordset: Set QtdCarga = Nothing
-   If Not TbDescargaCTe Is Nothing Then TbDescargaCTe.CloseRecordset: Set TbDescargaCTe = Nothing
-   If Not TbCTeCarga Is Nothing Then TbCTeCarga.CloseRecordset: Set TbCTeCarga = Nothing
-   If Not TotalCTeCarga Is Nothing Then TotalCTeCarga.CloseRecordset: Set TotalCTeCarga = Nothing
-   If Not TbValidacao Is Nothing Then TbValidacao.CloseRecordset: Set TbValidacao = Nothing
-   Set objMDFeUtil = Nothing
-   On Error GoTo 0
+  If Parametros_da_nfe!Ambiente = 0 Then
+     lblProgresso.Caption = ""
+   Else
+     lblProgresso.Caption = "AMBIENTE EM MODO TESTE"
+   End If
    
-   Exit Sub
-   
-ErroCreateObject:
-   Screen.MousePointer = vbDefault
-   MsgBox "ERRO CRÍTICO: Falha ao criar objeto MDFe_Util.Util" & vbCrLf & _
-          "Erro: " & Err.Description & vbCrLf & _
-          "Número: " & Err.Number & vbCrLf & vbCrLf & _
-          "Possíveis causas:" & vbCrLf & _
-          "- DLL não registrada (execute registraDLL_MDFe.bat)" & vbCrLf & _
-          "- DLL corrompida ou incompatível" & vbCrLf & _
-          "- Falta dependências do .NET Framework", vbCritical, "Erro - Objeto MDFe"
-   GoTo SaiDaSub
-
-ErroGeracaoXML:
-   Screen.MousePointer = vbDefault
-   MsgBox "Erro na geração do XML do MDF-e: " & Err.Description & vbCrLf & "Número do erro: " & Err.Number, vbCritical, "Erro XML"
-   Set objMDFeUtil = Nothing
 End Sub
-
-
-
 
  
 'Procedimento para enviar ou abrir a nota
@@ -4640,7 +3839,7 @@ Private Sub SuperAcao()
 End Sub
 
 Private Sub GeraNota()
-   Dim xmlAssinado As String
+   Dim XmlAssinado As String
    Dim UltimaEletronica As New GRecordSet
 
    On Error Resume Next
@@ -4654,34 +3853,11 @@ Private Sub GeraNota()
          Reposition
       End If
 
-      'Verificar se está realmente autorizado (com protMDFe e cStat 100)
-      Dim MDFeRealmenteAutorizado As Boolean
-      MDFeRealmenteAutorizado = Autorizada And (Len(Trim(XmlAutorizado)) > 0) And (InStr(XmlAutorizado, "<protMDFe") > 0) And (InStr(XmlAutorizado, "<cStat>100</cStat>") > 0)
-      
-      If Not MDFeRealmenteAutorizado Then
-         'Verifica se foi transmitido mas não autorizado
-         If Transmitido And Len(Trim(Numero_do_recibo)) > 0 Then
-            'MDF-e foi transmitido mas não autorizado - pode ter havido erro no processamento
-            If MsgBox("MDF-e foi transmitido mas não foi autorizado." & vbCrLf & _
-                     "Deseja tentar finalizar o processo novamente?", vbQuestion + vbYesNo, "MDF-e Incompleto") = vbNo Then
-               Exit Sub
-            End If
-            'Continuar com a validação para tentar finalizar
-         End If
-         
-         'Carrega tabelas necessárias para validação
-         Set TbDescarga = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
-                                            "FROM [Descarregamento nfe] " & _
-                                            "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
-         Set TbDescargaCTe = vgDb.OpenRecordSet("Select [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio] " & _
-                                               "FROM [Descarregamento cte] " & _
-                                               "Where [Sequencia do manifesto] = " & Sequencia_do_manifesto & " GROUP BY [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]")
-         
-         PreValidaMDFe 'Validação
+      If Not Transmitido Then
+         PreValidaMDFe 'Validacao
       Else
-         'MDF-e já foi autorizado com XML completo - abrir DAMDFE automaticamente
-         MsgBox "MDF-e Autorizado", vbInformation, "Sucesso"
-         DAMDFE
+         XmlAssinado = Manifesto!XmlAssinado
+         RetornoMDFe XmlAssinado, Numero_do_recibo 'Caso ele ja enviou entao vamos buscar novamente
          Exit Sub
       End If
 End Sub
@@ -4698,8 +3874,7 @@ Private Sub MostraFormulas()
    Else
       lblNota2.ForeColor = &H0
    End If
-   'Verificar se está realmente autorizado (com protMDFe e cStat 100)
-   If Autorizada And (Len(Trim(XmlAutorizado)) > 0) And (InStr(XmlAutorizado, "<protMDFe") > 0) And (InStr(XmlAutorizado, "<cStat>100</cStat>") > 0) Then
+   If Autorizada Then
       cmdDanfe.Caption = "DAMDFE"
    Else
       cmdDanfe.Caption = "Autorizar"
@@ -4739,53 +3914,54 @@ End Sub
 Private Sub PreValidaMDFe()
    Dim Tb As New GRecordSet, Carregamento As New GRecordSet
    Dim Vector() As String, Percurso As New GRecordSet, Condutor As New GRecordSet
-   Dim i As Long, Campo As Variant, Mensagem As String
+   Dim i As Long, vaPrivez As Boolean, Campo As Variant, Mensagem As String
    Dim NFeCarga As New GRecordSet, CTeCarga As New GRecordSet
+
    On Error GoTo DeuErro
-   
+    
    Set Tb = vgDb.OpenRecordSet("SELECT [Uf de Descarregamento], Placa, Tara, [Tipo de Rodado], [Tipo de Carroceria], [Uf do Veiculo] " & _
                                "FROM [Manifesto] " & _
                                "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                              
+                               
    Set Carregamento = vgDb.OpenRecordSet("SELECT [Sequencia do Manifesto], Uf, [Descrição do Municipio] " & _
                                           "FROM [Local de Carregamento] " & _
                                           "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                                         
+                                          
    Set Percurso = vgDb.OpenRecordSet("SELECT [Sequencia do Manifesto], Uf " & _
                                       "FROM [Uf de Percurso] " & _
                                       "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                                     
+                                      
    Set Condutor = vgDb.OpenRecordSet("SELECT * FROM [Codutores] " & _
                                       "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                                     
+                                      
    Set NFeCarga = vgDb.OpenRecordSet("SELECT * FROM [NFe da Carga] " & _
                                       "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                                     
+                                      
    Set CTeCarga = vgDb.OpenRecordSet("SELECT * FROM [CTe da Carga] " & _
                                       "WHERE [Sequencia do Manifesto] = " & Sequencia_do_manifesto)
-                              
+                               
    If Tb.RecordCount = 0 Then Exit Sub
-  
+   
    If Carregamento.RecordCount = 0 Then
-      MsgBox ("Informe o(s) Local de Carregamento")
-      Exit Sub
+   MsgBox ("Informe o(s) Local de Carregamento")
+   Exit Sub
    End If
-  
+   
    If NFeCarga.RecordCount = 0 And CTeCarga.RecordCount = 0 Then
-      MsgBox ("Informe o(s)Documento da Carga (NFe ou CTe)")
-      Exit Sub
+   MsgBox ("Informe o(s)Documento da Carga (NFe ou CTe)")
+   Exit Sub
    End If
-  
-   ' If Percurso.RecordCount = 0 Then
-   '    MsgBox("Informe a(s) UF do Percurso")
-   '    Exit Sub
-   ' End If
-  
+   
+  ' If Percurso.RecordCount = 0 Then
+  ' MsgBox("Informe a(s) UF do Percurso")
+  ' Exit Sub
+  ' End If
+   
    If Condutor.RecordCount = 0 Then
-      MsgBox ("Informe o(s) Condutor do Veiculo")
-      Exit Sub
+   MsgBox ("Informe o(s) Condutor do Veiculo")
+   Exit Sub
    End If
-  
+   
    'Vamos Validar
    i = 0 'Tamanho do Vetor
    ReDim Preserve Vector(0) As String
@@ -4794,8 +3970,8 @@ Private Sub PreValidaMDFe()
    If Vazio(Tb!Tara) Then i = i + 1: ReDim Preserve Vector(i): Vector(i - 1) = "Tara do Veiculo"
    If Vazio(Tb![Tipo de rodado]) Then i = i + 1: ReDim Preserve Vector(i): Vector(i - 1) = "Tipo de Rodado"
    If Vazio(Tb![Tipo de carroceria]) Then i = i + 1: ReDim Preserve Vector(i): Vector(i - 1) = "Tipo de Carroceria"
-   If Vazio(Tb![Uf do veiculo]) Then i = i + 1: ReDim Preserve Vector(i): Vector(i - 1) = "UF do Veiculo"
-  
+   If Vazio(Tb![Uf Do veiculo]) Then i = i + 1: ReDim Preserve Vector(i): Vector(i - 1) = "UF do Veiculo"
+   
    If UBound(Vector) > 0 Then
       Mensagem = "Alguns Campos Precisam ser Preenchidos:" & vbCrLf
       For Each Campo In Vector
@@ -4806,39 +3982,14 @@ Private Sub PreValidaMDFe()
          Exit Sub
       End If
    End If
-  
-   'Verifica se MDF-e está realmente autorizado (com protMDFe)
-   Dim RealmenteAutorizado As Boolean
-   RealmenteAutorizado = Autorizada And (Len(Trim(XmlAutorizado)) > 0) And (InStr(XmlAutorizado, "<protMDFe") > 0) And (InStr(XmlAutorizado, "<cStat>100</cStat>") > 0)
    
-   'Verifica se MDF-e foi transmitido e precisa consultar XML autorizado
-   If Transmitido And Not RealmenteAutorizado And Len(Trim(Numero_do_recibo)) > 0 Then
-      'Na v3.10, EnviaMDFeSincrono já cuida de tudo - não deveria chegar aqui
-      MsgBox "AVISO: MDF-e transmitido mas não autorizado." & vbCrLf & _
-             "Na v3.10 isso não deveria acontecer com método síncrono." & vbCrLf & _
-             "Verifique a configuração da DLL.", vbExclamation, "Status Inconsistente"
-   ElseIf RealmenteAutorizado Then
-      'MDF-e já foi autorizado - abrir DAMDFE automaticamente
-      MsgBox "MDF-e Autorizado", vbInformation, "Sucesso"
-      DAMDFE
-      Exit Sub
-   Else
-      'Gerar novo XML para transmissão - usar SuperMDFe
-      SuperMDFe
-   End If
+   SuperMDFe_Teste ' ETAPA 1: Testando migracao ACBr
    
-   'Fechamento de recordsets para liberar recursos
-   Tb.CloseRecordset: Set Tb = Nothing
-   Carregamento.CloseRecordset: Set Carregamento = Nothing
-   Percurso.CloseRecordset: Set Percurso = Nothing
-   Condutor.CloseRecordset: Set Condutor = Nothing
-   NFeCarga.CloseRecordset: Set NFeCarga = Nothing
-   CTeCarga.CloseRecordset: Set CTeCarga = Nothing
-  
 DeuErro:
-   If Err.Number <> 0 Then
+   If Err <> 0 Then
       MsgBox Err.Description, vbCritical + vbOKOnly, vaTitulo
    End If
+
 End Sub
 
 
@@ -4886,8 +4037,8 @@ Private Sub MudaMascara()
             txtIE.Mask = "99.99.999999-9"
       End Select
       
-   If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informações do banco
-                                                                                                   'Senão tiver essa linha quando o usuario navegar pelos registro ele nw aplica a mascara
+   If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informacoes do banco
+                                                                                                   'Senao tiver essa linha quando o usuario navegar pelos registro ele nw aplica a mascara
                                                                                                    'como deveria
 End Sub
 
@@ -4953,86 +4104,65 @@ Private Function MostraNroNFe(Sequencia_descarrega As Long, Sequencia_do_manifes
 End Function
 
 
-
-'Transmite MDFE 3.00 - Atualizado com base em DLL v3.0.10 (envio síncrono sem nRec)
+'Transmite MDFE 3.00
 Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
    Dim msgDados As String, msgRetWS As String, msgResultado As String, siglaWS As String, Certificado As String
-   Dim Licenca As String, nroProtocolo As String, cStat As Integer, Versao As String, dhProtocolo As String, MDFeAssinado As String
-   Dim Protocolo As String, objMDFeUtil As Object, Arq As Long, proxy As String, usuario As String, Senha As String
+   Dim Licenca As String, nroRecibo As String, cStat As Long, Versao As String, dhRecibo As String, MDFeAssinado As String
+   Dim tMed As String, i As Integer, objMDFeUtil As Object, Arq As Long, proxy As String, usuario As String, Senha As String
    Dim Emitente As New GRecordSet, NomeEmitente As String
-   Dim Delay As Integer, tentativas As Integer  ' Para polling se pendente
-    
-   'CORREÇÃO: Validação dupla de segurança do XML antes de transmitir (consultando changelog DLL: evita rejeições por XML inválido)
-   If Trim(MDFe) = "" Then
-      MsgBox "Erro: XML vazio não pode ser transmitido!", vbCritical, "Erro - Transmissão"
-      Exit Sub
-   ElseIf Left(Trim(MDFe), 5) <> "<?xml" Then
-      MsgBox "Erro: XML mal formatado não pode ser transmitido!", vbCritical, "Erro - Transmissão"
-      Exit Sub
-   ElseIf InStr(MDFe, "</MDFe>") = 0 Then
-      MsgBox "Erro: XML incompleto não pode ser transmitido!", vbCritical, "Erro - Transmissão"
-      Exit Sub
-   End If
+   
+   On Error GoTo DeuErro
    
    Set Emitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
-   NomeEmitente = UCase(Mid(Emitente![Razão Social], 1, 5))
-   Screen.MousePointer = vbHourglass ' ampulheta
+   NomeEmitente = UCase(Mid(Emitente![Razão social], 1, 5))
+   Screen.MousePointer = vbHourglass    ' ampulheta
    lblProgresso.Caption = "Transmitindo MDF-e..."
-   On Error GoTo ErroCreateObjectTransmitir
    Set objMDFeUtil = CreateObject("MDFe_Util.Util")
-   On Error GoTo ErroEnvio
-   
+
    Certificado = Emitente![Certificado Digital]
-   siglaWS = Emitente!UF  ' Ajuste dinâmico (melhor que hardcoded "RS", consultando TXT: UF do emitente)
+   siglaWS = "RS"
    Versao = "3.00"
-   Licenca = Emitente![Chave Flexdocs]  ' Ou [Licenca uninfe], ajuste conforme seu banco
-   
-   proxy = "" ' Configure se usar proxy (opcional)
-   usuario = "" ' Usuario proxy (opcional)
-   Senha = "" ' Senha proxy (opcional)
-  
-   ' CORREÇÃO: Usar EnviaMDFeSincrono conforme changelog v3.0.4+ (não existe EnviaMDFe assíncrono separado)
-   ' Parâmetros: siglaWS, MDFe, nomeCertificado, versao, msgDados(out), msgRetWS(out), cStat(out), msgResultado(out), protocolo, nroProtocolo(out), dhProtocolo(out), MDFeAssinado(out), proxy, usuario, senha, licenca
-   On Error GoTo ErroEnvio
-   Dim protocoloOutT As String, MDFeAssinadoOutT As String
-   Protocolo = objMDFeUtil.EnviaMDFeSincrono(siglaWS, MDFe, Certificado, Versao, msgDados, msgRetWS, cStat, msgResultado, protocoloOutT, nroProtocolo, dhProtocolo, MDFeAssinadoOutT, proxy, usuario, Senha, Licenca)
-   On Error GoTo DeuErro
-   ' Verificar se conseguiu extrair cStat da resposta (consultando TXT: cStat 0 indica erro na DLL)
-   If cStat = 0 And InStr(msgRetWS, "<cStat>") = 0 Then
-      MsgBox "Erro 6419: SEFAZ rejeitou o MDF-e - resposta sem cStat válido." & vbCrLf & _
-             "Verifique os dados do XML antes de tentar novamente." & vbCrLf & _
-             "Erro retornado: " & msgResultado, vbCritical, "Erro de Validação"
-      GoTo SaiDaSub
-   End If
-   ' Integrado: Salvar protocolo se retornado com sucesso (sem AtualizarAutorizacaoBD)
-   With Manifesto
-      .Edit
-      If Len(Trim(nroProtocolo)) > 0 Then
-         ![Numero do protocolo] = nroProtocolo
-         ![Protocolo de Autorização] = nroProtocolo
-         ![Data e hora do mdfe] = dhProtocolo
+   Licenca = Emitente![Chave Flexdocs]
+      
+   For i = 1 To 5 'Vamos Tentar 5 vezes
+      MDFeAssinado = objMDFeUtil.EnviaMDFe(siglaWS, Certificado, Versao, MDFe, msgDados, msgRetWS, cStat, msgResultado, nroRecibo, dhRecibo, tMed, proxy, usuario, Senha, Licenca)
+      'Historico
+      With vgTb
+         .Edit
+         If Vazio(!Observação) Then
+            !Observação = "Transmitindo MDF-e... Tentativa " & i
+         Else
+            !Observação = !Observação & vbCrLf & "Transmitindo MDF-e... Tentativa " & i
+         End If
+         .Update
+         .BookMark = .LastModified
+      End With
+      If cStat <> 105 Then 'Se o cStat for = 105 entao ainda esta processando
+         GoTo Continua
       End If
-      .Update
-      .BookMark = .LastModified
-   End With
-   ' Integrado: Histórico atualizado (sem duplicações)
+   Next
+   MsgBox "MDF-e Não Enviado! Tente Mais Tarde.", vbExclamation + vbOKOnly, vaTitulo
+   
+   'Histórico
    With vgTb
       .Edit
       If Vazio(!Observação) Then
-         !Observação = "Transmitindo MDF-e síncrono... cStat: " & cStat
+         !Observação = "Erro ao Transmitir MDF-e"
       Else
-         !Observação = !Observação & vbCrLf & "Transmitindo MDF-e síncrono... cStat: " & cStat
+         !Observação = !Observação & vbCrLf & "Erro ao Transmitir MDF-e"
       End If
       .Update
       .BookMark = .LastModified
    End With
-                                
-   'Vamos verificar o Resultado do envio síncrono
+   GoTo SaiDaSub
+                                    
+   'Vamos verificar o Resultado
+Continua:
    Select Case cStat
-      Case 5000 To 7007 ' problemas no envio da DLL para o WS
-         MsgBox "Descrição do erro: " & Chr(13) & Chr(13) + msgResultado, vbCritical + vbOKOnly, "Atenção: O envio do MDF-e falhou..."
-     
-         ' Integrado: Histórico de erro
+      Case 5000 To 7007                ' problemas no envio da DLL para o WS
+         MsgBox "Descrição do erro: " & Chr(13) & Chr(13) + msgResultado, vbCritical + vbOKOnly, "Atenção: O envio da NFe falhou..."
+         
+         'Historico
          With vgTb
             .Edit
             If Vazio(!Observação) Then
@@ -5044,66 +4174,36 @@ Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
             .BookMark = .LastModified
          End With
          GoTo SaiDaSub
-      Case 100 'Sucesso - MDF-e autorizado síncrono
+      Case 103 'Sucesso....
          With Manifesto
             .Edit
             !Transmitido = True
-            !Autorizada = True
-            ![Numero do protocolo] = nroProtocolo
-            ![Protocolo de Autorização] = nroProtocolo
-            ![Data e hora do mdfe] = dhProtocolo
+            ![Numero do recibo] = nroRecibo
             ![Chave de Acesso] = ChaveMDFe
-            !xmlAssinado = MDFeAssinado
-            'XmlAutorizado será preenchido apenas quando receber o XML com protMDFe da SEFAZ (corrigido: usar msgRetWS se conter protMDFe)
-            If InStr(msgRetWS, "<protMDFe") > 0 Then
-               !XmlAutorizado = msgRetWS ' Salvar XML completo com protMDFe
-            End If
+            !XmlAssinado = MDFeAssinado
             .Update
             .BookMark = .LastModified
          End With
       
-         ' Recarregar dados para atualizar status na tela
-         Reposition
-  
-         MsgBox "MDF-e autorizado com sucesso!", vbInformation + vbOKOnly, "Sucesso"
-     
-         ' Integrado: Salvando XML autorizado (sem SalvarXml separado)
-         If InStr(msgRetWS, "<protMDFe") > 0 Then
-            Arq = FreeFile
-            Dim caminhoAutorizado As String
-            If Parametros_da_nfe!Ambiente = 0 Then 'Produção
-               caminhoAutorizado = Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-               If Dir(caminhoAutorizado, vbArchive) <> "" Then Kill caminhoAutorizado
-               Open caminhoAutorizado For Output As #Arq
-                  Print #Arq, msgRetWS ' Salvar XML com protMDFe
-               Close #Arq
-            Else 'Homologação
-               caminhoAutorizado = Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-               If Dir(caminhoAutorizado, vbArchive) <> "" Then Kill caminhoAutorizado
-               Open caminhoAutorizado For Output As #Arq
-                  Print #Arq, msgRetWS ' Salvar XML com protMDFe
-               Close #Arq
-            End If
-         End If
-     
-         ' Integrado: Salvar também no diretório de rede (se configurado, sem duplicação)
-         On Error Resume Next
-         Dim CaminhoRede As String
-         If Not IsNull(Parametros_da_nfe![Diretorio MDF-e Autorizados]) And Len(Trim(Parametros_da_nfe![Diretorio MDF-e Autorizados])) > 0 Then
-            CaminhoRede = Parametros_da_nfe![Diretorio MDF-e Autorizados]
-            If Right(CaminhoRede, 1) <> "\" Then CaminhoRede = CaminhoRede & "\"
-        
-            Arq = FreeFile
-            Dim caminhoRedeAutorizado As String
-            caminhoRedeAutorizado = CaminhoRede & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-            If Dir(caminhoRedeAutorizado, vbArchive) <> "" Then Kill caminhoRedeAutorizado
-            Open caminhoRedeAutorizado For Output As #Arq
-               Print #Arq, msgRetWS ' Salvar com protMDFe
+         MsgBox "Transmitido com Sucesso!!!", vbInformation + vbOKOnly, "Atenção: MDF-e enviado!"
+         
+         'Salvando o xml...
+         Arq = FreeFile
+         If Parametros_da_nfe!Ambiente = 0 Then 'Producao
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml"
+            Open Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml" For Append As #Arq
+               Print #Arq, MDFeAssinado
+            Close #Arq
+         Else 'Homologacao
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_GERADO.xml"
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml"
+            Open Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml" For Append As #Arq
+               Print #Arq, MDFeAssinado
             Close #Arq
          End If
-         On Error GoTo 0
-     
-         ' Integrado: Histórico de sucesso
+         
+         'Historico
          With vgTb
             .Edit
             If Vazio(!Observação) Then
@@ -5114,61 +4214,25 @@ Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
             .Update
             .BookMark = .LastModified
          End With
-      
-         ' Abrir DAMDFE automaticamente
-         DAMDFE
-      
       Case 108, 109 'Que feio Servidor
          MsgBox msgResultado & Chr(13) & Chr(13) + "O Web Service com problemas de recepção", vbCritical + vbOKOnly, "Atenção: WS com problemas na recepção!"
-         ' Integrado: Histórico de erro
+         
+         'Historico
          With vgTb
             .Edit
             If Vazio(!Observação) Then
                !Observação = "Erro ao Transmitir MDF-e: " & msgResultado
             Else
-               !Observação = !Observação & vbCrLf & "Erro ao Transmitir MDF-e: " & msgResultado
+               !Observação = !Observação & vbCrLf & "Erro ao Transmitir MDf-e: " & msgResultado
             End If
             .Update
             .BookMark = .LastModified
          End With
          GoTo SaiDaSub
-      Case 204, 205, 539, 542, 543 'CORREÇÃO: Códigos de duplicidade/MDF-e já autorizado na transmissão
-         'Quando MDF-e já existe/autorizado, marcar como transmitido e buscar dados completos
-         'Removida mensagem desnecessária - processamento silencioso
-      
-         With Manifesto
-            .Edit
-            !Transmitido = True
-            If Len(Trim(nroProtocolo)) > 0 Then
-               ![Numero do protocolo] = nroProtocolo
-            End If
-            'ChaveMDFe será definida pelo retorno da SEFAZ na função RetornoMDFe
-            If Len(Trim(MDFeAssinado)) > 0 Then
-               !xmlAssinado = MDFeAssinado
-            End If
-            .Update
-            .BookMark = .LastModified
-         End With
-       
-         'Para método síncrono, dados já foram salvos no banco - não precisa buscar
-         'RetornoMDFe é usado apenas para consultas assíncronas com recibo de 15 dígitos
-       
-         ' Integrado: Histórico de duplicidade
-         With vgTb
-            .Edit
-            If Vazio(!Observação) Then
-               !Observação = "MDF-e já autorizado - Dados recuperados: " & msgResultado
-            Else
-               !Observação = !Observação & vbCrLf & "MDF-e já autorizado - Dados recuperados: " & msgResultado
-            End If
-            .Update
-            .BookMark = .LastModified
-         End With
-         GoTo SaiDaSub
-      Case Else ' problemas na recepção do WS
+      Case Else  ' problemas na recepcao do WS
          MsgBox "Descrição do erro: " & Chr(13) & Chr(13) & cStat & " - " & msgResultado, vbCritical + vbOKOnly, "Atenção: O WS rejeitou o MDF-e..."
-       
-         ' Integrado: Histórico de rejeição
+         
+         'Historico
          With vgTb
             .Edit
             If Vazio(!Observação) Then
@@ -5181,48 +4245,210 @@ Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
          End With
          GoTo SaiDaSub
    End Select
-   ' Para envio síncrono, não é necessário chamar RetornoMDFe pois já temos todos os dados
-   ' RetornoMDFe é usado apenas para consultas assíncronas com recibo
-ErroEnvio:
-   If Err.Number <> 0 Then
-      MsgBox "Erro 6419: Falha ao processar resposta da SEFAZ." & vbCrLf & _
-             "Detalhes: " & Err.Description & vbCrLf & _
-             "Possível causa: XML rejeitado pela SEFAZ sem retorno de cStat válido.", vbCritical, "Erro de Comunicação"
-      GoTo SaiDaSub
-   End If
-ErroCreateObjectTransmitir:
-   Screen.MousePointer = vbDefault
-   lblProgresso.Caption = ""
-   MsgBox "ERRO CRÍTICO na TransmitirMDFe: Falha ao criar objeto MDFe_Util.Util" & vbCrLf & _
-          "Erro: " & Err.Description & vbCrLf & _
-          "Número: " & Err.Number & vbCrLf & vbCrLf & _
-          "Possíveis causas:" & vbCrLf & _
-          "- DLL não registrada (execute registraDLL_MDFe.bat)" & vbCrLf & _
-          "- DLL corrompida ou incompatível", vbCritical, "Erro - TransmitirMDFe"
-   GoTo SaiDaSub
-
+   
+   RetornoMDFe MDFeAssinado, nroRecibo 'Retornando
+   
 DeuErro:
    If Err <> 0 Then
       MsgBox Err.Description, vbCritical + vbOKOnly, vaTitulo
    End If
+   
 SaiDaSub:
    Screen.MousePointer = vbDefault ' normal
    Set objMDFeUtil = Nothing
-   If Not Emitente Is Nothing Then Emitente.CloseRecordset: Set Emitente = Nothing
-   If Parametros_da_nfe!Ambiente = 0 Then 'produção
+   If Parametros_da_nfe!Ambiente = 0 Then 'producao
       lblProgresso.Caption = ""
-   Else 'Homologação
+   Else 'Homologacao
       lblProgresso.Caption = "AMBIENTE EM MODO TESTE"
    End If
-   
+      
 End Sub
 
+'Busca Retorno NFe 3.10
+Private Sub RetornoMDFe(MDFeAssinado As String, Recibo As String)
+   Dim msgDados As String, msgRetWS As String, msgResultado As String, siglaWS As String, Certificado As String
+   Dim tpAmbiente As Long, Versao As String, nroProtocolo As String, BuscaMDFe As String, Protocolo As String
+   Dim dhProtocolo As String, objMDFeUtil As Object, i As Integer, Arq As Long
+   Dim cStat As Long, proxy As String, usuario As String, Senha As String
+   Dim Emitente As New GRecordSet, NomeEmitente As String
+   
+   On Error GoTo DeuErro
+   
+   Set Emitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
+   NomeEmitente = UCase(Mid(Emitente![Razão social], 1, 5))
+   Screen.MousePointer = vbHourglass ' Ampulheta
+   Set objMDFeUtil = CreateObject("MDFe_Util.Util")
+   lblProgresso.Caption = "Buscando MDF-e..."
+   
+   Certificado = Emitente![Certificado Digital]
+   siglaWS = "RS"
+   Versao = "3.00"
+
+   If Parametros_da_nfe!Ambiente = 0 Then 'Producao
+      tpAmbiente = 1
+   Else 'Homologacao
+      tpAmbiente = 2
+   End If
+   
+   For i = 1 To 5 'Go To Search
+      BuscaMDFe = objMDFeUtil.BuscaMDFe(siglaWS, tpAmbiente, Certificado, Versao, Recibo, MDFeAssinado, msgDados, msgRetWS, cStat, msgResultado, Protocolo, nroProtocolo, dhProtocolo, proxy, usuario, Senha)
+      'Historico
+      With vgTb
+         .Edit
+         If Vazio(!Observação) Then
+            !Observação = "Buscando Retorno do MDF-e... Tentativa " & i
+         Else
+            !Observação = !Observação & vbCrLf & "Buscando Retorno do MDF-e... Tentativa " & i
+         End If
+         .Update
+      End With
+      If cStat <> 105 Then
+         GoTo Continua
+      End If
+   Next
+   MsgBox "MDF-e NÃO Retornado! Tente Mais Tarde.", vbExclamation + vbOKOnly, vaTitulo
+   
+   'Histórico
+   With vgTb
+      .Edit
+      If Vazio(!Observação) Then
+         !Observação = "Erro ao Buscar Retorno do MDF-e"
+      Else
+         !Observação = !Observação & vbCrLf & "Erro ao Buscar Retorno do MDF-e"
+      End If
+      .Update
+      .BookMark = .LastModified
+   End With
+   GoTo SaiDaSub
+
+   '           WS chamada com sucesso
+   '
+   '           105 – lote em processamento -> tentar novamente
+   '           106 - lote nao localizado   -> tentar enviar o lote novamente ou verificar se o nroRecibo esta correto
+   '           100 – NF-e autorizada       -> OK
+   '           2xx - motivo de rejeicao do WS -> erro na elaboracao da NF-e, verificar o codigo de erro e corrigir a NF-e
+Continua:
+   Select Case cStat
+      Case 5001 To 6423                ' erro da DLL
+         MsgBox "Descrição do erro: " & Chr(13) & Chr(13) + msgResultado, vbCritical + vbOKOnly, "Atenção: O Retorno do MDF-e falhou..."
+         
+         'Historico
+         With vgTb
+            .Edit
+            If Vazio(!Observação) Then
+               !Observação = "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            Else
+               !Observação = !Observação & vbCrLf & "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            End If
+            !Transmitido = False
+            .Update
+            .BookMark = .LastModified
+         End With
+         GoTo SaiDaSub
+      Case 100  ' autorizada Sucessssooooo
+         With Manifesto
+            .Edit
+            !Autorizada = True
+            ![Protocolo de autorização] = nroProtocolo
+            ![Data e hora do mdfe] = dhProtocolo
+            !XmlAutorizado = BuscaMDFe
+            If Vazio(!Observação) Then
+               !Observação = "MDF-e Autorizado com Sucesso!!!"
+            Else
+               !Observação = !Observação & vbCrLf & "MDF-e Autorizado com Sucesso!!!"
+            End If
+            .Update
+            .BookMark = .LastModified
+         End With
+         
+         'Salvando o xml...
+         Arq = FreeFile
+         If Parametros_da_nfe!Ambiente = 0 Then 'Producao
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml"
+            Open Parametros_da_nfe![Diretorio 1 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml" For Append As #Arq
+               Print #Arq, BuscaMDFe
+            Close #Arq
+         Else 'Homologacao
+            If Dir(Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml", vbArchive) <> "" Then Kill Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ASSINADO.xml"
+            Open Parametros_da_nfe![Diretorio 1 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml" For Append As #Arq
+               Print #Arq, BuscaMDFe
+            Close #Arq
+         End If
+         
+         MsgBox "MDF-e Autorizado!!!", vbInformation + vbOKOnly, vaTitulo
+                                                 
+      Case 106    ' Lote nao localizado, verifique se o numero do recibo esta correto
+         MsgBox msgResultado, vbCritical + vbOKOnly, "Atenção: Lote não localizado"
+         
+         'Historico
+         With vgTb
+            .Edit
+            If Vazio(!Observação) Then
+               !Observação = "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            Else
+               !Observação = !Observação & vbCrLf & "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            End If
+            !Transmitido = False
+            .Update
+            .BookMark = .LastModified
+         End With
+         GoTo SaiDaSub
+      Case 108, 109 'Que feio Servidor
+         MsgBox msgResultado & Chr(13) & Chr(13) + "O Web Service está com problemas de recepção.", vbCritical + vbOKOnly, "Atenção: WS com problemas na recepção!"
+         
+         'Historico
+         With vgTb
+            .Edit
+            If Vazio(!Observação) Then
+               !Observação = "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            Else
+               !Observação = !Observação & vbCrLf & "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            End If
+            !Transmitido = False
+            .Update
+            .BookMark = .LastModified
+         End With
+         GoTo SaiDaSub
+      Case Else
+         MsgBox "Descrição do erro: " & Chr(13) & Chr(13) & cStat & " - " & msgResultado, vbCritical + vbOKOnly, "Atenção: O WS rejeitou o MDF-e..."
+         
+         'Historico
+         With vgTb
+            .Edit
+            If Vazio(!Observação) Then
+               !Observação = "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            Else
+               !Observação = !Observação & vbCrLf & "Erro ao Buscar Retorno do MDF-e: " & msgResultado
+            End If
+            !Transmitido = False
+            .Update
+            .BookMark = .LastModified
+         End With
+         GoTo SaiDaSub
+   End Select
+    'Unidanfe
+    DAMDFE
+   
+DeuErro:
+   If Err <> 0 Then
+      MsgBox Err.Description, vbCritical + vbOKOnly, vaTitulo
+   End If
+  
+SaiDaSub:
+   Set objMDFeUtil = Nothing
+   Screen.MousePointer = vbDefault ' normal
+   If Parametros_da_nfe!Ambiente = 0 Then
+      lblProgresso.Caption = ""
+   Else
+      lblProgresso.Caption = "AMBIENTE EM MODO TESTE"
+   End If
+End Sub
 
 Public Sub DAMDFE()
-   Dim CC As Byte, ret&, XmlParaUsar As String, CaminhoArquivo As String
-   Dim Emitente As New GRecordSet, NomeEmitente As String, Arq As Long
+   Dim CC As Byte, ret&
+   Dim Emitente As New GRecordSet, NomeEmitente As String
    Set Emitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
-   NomeEmitente = UCase(Mid(Emitente![Razão Social], 1, 5))
+   NomeEmitente = UCase(Mid(Emitente![Razão social], 1, 5))
    
    On Error Resume Next
     
@@ -5232,38 +4458,13 @@ Public Sub DAMDFE()
       Else
          CC = 0
       End If
-      
-      'Priorizar XML autorizado (com protMDFe), senão usar o assinado
-      If Len(Trim(XmlAutorizado)) > 0 And InStr(XmlAutorizado, "<protMDFe") > 0 Then
-         XmlParaUsar = XmlAutorizado
-      ElseIf Len(Trim(xmlAssinado)) > 0 Then
-         XmlParaUsar = xmlAssinado
-         MsgBox "Atenção: Este MDF-e ainda não foi processado pela SEFAZ. Mostrando XML de envio.", vbExclamation, "XML não processado"
-      Else
-         MsgBox "Nenhum XML encontrado para este MDF-e.", vbCritical, "Erro"
-         Exit Sub
-      End If
-      
-      'Definir caminho do arquivo temporário
-      If Parametros_da_nfe!Ambiente = 0 Then 'Produção
-         CaminhoArquivo = Parametros_da_nfe![Diretorio 1 NFe Produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-      Else 'Homologação
-         CaminhoArquivo = Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml"
-      End If
-      
-      'Salvar XML correto no arquivo antes de abrir DANFE
-      Arq = FreeFile
-      If Dir(CaminhoArquivo, vbArchive) <> "" Then Kill CaminhoArquivo
-      Open CaminhoArquivo For Append As #Arq
-         Print #Arq, XmlParaUsar
-      Close #Arq
     
-      If Parametros_da_nfe!Ambiente = 0 Then 'Produção
-         Shell ("C:\unimake\uninfe\UniDANFe.exe arquivo=" & Parametros_da_nfe![Diretorio 1 NFe Produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml ee=0 cc=" & CC) 'Parametro para ignorar o envio de email ee=0
-      Else 'Homologação
-         Shell ("C:\unimake\uninfe\UniDANFe.exe arquivo=" & Parametros_da_nfe![Diretorio 2 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml ee=0 cc=" & CC) 'Parametro para ignorar o envio de email ee=0
-      End If
+      If Parametros_da_nfe!Ambiente = 0 Then 'Producao
+         Shell ("C:\unimake\uninfe\UniDANFe.exe arquivo=" & Parametros_da_nfe![Diretorio 1 nfe produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml ee=0 cc=" & CC) 'Parametro para ignorar o envio de email ee=0
+      Else 'Homologacao
+         Shell ("C:\unimake\uninfe\UniDANFe.exe arquivo=" & Parametros_da_nfe![Diretorio 1 nfe homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_AUTORIZADO.xml ee=0 cc=" & CC) 'Parametro para ignorar o envio de email ee=0
       Reposition
+      End If
  End If
  
 End Sub
@@ -5387,7 +4588,7 @@ Private Sub MudaMascaraSeg()
       Lbldoc.Caption = "CNPJ:"            'titulos
    End If
     
-  If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informações do banco
+  If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informacoes do banco
                                                                                                    'Senão tiver essa linha quando o usuario navegar pelos registro ele nw aplica a mascar                                                                                                   'como deveria
 End Sub
 
@@ -5403,7 +4604,7 @@ Private Sub MudaMascaraContr()
       Lblcnpjcon.Caption = "CNPJ:"            'titulos
    End If
     
-  If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informações do banco
+  If vgSituacao <> ACAO_INCLUINDO And vgSituacao <> ACAO_EDITANDO Then Executar PEGA_DO_ARQUIVO   'Se nw estiver editando ou incluindo vamos pegar recuperar as informacoes do banco
                                                                                                    'Senão tiver essa linha quando o usuario navegar pelos registro ele nw aplica a mascar                                                                                                   'como deveria
 End Sub
 
@@ -5433,170 +4634,13 @@ Private Function RenavamAux() As String
   End If
 End Function
 
-'Função para alternar entre modo Produção e Homologação
-Private Sub AlternarModoAmbiente()
-   On Error GoTo ErroAlternar
-   
-   Dim NovoAmbiente As Integer
-   Dim MsgAmbiente As String
-   
-   'Verifica ambiente atual e define o novo
-   If Parametros_da_nfe!Ambiente = 0 Then
-      NovoAmbiente = 1 'Muda para Homologação
-      MsgAmbiente = "HOMOLOGAÇÃO"
-   Else
-      NovoAmbiente = 0 'Muda para Produção
-      MsgAmbiente = "PRODUÇÃO"
-   End If
-   
-   'Confirma a mudança com o usuário
-   If MsgBox("Deseja alternar para modo " & MsgAmbiente & "?", vbQuestion + vbYesNo, "Alternar Ambiente") = vbYes Then
-      'Atualiza no banco de dados
-      With Parametros_da_nfe
-         .Edit
-         !Ambiente = NovoAmbiente
-         .Update
-      End With
-      
-      'Atualiza o label de progresso
-      AtualizaLabelAmbiente
-      
-      'Reposiciona para atualizar a tela
-      Reposition
-      
-      'Mostra confirmação
-      MsgBox "Modo alterado para " & MsgAmbiente & " com sucesso!" & vbCrLf & _
-             "Use Ctrl+F10 para alternar novamente.", vbInformation, "Ambiente Alterado"
-   End If
-   
-   Exit Sub
-   
-ErroAlternar:
-   MsgBox "Erro ao alternar ambiente: " & Err.Description, vbCritical, "Erro"
-End Sub
-
-'Função para duplicar o MDF-e completo para testes
-'Private Sub DuplicarMDFe()
-'   On Error GoTo ErroDuplicacao
-   
-'   'Confirma a duplicação
-'   If MsgBox("Deseja duplicar este MDF-e para criar uma nova versão para testes?" & vbCrLf & _
-'             "Será criado um novo manifesto idêntico sem dados de transmissão.", _
- '            vbQuestion + vbYesNo, "Duplicar MDF-e") = vbNo Then
- '     Exit Sub
- '  End If
-   
- '  Screen.MousePointer = vbHourglass
- '  lblProgresso.Caption = "Duplicando MDF-e..."
-   
- '  Dim NovaSequencia As Long
- '  Dim TbTemp As New GRecordSet
-   
-   '=== 1. DUPLICA MANIFESTO PRINCIPAL ===
-  ' Set TbTemp = vgDb.OpenRecordSet("SELECT MAX([Sequencia do manifesto]) + 1 AS Nova FROM Manifesto")
-  ' NovaSequencia = IIf(IsNull(TbTemp!Nova), 1, TbTemp!Nova)
- '  TbTemp.Close
-   
-   'Insere novo manifesto copiando dados do atual, mas SEM campos de transmissão
-   'vgDb.Execute "INSERT INTO Manifesto ([Sequencia do manifesto], [Codigo do emitente], " & _
- '   '           "[Tipo de emitente], [Serie do manifesto], [Data de emissao], [Tipo de transporte], " & _
-     '          "[Modal], [Processo de emissao], [Versao do processo], [Uf inicial], [Uf final], " & _
-     '          "[Municipio de carregamento], [Codigo do contratante], [Documento do contratante], " & _
-      '         "[Tipo de contratante], [Cep origem], [Endereco origem], [Numero origem], [Bairro origem], " & _
-      '         "[Cidade origem], [Uf origem], [Cep destino], [Endereco destino], [Numero destino], " & _
-      '         "[Bairro destino], [Cidade destino], [Uf destino], [Peso bruto], [Valor total da carga], " & _
-       '        "[Codigo da unidade de medida], [Quantidade da carga], [Numero do Recibo], [Placa], " & _
-        '       "[Renavam], [Tara], [Capacidade em kg], [Capacidade em m3], [Tipo do rodado], [Tipo da carroceria], " & _
-         '      "[Uf da placa], [Codigo do proprietario], [RNTRC], [Observacao inicial]) " & _
-          '     "SELECT " & NovaSequencia & ", [Codigo do emitente], " & _
-           '    "[Tipo de emitente], [Serie do manifesto], #" & Format(Date, "mm/dd/yyyy") & "#, [Tipo de transporte], " & _
-           '    "[Modal], [Processo de emissao], [Versao do processo], [Uf inicial], [Uf final], " & _
-            '   "[Municipio de carregamento], [Codigo do contratante], [Documento do contratante], " & _
-            '   "[Tipo de contratante], [Cep origem], [Endereco origem], [Numero origem], [Bairro origem], " & _
-             '  "[Cidade origem], [Uf origem], [Cep destino], [Endereco destino], [Numero destino], " & _
-              ' "[Bairro destino], [Cidade destino], [Uf destino], [Peso bruto], [Valor total da carga], " & _
-               '"[Codigo da unidade de medida], [Quantidade da carga], '', [Placa], " & _
-               '"[Renavam], [Tara], [Capacidade em kg], [Capacidade em m3], [Tipo do rodado], [Tipo da carroceria], " & _
-               '"[Uf da placa], [Codigo do proprietario], [RNTRC], 'DUPLICADO PARA TESTE' " & _
-               '"FROM Manifesto WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 2. DUPLICA UF DE PERCURSO ==='
-  ' vgDb.Execute "INSERT INTO [Uf de Percurso] ([Sequencia do manifesto], [Codigo da uf], [Sequencia]) " & _
-   '            "SELECT " & NovaSequencia & ", [Codigo da uf], [Sequencia] " & _
-    '           "FROM [Uf de Percurso] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 3. DUPLICA LOCAL DE CARREGAMENTO ==='
- '  vgDb.Execute "INSERT INTO [Local de Carregamento] ([Sequencia do manifesto], [Codigo do ibge], " & _
-  '             "[Descrição do municipio], [Sequencia]) " & _
-        '       "SELECT " & NovaSequencia & ", [Codigo do ibge], [Descrição do municipio], [Sequencia] " & _
-       '        "FROM [Local de Carregamento] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 4. DUPLICA CONDUTORES ===
-  ' vgDb.Execute "INSERT INTO Codutores ([Sequencia do manifesto], [Cpf do condutor], [Nome do condutor]) " & _
-               "SELECT " & NovaSequencia & ", [Cpf do condutor], [Nome do condutor] " & _
-               "FROM Codutores WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 5. DUPLICA DESCARREGAMENTO NFE ==='
- '  vgDb.Execute "INSERT INTO [Descarregamento nfe] ([Sequencia do manifesto], [Codigo do ibge], " & _
-       '        "[Descrição do municipio]) " & _
-       '        "SELECT " & NovaSequencia & ", [Codigo do ibge], [Descrição do municipio] " & _
-      '         "FROM [Descarregamento nfe] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 6. DUPLICA NFE DA CARGA ===
-   'vgDb.Execute "INSERT INTO [NFe da Carga] ([Sequencia do manifesto], [Chave da NFe], [Descrição do Municipio]) " & _
-      '         "SELECT " & NovaSequencia & ", [Chave da NFe], [Descrição do Municipio] " & _
-       '        "FROM [NFe da Carga] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 7. DUPLICA DESCARREGAMENTO CTE ===
- '  vgDb.Execute "INSERT INTO [Descarregamento cte] ([Sequencia do manifesto], [Codigo do ibge], " & _
-    '           "[Descrição do municipio]) " & _
-      '         "SELECT " & NovaSequencia & ", [Codigo do ibge], [Descrição do municipio] " & _
-     '          "FROM [Descarregamento cte] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-   '=== 8. DUPLICA CTE DA CARGA ===
-  ' vgDb.Execute "INSERT INTO [CTe da Carga] ([Sequencia do manifesto], [Chave do CTe], [Descrição do Municipio]) " & _
-    '           "SELECT " & NovaSequencia & ", [Chave do CTe], [Descrição do Municipio] " & _
-        '       "FROM [CTe da Carga] WHERE [Sequencia do manifesto] = " & Sequencia_do_manifesto
-   
-  ' Screen.MousePointer = vbDefault
- '  lblProgresso.Caption = ""
-   
-   'Navega para o novo registro
-'  vgTb.FindKey "=", NovaSequencia
-'   Reposition
-   
- '  MsgBox "MDF-e duplicado com sucesso!" & vbCrLf & _
-  '        "Nova sequência: " & NovaSequencia & vbCrLf & _
-  '        "Pronto para novos testes!", vbInformation, "Duplicação Concluída"
-   
-'   Exit Sub
-   
-'ErroDuplicacao:
-'   Screen.MousePointer = vbDefault
-'   lblProgresso.Caption = ""
-'   MsgBox "Erro ao duplicar MDF-e:" & vbCrLf & _
-'          "Erro: " & Err.Description & vbCrLf & _
-'          "Linha: " & Erl, vbCritical, "Erro na Duplicação"
-'End Sub
-
-'Atualiza o label de ambiente na tela
-Private Sub AtualizaLabelAmbiente()
-   If Parametros_da_nfe!Ambiente = 0 Then
-      lblProgresso.Caption = ""
-      lblProgresso.ForeColor = &H0& 'Preto
-   Else
-      lblProgresso.Caption = "AMBIENTE EM MODO TESTE (HOMOLOGAÇÃO)"
-      lblProgresso.ForeColor = &HFF& 'Vermelho
-   End If
-End Sub
-
 Public Property Get txtCampoTab(Index As Integer) As FormataCampos
    Set txtCampoTab = txtCampo(Index)
-End Property
+End Sub
 
 'inicializa variaveis (apelidos) coms os campos correspondentes
 Private Sub InicializaApelidos(vgComOQue As Integer)
-   On Error Resume Next                           'prepara para possíveis erros
+   On Error Resume Next                           'prepara para possiveis erros
    If (vgTb.RecordCount > 0 And vgTb.EOF = False And vgTb.BOF = False) Or vgComOQue = COM_TEXTBOX Then
       If vgComOQue = COM_TEXTBOX Then
          Sequencia_do_manifesto = txtCampo(0).Value
@@ -5644,7 +4688,7 @@ Private Sub InicializaApelidos(vgComOQue As Integer)
          Tipo_documento = Val(labopcPainel6.Caption)
          Numero_do_recibo = IIf(vgSituacao = ACAO_INCLUINDO, "", vgTb![Numero do recibo])
          Chave_de_acesso = txtCampo(21).Value
-         xmlAssinado = IIf(vgSituacao = ACAO_INCLUINDO, "", vgTb!xmlAssinado)
+         XmlAssinado = IIf(vgSituacao = ACAO_INCLUINDO, "", vgTb!XmlAssinado)
          Protocolo_de_autorizacao = txtCampo(23).Value
          Data_e_hora_do_mdfe = txtCampo(22).Value
          XmlAutorizado = IIf(vgSituacao = ACAO_INCLUINDO, "", vgTb!XmlAutorizado)
@@ -5656,12 +4700,12 @@ Private Sub InicializaApelidos(vgComOQue As Integer)
          Numero_do_manifesto = IIf(IsNull(vgTb![Numero Do Manifesto]), 0, vgTb![Numero Do Manifesto])
          Data_de_emissao = vgTb![Data de emissão]
          UF = IIf(IsNull(vgTb!UF), "", vgTb!UF)
-         Tipo_de_emitente = IIf(IsNull(vgTb![Tipo de emitente]), "", vgTb![Tipo de emitente])
+         Tipo_de_emitente = IIf(IsNull(vgTb![Tipo de Emitente]), "", vgTb![Tipo de Emitente])
          Uf_de_descarregamento = IIf(IsNull(vgTb![Uf de descarregamento]), "", vgTb![Uf de descarregamento])
          Observacao = IIf(IsNull(vgTb!Observação), "", vgTb!Observação)
          Rntrc = IIf(IsNull(vgTb!Rntrc), "", vgTb!Rntrc)
          Tipo_de_carroceria = IIf(IsNull(vgTb![Tipo de carroceria]), "", vgTb![Tipo de carroceria])
-         Uf_do_veiculo = IIf(IsNull(vgTb![Uf do veiculo]), "", vgTb![Uf do veiculo])
+         Uf_do_veiculo = IIf(IsNull(vgTb![Uf Do veiculo]), "", vgTb![Uf Do veiculo])
          Tipo_de_rodado = IIf(IsNull(vgTb![Tipo de rodado]), "", vgTb![Tipo de rodado])
          Placa = IIf(IsNull(vgTb!Placa), "", vgTb!Placa)
          Tara = IIf(IsNull(vgTb!Tara), "", vgTb!Tara)
@@ -5673,7 +4717,7 @@ Private Sub InicializaApelidos(vgComOQue As Integer)
          N_da_apolice = IIf(IsNull(vgTb![N da apolice]), "", vgTb![N da apolice])
          N_averbacao = IIf(IsNull(vgTb![N averbação]), "", vgTb![N averbação])
          Tipo_de_contratante = IIf(IsNull(vgTb![Tipo de contratante]), 0, vgTb![Tipo de contratante])
-         Documento_do_contratante = IIf(IsNull(vgTb![Documento do contratante]), "", vgTb![Documento do contratante])
+         Documento_do_contratante = IIf(IsNull(vgTb![Documento Do contratante]), "", vgTb![Documento Do contratante])
          Produto_Predominante = IIf(IsNull(vgTb![Produto Predominante]), "", vgTb![Produto Predominante])
          Latitude_de_Carregamento = IIf(IsNull(vgTb![Latitude de Carregamento]), 0, vgTb![Latitude de Carregamento])
          Longitude_de_Carregamento = IIf(IsNull(vgTb![Longitude de Carregamento]), 0, vgTb![Longitude de Carregamento])
@@ -5697,8 +4741,8 @@ Private Sub InicializaApelidos(vgComOQue As Integer)
          Tipo_documento = IIf(IsNull(vgTb![Tipo documento]), 0, vgTb![Tipo documento])
          Numero_do_recibo = IIf(IsNull(vgTb![Numero do recibo]), "", vgTb![Numero do recibo])
          Chave_de_acesso = IIf(IsNull(vgTb![Chave de Acesso]), "", vgTb![Chave de Acesso])
-         xmlAssinado = IIf(IsNull(vgTb!xmlAssinado), "", vgTb!xmlAssinado)
-         Protocolo_de_autorizacao = IIf(IsNull(vgTb![Protocolo de Autorização]), "", vgTb![Protocolo de Autorização])
+         XmlAssinado = IIf(IsNull(vgTb!XmlAssinado), "", vgTb!XmlAssinado)
+         Protocolo_de_autorizacao = IIf(IsNull(vgTb![Protocolo de autorização]), "", vgTb![Protocolo de autorização])
          Data_e_hora_do_mdfe = IIf(IsNull(vgTb![Data e hora do mdfe]), "", vgTb![Data e hora do mdfe])
          XmlAutorizado = IIf(IsNull(vgTb!XmlAutorizado), "", vgTb!XmlAutorizado)
          Encerrado = IIf(IsNull(vgTb!Encerrado), 0, vgTb!Encerrado)
@@ -5706,7 +4750,7 @@ Private Sub InicializaApelidos(vgComOQue As Integer)
          Tipo_do_responsavel = IIf(IsNull(vgTb![Tipo do responsavel]), 0, vgTb![Tipo do responsavel])
       End If
    End If
-   If Err Then Err.Clear                          'se deu algum erro, vamos resetá-lo
+   If Err Then Err.Clear                          'se deu algum erro, vamos reseta-lo
 End Sub
 
 'verifica permissões para as condições especiais
@@ -6018,7 +5062,7 @@ Public Function Executar(vgOq As String, Optional ByRef vgColumn As Integer) As 
       vgTb!Proprietario = Proprietario
       vgTb![Tipo documento] = Tipo_documento
       Numero_do_recibo = IIf(IsNull(vgTb![Numero do recibo]), "", vgTb![Numero do recibo])
-      xmlAssinado = IIf(IsNull(vgTb!xmlAssinado), "", vgTb!xmlAssinado)
+      XmlAssinado = IIf(IsNull(vgTb!XmlAssinado), "", vgTb!XmlAssinado)
       XmlAutorizado = IIf(IsNull(vgTb!XmlAutorizado), "", vgTb!XmlAutorizado)
       Encerrado = IIf(IsNull(vgTb!Encerrado), 0, vgTb!Encerrado)
       vgTb![Tipo do responsavel] = Tipo_do_responsavel
@@ -6122,14 +5166,6 @@ Private Sub Form_KeyPress(KeyAscii As Integer)
    End If
    If KeyAscii = vbKeyEscape And Ok Then                                                  'se teclou ESC
       Unload Me                                   'tira este form da memória
-   End If
-End Sub
-
-'evento - quando qq tecla for pressionada no formulário
-Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
-   'Ctrl+F10 para alternar modo Produção/Homologação
-   If KeyCode = vbKeyF10 And Shift = vbCtrlMask Then
-      AlternarModoAmbiente
    End If
 End Sub
 
@@ -6352,47 +5388,6 @@ Private Sub txtCp_Change(Index As Integer)
    If vgPriVez Or txtCampo(Index).PriVez Then Exit Sub
    If Len(txtCampo(Index).DataField) > 0 Then LigaFocos Me
    InicializaApelidos COM_TEXTBOX                         'inicializa apelidos com o que esta sendo digitado
-   
-   'Formatar placa automaticamente (para colar/ctrl+v também)
-   If Index = 7 Then
-      Dim TextoAtual As String, TextoFormatado As String
-      Dim PosicaoCursor As Integer
-      TextoAtual = UCase(txtCp(7).Text)
-      PosicaoCursor = txtCp(7).SelStart
-      
-      'Remover caracteres inválidos e hífen existente para reformatar
-      TextoFormatado = ""
-      Dim i As Integer
-      For i = 1 To Len(TextoAtual)
-         Dim Char As String
-         Char = Mid(TextoAtual, i, 1)
-         If (Char >= "A" And Char <= "Z") Or (Char >= "0" And Char <= "9") Then
-            TextoFormatado = TextoFormatado + Char
-         End If
-      Next i
-      
-      'Adicionar hífen na posição correta (após 3 caracteres)
-      If Len(TextoFormatado) > 3 Then
-         TextoFormatado = Left(TextoFormatado, 3) + "-" + Mid(TextoFormatado, 4)
-      End If
-      
-      'Limitar a 8 caracteres (3 letras + hífen + 4 números)
-      If Len(TextoFormatado) > 8 Then
-         TextoFormatado = Left(TextoFormatado, 8)
-      End If
-      
-      'Atualizar campo apenas se mudou
-      If txtCp(7).Text <> TextoFormatado Then
-         txtCp(7).Text = TextoFormatado
-         'Reposicionar cursor
-         If PosicaoCursor <= Len(TextoFormatado) Then
-            txtCp(7).SelStart = PosicaoCursor
-         Else
-            txtCp(7).SelStart = Len(TextoFormatado)
-         End If
-      End If
-   End If
-   
    txtCampo(Index).Change
    If Index = 1 Or Index = 2 Or Index = 4 Or Index = 5 Or Index = 8 Or Index = 10 Or Index = 11 Or Index = 15 Or Index = 16 Or Index = 25 Or Index = 32 Or Index = 33 Or Index = 36 Or Index = 38 Then
       ExecutaVisivel
@@ -6530,36 +5525,6 @@ End Sub
 
 'evento - quando qq tecla for digitada no campo
 Private Sub txtCp_KeyPress(Index As Integer, KeyAscii As Integer)
-   'Máscara para placa de veículo (Index 7) - Suporte Mercosul e Antiga
-   If Index = 7 Then
-      'Permitir apenas letras, números e hífen
-      If Not ((KeyAscii >= 48 And KeyAscii <= 57) Or (KeyAscii >= 65 And KeyAscii <= 90) Or (KeyAscii >= 97 And KeyAscii <= 122) Or KeyAscii = 45 Or KeyAscii = 8 Or KeyAscii = 127) Then
-         KeyAscii = 0
-         Exit Sub
-      End If
-      
-      'Converter para maiúsculo
-      If KeyAscii >= 97 And KeyAscii <= 122 Then
-         KeyAscii = KeyAscii - 32
-      End If
-      
-      'Hífen automático após 3 caracteres (placa antiga)
-      If KeyAscii <> 8 And KeyAscii <> 127 And KeyAscii <> 45 Then 'Se não for backspace, delete ou hífen
-         If Len(txtCp(7).Text) = 3 And InStr(txtCp(7).Text, "-") = 0 Then
-            'Inserir hífen e posicionar cursor corretamente
-            txtCp(7).Text = txtCp(7).Text + "-"
-            txtCp(7).SelStart = 4 'Posicionar cursor logo após o hífen
-         End If
-      End If
-      
-      'Limitar caracteres: máximo 8 com hífen (ABC-1234) ou 7 sem hífen (ABC1D23)
-      If KeyAscii <> 8 And KeyAscii <> 127 Then 'Se não for backspace ou delete
-         If Len(txtCp(7).Text) >= 8 Then
-            KeyAscii = 0 'Bloquear mais caracteres
-         End If
-      End If
-   End If
-   
    txtCampo(Index).KeyPress KeyAscii
 End Sub
 
@@ -7196,7 +6161,7 @@ Public Sub DefineControles()
 
    Set txtCampo(7).CtPri = txtCp(7)
    txtCampo(7).DataType = 0
-   txtCampo(7).Mask = ""
+   txtCampo(7).Mask = "@!"
    txtCampo(7).BoundColumn = ""
    txtCampo(7).ListFields = ""
    txtCampo(7).OrderFields = ""
@@ -7659,7 +6624,7 @@ End Sub
 'evento - redefinido o tamanho do formulário
 Private Sub Form_Resize()
    AjustaPanFundo Me
-AtualizaLabelAmbiente:    MudaTamCampos Me
+   lblProgresso.Caption = IIf(Parametros_da_nfe!Ambiente = 1, "AMBIENTE EM MODO TESTE", ""): MudaTamCampos Me
 End Sub
 
 'evento - descarregando o formulário da memória
@@ -8203,8 +7168,8 @@ IniApDaCol:
 IniApDaTb:
    On Error Resume Next
    If Codutores.EOF = False And Codutores.BOF = False And Codutores.RecordCount > 0 Then
-      Nome_condutor = Codutores![Nome condutor]
-      Cpf_condutor = Codutores![Cpf condutor]
+      Nome_condutor = Codutores![Nome Condutor]
+      Cpf_condutor = Codutores![Cpf Condutor]
    End If
    If Err Then Err.Clear
    On Error GoTo DeuErro
@@ -8776,10 +7741,6 @@ Private Sub Botao_Click(Index As Integer)
          AbreCancelamento
       Case 2
          AbreEncerramento
-      Case 3
-         TesteACBr
-    '  Case 4
-      '   DuplicarMDFe
    End Select
 End Sub
 
@@ -8889,166 +7850,295 @@ Private Sub bottxtCampo4_Click(Index As Integer)
    txtCampo(4).BotClick Index
 End Sub
 
+'==============================================================================
+' MIGRAÇÃO MDFE - ETAPA 1: TESTE DA FUNÇÃO SuperMDFe()
+' Vamos testar APENAS a geração do XML usando ACBr ao invés do FlexDocs
+'==============================================================================
+
+Private Sub SuperMDFe_Teste()
+  'TESTE ETAPA 1 - Substitui apenas a geracao do XML
+  Dim TbEmitente As New GRecordSet
+  Dim m_ACBrMDFe As ACBrMDFe
+  Dim caminhoINI As String
+  Dim xmlGerado As String
+  Dim Arq As Long
+  Dim Chave_MDFe As String
+  
+  On Error GoTo DeuErro
+  
+  ' Informar que estamos testando
+  vgTb.Edit
+  If Vazio(vgTb!Observação) Then
+     vgTb!Observação = "TESTE ETAPA 1 - Gerando XML com ACBr..."
+  Else
+     vgTb!Observação = vgTb!Observação & vbCrLf & "TESTE ETAPA 1 - Gerando XML com ACBr..."
+  End If
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  
+  ' TESTE 1: INICIALIZAR ACBr
+  Screen.MousePointer = vbHourglass
+  lblProgresso.Caption = "TESTE - Inicializando ACBr..."
+  
+  ' Diagnostico: Verificar caminho
+  Debug.Print "=== TESTE MDFe ACBr ==="
+  Debug.Print "App.Path = " & App.path
+  vgTb.Edit
+  vgTb!Observação = vgTb!Observação & vbCrLf & "App.Path = " & App.path
+  vgTb.Update
+  
+  ' Verificar se arquivo INI existe
+  Debug.Print "Procurando INI em: " & App.path & "\ACBrLibMDFe.ini"
+  If Dir(App.path & "\ACBrLibMDFe.ini") = "" Then
+     Debug.Print "ERRO: INI nao encontrado!"
+     MsgBox "ERRO: ACBrLibMDFe.ini nao encontrado em: " & App.path & "\", vbCritical, vaTitulo
+     GoTo SaiDaSub
+  End If
+  Debug.Print "INI encontrado OK"
+  
+  Debug.Print "=== TENTATIVA COM DLL ST/StdCall ==="
+  Debug.Print "Substituida DLL MT/StdCall por ST/StdCall (Single-threaded)"
+  Debug.Print "Verificando se a DLL existe fisicamente..."
+  
+  ' Verificar se DLL existe
+  If Dir(App.path & "\ACBrMDFe32.dll") = "" Then
+     Debug.Print "ERRO: ACBrMDFe32.dll nao encontrada no diretorio!"
+     MsgBox "ERRO: ACBrMDFe32.dll nao foi encontrada!", vbCritical, vaTitulo
+     GoTo SaiDaSub
+  End If
+  Debug.Print "DLL ST/StdCall encontrada OK"
+  
+  ' Verificar dependencias
+  Debug.Print "Verificando dependencias..."
+  Debug.Print "libxml2.dll: " & IIf(Dir(App.path & "\libxml2.dll") <> "", "OK", "FALTANDO")
+  Debug.Print "libssl-1_1.dll: " & IIf(Dir(App.path & "\libssl-1_1.dll") <> "", "OK", "FALTANDO")
+  Debug.Print "libcrypto-1_1.dll: " & IIf(Dir(App.path & "\libcrypto-1_1.dll") <> "", "OK", "FALTANDO")
+  
+  Debug.Print "Criando instancia ACBr..."
+  Set m_ACBrMDFe = CreateMDFe()
+  If m_ACBrMDFe Is Nothing Then
+     Debug.Print "ERRO: Instancia ACBr = Nothing"
+     MsgBox "ERRO: Nao foi possivel criar instancia do ACBr!", vbCritical, vaTitulo
+     GoTo SaiDaSub
+  End If
+  Debug.Print "Instancia ACBr criada OK"
+  
+  ' Agora que a DLL ST/StdCall funciona, tentar inicializar
+  On Error Resume Next
+  Debug.Print "Tentando inicializar com DLL ST/StdCall..."
+  Call m_ACBrMDFe.InicializarLib("", "")
+  If Err.Number <> 0 Then
+     Debug.Print "ERRO na inicializacao ST/StdCall: " & Err.Number & " - " & Err.Description
+     ' Se der erro, continuar sem inicializar mas alertar
+     Debug.Print "CONTINUANDO SEM INICIALIZACAO - pode dar problemas nos métodos"
+     Err.Clear
+  Else
+     Debug.Print "SUCESSO: Biblioteca ST/StdCall inicializada OK!"
+  End If
+  On Error GoTo DeuErro
+  
+  vgTb.Edit
+  vgTb!Observação = vgTb!Observação & vbCrLf & "OK - ACBr inicializado com sucesso"
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  
+  ' TESTE 2: GERAR ARQUIVO INI
+  Debug.Print "=== TESTE 2: GERAR ARQUIVO INI ==="
+  lblProgresso.Caption = "TESTE - Gerando arquivo INI..."
+  
+  ' Definir caminho do INI
+  caminhoINI = App.path & "\Temp\MDFe_Teste_" & Format(Now, "yyyymmdd_hhnnss") & ".ini"
+  Debug.Print "Caminho INI: " & caminhoINI
+  
+  ' Criar diretorio se nao existir
+  If Dir(App.path & "\Temp\", vbDirectory) = "" Then
+     Debug.Print "Criando diretorio Temp..."
+     MkDir App.path & "\Temp\"
+  End If
+  Debug.Print "Diretorio Temp OK"
+  
+  ' Obter dados do emitente
+  Debug.Print "Buscando emitente ID: " & Codigo_do_emitente
+  Set TbEmitente = vgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
+  Debug.Print "Emitente encontrado: " & TbEmitente![Razão social]
+  
+  ' Gerar chave simples para teste
+  Chave_MDFe = "35" & Format(Now, "yymm") & Replace(Replace(Replace(TbEmitente!Cnpj, ".", ""), "/", ""), "-", "") & "58001" & Format(vgTb![Numero Do Manifesto], "000000000") & "1" & "12345678" & "0"
+  Debug.Print "Chave gerada: " & Chave_MDFe
+  
+  ' Criar INI basico para teste com data em formato correto
+  Dim dataHoraEmissao As String
+  dataHoraEmissao = Format(Now, "dd/mm/yyyy hh:nn:ss")
+  Debug.Print "Data/Hora para INI: " & dataHoraEmissao
+  
+  Debug.Print "Criando arquivo INI..."
+  Debug.Print "Parametros CriarMDFeINI:"
+  Debug.Print "  Arquivo: " & caminhoINI
+  Debug.Print "  UF: 35"
+  Debug.Print "  Ambiente: " & IIf(Parametros_da_nfe!Ambiente = 0, "1", "2")
+  Debug.Print "  Tipo Emitente: " & IIf(vgTb![Tipo de Emitente] = "Prestador de Serviço de Transporte", "1", "2")
+  Debug.Print "  Data/Hora: " & dataHoraEmissao
+  
+  Call CriarMDFeINI(caminhoINI, "35", IIf(Parametros_da_nfe!Ambiente = 0, "1", "2"), IIf(vgTb![Tipo de Emitente] = "Prestador de Serviço de Transporte", "1", "2"), "1", "58", "1", CStr(vgTb![Numero Do Manifesto]), "12345678", "0", "1", dataHoraEmissao, "1", "0", "DELLALIO MDF-E", vgTb!UF, vgTb![Uf de descarregamento], "")
+  Debug.Print "CriarMDFeINI executado"
+  
+  ' Adicionar emitente
+  Debug.Print "Adicionando emitente ao INI..."
+  Call AdicionarEmitente(caminhoINI, Replace(Replace(Replace(TbEmitente!Cnpj, ".", ""), "/", ""), "-", ""), TbEmitente!IE, TbEmitente![Razão social], TbEmitente![Nome fantasia], TbEmitente!Logradouro, TbEmitente!Nro, TbEmitente!Complemento, TbEmitente!Bairro, CStr(TbEmitente![Codigo do ibge]), TbEmitente!municipio, Replace(Replace(TbEmitente!Cep, "-", ""), ".", ""), TbEmitente!UF, Replace(Replace(Replace(Replace(TbEmitente!Fone, "(", ""), ")", ""), "-", ""), " ", ""), TbEmitente!Email)
+  Debug.Print "AdicionarEmitente executado"
+  
+  ' Verificar se o arquivo INI foi criado
+  If Dir(caminhoINI) = "" Then
+     Debug.Print "ERRO: Arquivo INI nao foi criado!"
+     MsgBox "ERRO: Arquivo INI nao foi criado!", vbCritical, vaTitulo
+     GoTo SaiDaSub
+  End If
+  Debug.Print "Arquivo INI criado com sucesso"
+  
+  vgTb.Edit
+  vgTb!Observação = vgTb!Observação & vbCrLf & "OK - Arquivo INI criado"
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  
+  ' TESTE 3: CARREGAR INI NO ACBr
+  Debug.Print "=== TESTE 3: CARREGAR INI NO ACBr ==="
+  lblProgresso.Caption = "TESTE - Carregando INI no ACBr..."
+  Debug.Print "Limpando lista existente..."
+  
+  Call m_ACBrMDFe.LimparLista
+  Debug.Print "Lista limpa OK"
+  
+  Debug.Print "Carregando INI no ACBr: " & caminhoINI
+  Call m_ACBrMDFe.CarregarINI(caminhoINI)
+  Debug.Print "INI carregado no ACBr OK"
+  
+  vgTb.Edit
+  vgTb!Observação = vgTb!Observação & vbCrLf & "OK - INI carregado no ACBr"
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  
+  ' TESTE 4: GERAR XML
+  Debug.Print "=== TESTE 4: GERAR XML ==="
+  lblProgresso.Caption = "TESTE - Gerando XML..."
+  Debug.Print "Iniciando processo de assinatura..."
+  
+  Call m_ACBrMDFe.Assinar
+  Debug.Print "Assinatura concluida OK"
+  
+  Debug.Print "Obtendo XML gerado (indice 0)..."
+  xmlGerado = m_ACBrMDFe.ObterXml(0)
+  Debug.Print "XML obtido - Tamanho: " & Len(xmlGerado) & " caracteres"
+  
+  If Len(xmlGerado) < 100 Then
+     Debug.Print "ERRO: XML muito pequeno - possivel falha na geracao"
+     MsgBox "ERRO: XML gerado parece estar vazio ou incorreto!", vbCritical, vaTitulo
+     GoTo SaiDaSub
+  End If
+  Debug.Print "XML gerado com sucesso - tamanho validado OK"
+  
+  vgTb.Edit
+  vgTb!Observação = vgTb!Observação & vbCrLf & "OK - XML gerado com sucesso (" & Len(xmlGerado) & " caracteres)"
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  
+  ' TESTE 5: SALVAR XML NO BANCO
+  Debug.Print "=== TESTE 5: SALVAR XML NO BANCO ==="
+  Debug.Print "Editando registro do manifesto..."
+  vgTb.Edit
+  
+  Debug.Print "Salvando chave de acesso: " & Chave_MDFe
+  vgTb![Chave de Acesso] = Chave_MDFe
+  
+  Debug.Print "Salvando XML assinado (" & Len(xmlGerado) & " chars)..."
+  vgTb!XmlAssinado = xmlGerado
+  
+  vgTb!Observação = vgTb!Observação & vbCrLf & "OK - TESTE ETAPA 1 CONCLUIDO COM SUCESSO!"
+  Debug.Print "Atualizando registro..."
+  vgTb.Update
+  vgTb.BookMark = vgTb.LastModified
+  Debug.Print "Registro atualizado no banco OK"
+  
+  ' Salvar XML em arquivo para verificacao
+  Debug.Print "Salvando XML em arquivo para verificacao..."
+  Dim nomeArquivoXML As String
+  nomeArquivoXML = App.path & "\Temp\MDFe_Teste_XML_" & Format(Now, "yyyymmdd_hhnnss") & ".xml"
+  Debug.Print "Nome do arquivo XML: " & nomeArquivoXML
+  
+  Arq = FreeFile
+  Debug.Print "Handle do arquivo: " & Arq
+  Open nomeArquivoXML For Output As #Arq
+  Print #Arq, xmlGerado
+  Close #Arq
+  Debug.Print "Arquivo XML salvo com sucesso"
+  
+  Debug.Print "=== TESTE CONCLUIDO COM SUCESSO ==="
+  MsgBox "TESTE ETAPA 1 CONCLUIDO!" & vbCrLf & vbCrLf & "OK - ACBr inicializado" & vbCrLf & "OK - INI gerado" & vbCrLf & "OK - XML criado (" & Len(xmlGerado) & " chars)" & vbCrLf & "OK - Dados salvos no banco" & vbCrLf & vbCrLf & "Proximo passo: testar transmissao", vbInformation, vaTitulo
+  Debug.Print "Mensagem de sucesso exibida - indo para limpeza"
+  GoTo SaiDaSub
+         
+DeuErro:
+  Debug.Print "=== TRATAMENTO DE ERRO ==="
+  If Err <> 0 Then
+     Debug.Print "ERRO CAPTURADO:"
+     Debug.Print "  Numero: " & Err.Number
+     Debug.Print "  Descricao: " & Err.Description
+     Debug.Print "  Source: " & Err.Source
+     Debug.Print "  HelpContext: " & Err.HelpContext
+     
+     MsgBox "ERRO no teste: " & Err.Description, vbCritical + vbOKOnly, vaTitulo
+     
+     Debug.Print "Salvando erro nas observacoes..."
+     vgTb.Edit
+     vgTb!Observação = vgTb!Observação & vbCrLf & "ERRO: " & Err.Description
+     vgTb.Update
+     vgTb.BookMark = vgTb.LastModified
+     Debug.Print "Erro salvo nas observacoes OK"
+  Else
+     Debug.Print "Nenhum erro pendente"
+  End If
+   
+SaiDaSub:
+  Debug.Print "=== LIMPEZA E FINALIZACAO ==="
+  Debug.Print "Liberando objetos..."
+  
+  ' Limpeza
+  If Not m_ACBrMDFe Is Nothing Then
+     Set m_ACBrMDFe = Nothing
+     Debug.Print "Objeto m_ACBrMDFe liberado OK"
+  End If
+  
+  If Not TbEmitente Is Nothing Then
+     Set TbEmitente = Nothing
+     Debug.Print "Objeto TbEmitente liberado OK"
+  End If
+  
+  ' Limpar arquivo INI temporario APENAS se nao houve erro
+  Debug.Print "Verificando arquivo INI temporario..."
+  If Dir(caminhoINI) <> "" Then
+     ' Se houve erro, manter arquivo para analise
+     If Err.Number <> 0 Then
+        Debug.Print "MANTENDO arquivo INI para analise: " & caminhoINI
+     Else
+        Debug.Print "Excluindo arquivo INI: " & caminhoINI
+        Kill caminhoINI
+        Debug.Print "Arquivo INI excluido OK"
+     End If
+  Else
+     Debug.Print "Arquivo INI nao encontrado para exclusao"
+  End If
+  
+  Debug.Print "Restaurando cursor e interface..."
+  Screen.MousePointer = vbDefault
+  lblProgresso.Caption = IIf(Parametros_da_nfe!Ambiente = 0, "", "AMBIENTE EM MODO TESTE")
+  Debug.Print "SuperMDFe_Teste FINALIZADO"
+End Sub
 
 'evento - quando o mouse for pressionado sobre o campo
 Private Sub txtCp_MouseDown(Index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
    txtCampo(Index).MouseDown
 End Sub
 
-' ===================================================================
-' FUNÇÃO DE TESTE ACBr - MIGRAÇÃO FLEXDOCS PARA ACBR
-' ===================================================================
-Private Sub TesteACBr()
-    On Error GoTo ErroTesteACBr
-    
-    Dim resultado As Long
-    Dim buffer As String
-    Dim caminhoConfig As String
-    Dim mensagem As String
-    Dim statusServico As Long
-    
-    ' Caminho do arquivo de configuração
-    caminhoConfig = App.Path & "\ACBrLibMDFe.ini"
-    
-    ' Verificar se arquivo de configuração existe
-    If Dir(caminhoConfig) = "" Then
-        MsgBox "ERRO: Arquivo de configuração não encontrado!" & vbCrLf & _
-               "Procurando em: " & caminhoConfig, vbCritical, "Erro - Teste ACBr"
-        Exit Sub
-    End If
-    
-    mensagem = "=== TESTE ACBrLibMDFe ===" & vbCrLf & vbCrLf
-    
-    ' 1. TESTE DE INICIALIZAÇÃO
-    mensagem = mensagem & "1. Testando inicialização..." & vbCrLf
-    resultado = MDFE_Inicializar(caminhoConfig, "")
-    
-    If resultado = 0 Then
-        mensagem = mensagem & "   [OK] ACBr inicializada com SUCESSO!" & vbCrLf
-        m_ACBrInicializada = True
-    Else
-        buffer = String(8192, vbNullChar)
-        Call MDFE_UltimoRetorno(buffer, Len(buffer))
-        mensagem = mensagem & "   [ERRO] ERRO na inicialização: " & resultado & vbCrLf
-        mensagem = mensagem & "   Detalhes: " & Trim(buffer) & vbCrLf
-        GoTo MostrarResultado
-    End If
-    
-    ' 2. TESTE DE CONFIGURAÇÃO
-    mensagem = mensagem & vbCrLf & "2. Testando configurações..." & vbCrLf
-    
-    ' Configurar UF
-    resultado = MDFE_ConfigGravarValor("DFe", "UF", "SP")
-    If resultado = 0 Then
-        mensagem = mensagem & "   [OK] UF configurada: SP" & vbCrLf
-    Else
-        mensagem = mensagem & "   [ERRO] Erro ao configurar UF" & vbCrLf
-    End If
-    
-    ' Configurar Ambiente (Homologação para teste)
-    resultado = MDFE_ConfigGravarValor("DFe", "Ambiente", "2")
-    If resultado = 0 Then
-        mensagem = mensagem & "   [OK] Ambiente configurado: Homologação" & vbCrLf
-    Else
-        mensagem = mensagem & "   [ERRO] Erro ao configurar ambiente" & vbCrLf
-    End If
-    
-    ' 3. TESTE DE LEITURA DE CONFIGURAÇÃO
-    mensagem = mensagem & vbCrLf & "3. Testando leitura de configurações..." & vbCrLf
-    
-    buffer = String(256, vbNullChar)
-    resultado = MDFE_ConfigLerValor("DFe", "UF", buffer, Len(buffer))
-    If resultado > 0 Then
-        mensagem = mensagem & "   [OK] UF lida: " & Left(buffer, resultado) & vbCrLf
-    Else
-        mensagem = mensagem & "   [ERRO] Erro ao ler UF" & vbCrLf
-    End If
-    
-    buffer = String(256, vbNullChar)
-    resultado = MDFE_ConfigLerValor("DFe", "Ambiente", buffer, Len(buffer))
-    If resultado > 0 Then
-        mensagem = mensagem & "   [OK] Ambiente lido: " & Left(buffer, resultado) & vbCrLf
-    Else
-        mensagem = mensagem & "   [ERRO] Erro ao ler Ambiente" & vbCrLf
-    End If
-    
-    ' 4. TESTE DE STATUS DO SERVIÇO (apenas se não estiver em produção)
-    mensagem = mensagem & vbCrLf & "4. Testando conectividade..." & vbCrLf
-    
-    ' Avisar que vai testar conectividade
-    mensagem = mensagem & "   Consultando status do webservice..." & vbCrLf
-    
-    statusServico = MDFE_StatusServico()
-    If statusServico = 0 Then
-        buffer = String(8192, vbNullChar)
-        Call MDFE_UltimoRetorno(buffer, Len(buffer))
-        mensagem = mensagem & "   [OK] Webservice respondeu!" & vbCrLf
-        mensagem = mensagem & "   Resposta: " & Left(Trim(buffer), 200) & "..." & vbCrLf
-    Else
-        buffer = String(8192, vbNullChar)
-        Call MDFE_UltimoRetorno(buffer, Len(buffer))
-        mensagem = mensagem & "   [AVISO] Problema na conectividade (normal se nao tiver certificado)" & vbCrLf
-        mensagem = mensagem & "   Detalhes: " & Left(Trim(buffer), 200) & "..." & vbCrLf
-    End If
-    
-    ' 5. FINALIZAR TESTE
-    Call MDFE_Finalizar
-    m_ACBrInicializada = False
-    
-    mensagem = mensagem & vbCrLf & "5. Finalizando..." & vbCrLf
-    mensagem = mensagem & "   [OK] ACBr finalizada com sucesso!" & vbCrLf
-    
-    mensagem = mensagem & vbCrLf & "=== RESULTADO FINAL ===" & vbCrLf
-    mensagem = mensagem & "[OK] Biblioteca ACBr esta FUNCIONANDO!" & vbCrLf
-    mensagem = mensagem & "[OK] Configurações carregadas corretamente!" & vbCrLf
-    mensagem = mensagem & "[OK] Sistema pronto para migração!" & vbCrLf
 
-MostrarResultado:
-    ' Mostrar resultado em uma caixa com scroll
-    MsgBox mensagem, vbInformation, "Teste ACBrLibMDFe - Resultado"
-    
-    Exit Sub
-
-ErroTesteACBr:
-    ' Garantir finalização em caso de erro
-    If m_ACBrInicializada Then
-        Call MDFE_Finalizar
-        m_ACBrInicializada = False
-    End If
-    
-    MsgBox "ERRO CRÍTICO no teste ACBr:" & vbCrLf & _
-           "Erro: " & Err.Number & vbCrLf & _
-           "Descrição: " & Err.Description & vbCrLf & vbCrLf & _
-           "Verifique se:" & vbCrLf & _
-           "- A DLL ACBrMDFe32.dll está na pasta do sistema" & vbCrLf & _
-           "- O arquivo ACBrLibMDFe.ini existe" & vbCrLf & _
-           "- As dependências estão instaladas", vbCritical, "Erro - Teste ACBr"
-End Sub
-
-' Função auxiliar para obter último retorno da ACBr
-Private Function ObterUltimoRetornoACBr() As String
-    Dim buffer As String
-    Dim tamanho As Long
-    
-    buffer = String(8192, vbNullChar)
-    tamanho = MDFE_UltimoRetorno(buffer, Len(buffer))
-    
-    If tamanho > 0 Then
-        ObterUltimoRetornoACBr = Left(buffer, tamanho)
-    Else
-        ObterUltimoRetornoACBr = ""
-    End If
-End Function
-' ===================================================================
-
-
-
-
-
-
-
-
-
-
+'teste 1'
 
 

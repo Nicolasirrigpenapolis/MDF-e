@@ -1,0 +1,28 @@
+MDFE_ConfigGravar
+Método usado para gravar a configuração da biblioteca no arquivo INI informado.
+
+
+
+Comando: MDFE_ConfigGravar([eArqConfig]);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+eArqConfig
+
+String
+
+Sim
+
+Arquivo INI para ler, se informado vazio será usado o valor padrão.

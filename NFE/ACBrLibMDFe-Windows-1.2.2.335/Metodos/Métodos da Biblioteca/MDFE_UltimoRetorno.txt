@@ -1,0 +1,42 @@
+MDFE_UltimoRetorno
+Método usado retornar o ultimo retorno processado pela biblioteca.
+
+
+
+Este método necessita ser chamado caso a string seja menor que o retorno ou para retornar a descrição do erro.
+
+
+
+Comando: MDFE_UltimoRetorno(sMensagem, ref esTamanho);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+sMensagem
+
+String
+
+Não
+
+String com tamanho predefinido para que a mesma possa ser preenchida com o valor de retorno, mais informações em Como trabalhar com Strings?.
+
+02
+
+esTamanho
+
+Integer
+
+Não
+
+Tamanho da string, inteiro que determina o tamanho da string passada no primeiro parâmetro, mais informações em Como trabalhar com Strings ?. 

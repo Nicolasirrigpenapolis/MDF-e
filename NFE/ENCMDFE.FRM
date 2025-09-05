@@ -200,7 +200,7 @@ Begin VB.Form frmEncMDFe
             StrikeThrough            =   0
          EndProperty
          ForeColor                =   &H80000008
-         Caption                  =   "* Município.........:"
+         Caption                  =   "* Munic?pio.........:"
          Index                    =   2 
       End
       Begin VB.Label labFdo2
@@ -333,34 +333,34 @@ Attribute VB_Creatable = False
 Attribute VB_Exposed = False
 '* Sistema...: Emissor de MDF-e (Layout 3.00)
 '* Empresa...: Ygor Eduardo Dellalio
-'* Módulo....: EncMDFe
-'* Função....: Encerra Manifesto
+'* M?dulo....: EncMDFe
+'* Fun??o....: Encerra Manifesto
 '* CopyRight.: (C)2024 Ygor Eduardo Dellalio
-'* Criação...: GAS-2007 - Gerador Automático de Sistemas
+'* Cria??o...: GAS-2007 - Gerador Autom?tico de Sistemas
 '* Data......: 10/05/2024 15:57:38
 '* * * * * * *
 
 Option Explicit
 DefInt A-Z
 
-Public vgSituacao As Integer                      'situação de edição que do módulo
-Public vgCaracteristica As Integer                'caracteristica do módulo
-Public vgTipo As Integer                          'tipo do módulo
-Public vgPriVez As Integer                        'flag de carregamento do módulo  
-Public vgFormID As Long                           'identificador único para o módulo 
-Public vgIdentTab As String                       'nome da tabela principal do módulo 
-Public vgEmBrowse As Integer                      'flag se o módulo esta em grade 
-Public vgTemFiltro As Integer                     'flag se tem ou não filtro no módulo
-Public vgCancelou As Integer                      'flag cancela ou nao o processo do módulo  
-Public vgQueryAtual As String                     'expressão SQL definada para o módulo 
+Public vgSituacao As Integer                      'situa??o de edi??o que do m?dulo
+Public vgCaracteristica As Integer                'caracteristica do m?dulo
+Public vgTipo As Integer                          'tipo do m?dulo
+Public vgPriVez As Integer                        'flag de carregamento do m?dulo  
+Public vgFormID As Long                           'identificador ?nico para o m?dulo 
+Public vgIdentTab As String                       'nome da tabela principal do m?dulo 
+Public vgEmBrowse As Integer                      'flag se o m?dulo esta em grade 
+Public vgTemFiltro As Integer                     'flag se tem ou n?o filtro no m?dulo
+Public vgCancelou As Integer                      'flag cancela ou nao o processo do m?dulo  
+Public vgQueryAtual As String                     'express?o SQL definada para o m?dulo 
 
-Public vgFP As New frmPreview                     'formuário de preview do relatório 
-Public vgTooltips As New cTooltips                'classe de ajuda para os controes do módulo
-Public vgFG As frmGauge                           'formulário do gauge 
-Public vgQReg As Long                             'quantidade de já feira para o gauge  
+Public vgFP As New frmPreview                     'formu?rio de preview do relat?rio 
+Public vgTooltips As New cTooltips                'classe de ajuda para os controes do m?dulo
+Public vgFG As frmGauge                           'formul?rio do gauge 
+Public vgQReg As Long                             'quantidade de j? feira para o gauge  
 
-Dim txtCampo(2) As New FormataCampos              'classe dos compos tipo texto do módulo  
-Dim vgPodeFazerUnLoad As Boolean                  'flag se o módulo pode ou nao ser removido da memória
+Dim txtCampo(2) As New FormataCampos              'classe dos compos tipo texto do m?dulo  
+Dim vgPodeFazerUnLoad As Boolean                  'flag se o m?dulo pode ou nao ser removido da mem?ria
 Dim Nota As Double, CodigoIbge As String, UfTermina As String
 Public lblAjuste As Object, txtNota As Object
 
@@ -374,26 +374,26 @@ Private Sub EncerraMDFe()
    On Error GoTo DeuErro
    
    If CodigoIbge = "" Then
-      MsgBox("Informe o Município de Encerramento")
+      MsgBox("Informe o Munic?pio de Encerramento")
       Exit Sub
    End If
  
    Set Manifesto = vgDb.OpenRecordSet("SELECT * FROM Manifesto WHERE [Sequencia do Manifesto] = " & Nota)
    Set Emitente = VgDb.OpenRecordSet("SELECT * From [Emitentes MDFe] WHERE [Sequencia do Emitente] = " & Manifesto![Codigo Do Emitente])
-   NomeEmitente = UCASE(Mid(Emitente![Razão Social],1,5))
+   NomeEmitente = UCASE(Mid(Emitente![Raz?o Social],1,5))
  
    siglaWS = "RS"
  
-   If Parametros_da_NFe!ambiente = 0 Then 'Produção
+   If Parametros_da_NFe!ambiente = 0 Then 'Produ??o
       Ambiente = 1
-   Else 'Homologação
+   Else 'Homologa??o
       Ambiente = 2
    End If
    
    Certificado = Emitente![Certificado Digital]
    Versao = "3.00"
    ChaveMDFe = Manifesto![Chave de Acesso]
-   nProtocolo = Manifesto![Protocolo de Autorização]
+   nProtocolo = Manifesto![Protocolo de Autoriza??o]
    dtEnc = Format$(Now,"yyyy-mm-dd")
    cUFEnc = Mid(CodigoIbge,1,2)
    cMunEnc = CodigoIbge
@@ -403,16 +403,37 @@ Private Sub EncerraMDFe()
    Usuario = ""
    Senha = ""
    
-   Set objMDFEUtil = CreateObject("MDFe_Util.Util")
+   ' Criando instância da classe ACBrMDFe
+   Dim m_ACBrMDFe As ACBrMDFe
+   Set m_ACBrMDFe = CreateMDFe(App.Path & "\ACBrLibMDFe.ini", "")
    
-   EventoMDFe = objMDFEUtil.EncerraMDFe(siglaWS, Ambiente, Certificado, versao, msgDados, msgRetWS, Resultado, msgResultado, ChaveMDFe, nProtocolo, dtEnc, cUFEnc, cMunEnc, dataEvento, nProtocoloEnc, dProtocoloEnc, Proxy, Usuario, Senha, Licenca)
+   'Configurando ACBr para encerramento
+   m_ACBrMDFe.ConfigGravarValor "DFe", "UF", siglaWS
+   m_ACBrMDFe.ConfigGravarValor "DFe", "AmbienteDFe", CStr(Ambiente)
+   m_ACBrMDFe.ConfigGravarValor "DFe", "ArquivoPFX", Certificado
+   m_ACBrMDFe.ConfigGravarValor "MDFe", "Versao", versao
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Servidor", Proxy
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Usuario", Usuario
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Senha", Senha
+   
+   'Encerrando MDFe via ACBr
+   EventoMDFe = m_ACBrMDFe.EncerrarMDFe(ChaveMDFe, dtEnc, cMunEnc, Emitente!Cnpj, nProtocolo)
+   
+   ' Parse do retorno para verificar resultado
+   If InStr(EventoMDFe, "135") > 0 Then
+      Resultado = 135
+      msgResultado = "MDFe encerrado com sucesso"
+   Else
+      Resultado = 0
+      msgResultado = "Erro no encerramento: " & EventoMDFe
+   End If
    
    With Manifesto
       .Edit
-      If Vazio(!Observação) Then
-         !Observação = "Encerrando MDFe..."
+      If Vazio(!Observa??o) Then
+         !Observa??o = "Encerrando MDFe..."
       Else
-         !Observação = !Observação & vbCrLf & "Encerrando MDFe..."
+         !Observa??o = !Observa??o & vbCrLf & "Encerrando MDFe..."
       End If
       .Update
       .BookMark = .LastModified
@@ -421,30 +442,30 @@ Private Sub EncerraMDFe()
    If Resultado = 135 Then    
       With Manifesto
          .Edit
-         !Observação = !Observação & vbCrLf & "MDFe Encerrado com Sucesso!!!"
+         !Observa??o = !Observa??o & vbCrLf & "MDFe Encerrado com Sucesso!!!"
          !Encerrado = True
          .Update
          .BookMark = .LastModified
       End With
     'Salvando o xml...
       Arq = FreeFile
-      If Parametros_da_NFe!ambiente = 0 Then 'Produção
-         Open Parametros_da_NFe![Diretorio 1 NFe Produção] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ENCERRADO.xml" For Append As #Arq
+      If Parametros_da_NFe!ambiente = 0 Then 'Produ??o
+         Open Parametros_da_NFe![Diretorio 1 NFe Produ??o] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ENCERRADO.xml" For Append As #Arq
             Print #Arq, EventoMDFe
          Close #Arq
-      Else 'Homologação
-         Open Parametros_da_NFe![Diretorio 1 NFe Homologação] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ENCERRADO.xml" For Append As #Arq
+      Else 'Homologa??o
+         Open Parametros_da_NFe![Diretorio 1 NFe Homologa??o] & NomeEmitente & Format(Manifesto![Numero Do Manifesto], "000000") & "_ENCERRADO.xml" For Append As #Arq
             Print #Arq, EventoMDFe
          Close #Arq
       End If
       MsgBox "Manifesto Encerrado com Sucesso!!!", vbInformation + vbOKOnly, vaTitulo 'Suuuuuceeeeesssssoooo
       GoTo SaiDaSub
    Else
-      MsgBox msgResultado, vbCritical + vbOKOnly, "Atenção: Encerramento do MDFe Falhou"
+      MsgBox msgResultado, vbCritical + vbOKOnly, "Aten??o: Encerramento do MDFe Falhou"
       'Historico
       With Manifesto
          .Edit
-         !Observação = !Observação & vbCrLf & "Erro ao Encerrar MDFe: " & msgResultado
+         !Observa??o = !Observa??o & vbCrLf & "Erro ao Encerrar MDFe: " & msgResultado
          .Update
          .BookMark = .LastModified
       End With
@@ -459,7 +480,7 @@ Private Sub EncerraMDFe()
    End If
    
    SaiDaSub:
-   Set objMDFeUtil = Nothing
+   Set m_ACBrMDFe = Nothing
    Screen.MousePointer = vbDefault ' normal
    lblProgresso.Caption = ""
    frmMDFe.Show
@@ -473,11 +494,11 @@ End Sub
 
 'inicializa variaveis (apelidos) coms os campos correspondentes
 Private Sub InicializaApelidos(vgComOQue As Integer)
-   On Error Resume Next                           'prepara para possíveis erros
+   On Error Resume Next                           'prepara para poss?veis erros
    Nota = txtCampo(0).Value
    CodigoIbge = txtCampo(1).Value
    UfTermina = txtCampo(2).Value
-   If Err Then Err.Clear                          'se deu algum erro, vamos resetá-lo
+   If Err Then Err.Clear                          'se deu algum erro, vamos reset?-lo
 End Sub
 
 'poe relacionamento e filtro na lista externa (combobox)
@@ -486,20 +507,20 @@ Private Sub PoeRelEFiltroCbo(Index As Integer)
    Select Case Index
       Case 1
          txtCampo(1).Filter = "([Sequencia do municipio] > " & 0 & ") AND Inativo = " & 0 & ""
-                           txtCampo(1).PesqSQLExpression = "SELECT Municipios.[Sequencia do municipio], Municipios.[Descrição do municipio], Municipios.Uf, Municipios.[Codigo do ibge] FROM Municipios WHERE (Municipios.[Sequencia do municipio] > " + CStr(0) + ") AND " + _
+                           txtCampo(1).PesqSQLExpression = "SELECT Municipios.[Sequencia do municipio], Municipios.[Descri??o do municipio], Municipios.Uf, Municipios.[Codigo do ibge] FROM Municipios WHERE (Municipios.[Sequencia do municipio] > " + CStr(0) + ") AND " + _
                                                               "(Municipios.Inativo = " + CStr(0) + ")"
       Case 2
          txtCampo(2).Filter = "[Codigo do ibge] = " & CodigoIbge & ""
    End Select
 End Sub
 
-'executa processos/validacoes nos campos do formuário
+'executa processos/validacoes nos campos do formu?rio
 Public Function Executar(vgOq As String) As String
    Dim vgMsg As String, vgOk As Integer, vgNVez As Integer
    On Error Goto DeuErro                          'fica na espera de um erro...
    vgMsg$ = ""                                    'retorna uma msg dizendo o motivo
-   vgOk = True                                    'se a validação esta OK
-   vgNVez = 0                                     'porque não fez o processo/validacoes
+   vgOk = True                                    'se a valida??o esta OK
+   vgNVez = 0                                     'porque n?o fez o processo/validacoes
    If vgOq = INICIALIZACOES Then
       InicializaApelidos COM_TEXTBOX
       On Error Resume Next
@@ -507,31 +528,31 @@ Public Function Executar(vgOq As String) As String
       InicializaApelidos COM_REGISTRO
       ExecutaVisivel
    End If
-   Executar = vgMsg$                              'prepara saida da função
+   Executar = vgMsg$                              'prepara saida da fun??o
    Exit Function                                  'e cai fora...
 
 DeuErro:
    Select Case Err                                'vamos verificar se deu algum erro
-      Case 3197                                   'registro acabou de ser alterado por outro usuário
+      Case 3197                                   'registro acabou de ser alterado por outro usu?rio
          Resume
       Case 3046, 3158, 3186, 3187, 3188, 3189, 3218, 3260
-         vgNVez = vgNVez + 1                      'outro usuário acessando
+         vgNVez = vgNVez + 1                      'outro usu?rio acessando
          If vgNVez <= 10 Then                     'vamos tentar 10 vezes
             Delay 0.5                             'mais antes espera 1/2 segundo
             Resume                                'antes de tentar
          End If
    End Select
-   Executar = Err.Source + "|" + Trim$(str$(Err)) + "|" + Error$ 'não teve jeito o erro não pode ser evitado...
+   Executar = Err.Source + "|" + Trim$(str$(Err)) + "|" + Error$ 'n?o teve jeito o erro n?o pode ser evitado...
 End Function
 
-'coloca os campos visíveis segundo a condição
+'coloca os campos vis?veis segundo a condi??o
 Private Sub ExecutaVisivel()
    On Error Resume Next                           'prepara para possiveis erros
    txtCampo(0).Visible = (False)
    If Err Then Err.Clear                          'se houve erro, limpa...
 End Sub
 
-'evento - quando o conteúdo do campo for alterado
+'evento - quando o conte?do do campo for alterado
 Private Sub txtCp_Change(Index As Integer)
    If vgPriVez Or txtCampo(Index).PriVez Then Exit Sub
    InicializaApelidos COM_TEXTBOX                         'inicializa apelidos com o que esta sendo digitado
@@ -571,7 +592,7 @@ Private Sub txtCp_LostFocus(Index As Integer)
 End Sub
 
 
-'evento - inicialização do formulário
+'evento - inicializa??o do formul?rio
 Private Sub Form_Load()
    On Error GoTo DeuErro
    Screen.MousePointer = vbHourglass
@@ -615,18 +636,18 @@ DeuErro:
 End Sub
 
 
-'evento - quando o formulário receber o foco
+'evento - quando o formul?rio receber o foco
 Private Sub Form_Activate()
    Dim i As Integer
    AtivaForm Me
 End Sub
 
-'evento - redefinido o tamanho do formulário
+'evento - redefinido o tamanho do formul?rio
 Private Sub Form_Resize()
    AjustaPanFundo Me
 End Sub
 
-'define as propriedades das classe dos campos do formuário
+'define as propriedades das classe dos campos do formu?rio
 Public Sub DefineControles()
  On Error GoTo DeuErro
 
@@ -651,8 +672,8 @@ Public Sub DefineControles()
    txtCampo(1).PesqModoAbertura =  2 
    txtCampo(1).PesqFieldCapture = "Municipios.[Codigo do ibge]"
    txtCampo(1).BoundColumn = "Codigo do ibge"
-   txtCampo(1).ListFields = "Descrição do municipio; Codigo do ibge"
-   txtCampo(1).OrderFields = "Descrição do municipio"
+   txtCampo(1).ListFields = "Descri??o do municipio; Codigo do ibge"
+   txtCampo(1).OrderFields = "Descri??o do municipio"
    txtCampo(1).Relation = ""
    txtCampo(1).Source = "Municipios"
    txtCampo(1).vgfrmGMCale.grdListaG.AutoRebind = True
@@ -679,12 +700,12 @@ Public Sub DefineControles()
  CErr.Show
 End Sub
 
-'evento - valida digitações e prossegue a execução
+'evento - valida digita??es e prossegue a execu??o
 Private Sub botOk_Click()
    Dim k As String
    If vgPriVez Then Exit Sub
    vgPriVez = True
-   k$ = Executar(VALIDACOES)                      'faz validaçao dos campos
+   k$ = Executar(VALIDACOES)                      'faz valida?ao dos campos
    If Len(k$) > 0 Then                            'EPA!... tem campo errado
       If Instr(k$, "|") > 0 Then
          Err.Source = Parse$(k$, "|")
@@ -698,18 +719,18 @@ Private Sub botOk_Click()
       End If
       Screen.MousePointer = vbDefault             'reseta o pointer do mouse
       vgPriVez = False
-      Exit Sub                                    'e sai para continuar a ediçao ou inclusao
+      Exit Sub                                    'e sai para continuar a edi?ao ou inclusao
    End If                                         'OK. os campos estao certos
    EncerraMDFe  
    vgPriVez = False
 End Sub
 
-'evento - cancela formulário
+'evento - cancela formul?rio
 Private Sub botCancela_Click()
    Unload Me
 End Sub
 
-'evento - antes de descarregar o formulário
+'evento - antes de descarregar o formul?rio
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
    If vgPodeFazerUnLoad = False Then
       timUnLoad.Enabled = True
@@ -718,7 +739,7 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
    Cancel = Cancel Or(Not vgFG Is Nothing)
 End Sub
 
-'evento - descarregando o formulário da memória
+'evento - descarregando o formul?rio da mem?ria
 Private Sub Form_Unload(Cancel As Integer)
    Dim i As Integer
    On Error Resume Next
@@ -731,13 +752,13 @@ Private Sub Form_Unload(Cancel As Integer)
    Next
    Set vgFG = Nothing
    Set vgTooltips = Nothing
-   Set frmEncMDFe = Nothing                       'libera o segmento de código do form
+   Set frmEncMDFe = Nothing                       'libera o segmento de c?digo do form
 End Sub
 
-'evento - quando qq tecla for digitada no formulário
+'evento - quando qq tecla for digitada no formul?rio
 Private Sub Form_KeyPress(KeyAscii As Integer)
    If KeyAscii = vbKeyEscape Then                 'se teclou ESC
-      Unload Me                                   'tira este form da memória
+      Unload Me                                   'tira este form da mem?ria
    End If
 End Sub
 
@@ -749,14 +770,14 @@ Private Sub timUnLoad_Timer()
 End Sub
 
 
-'evento - quando o botão for apertado
+'evento - quando o bot?o for apertado
 Private Sub bottxtCampo1_Click(Index As Integer)
    txtCampo(1).SetFocus
    DoEvents
    txtCampo(1).botClick Index
 End Sub
 
-'evento - quando o botão for apertado
+'evento - quando o bot?o for apertado
 Private Sub bottxtCampo2_Click(Index As Integer)
    txtCampo(2).SetFocus
    DoEvents

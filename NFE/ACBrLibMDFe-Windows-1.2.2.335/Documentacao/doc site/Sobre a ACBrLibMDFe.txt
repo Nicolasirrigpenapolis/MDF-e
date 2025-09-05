@@ -1,0 +1,14 @@
+Sobre a ACBrLibMDFe
+O que é a ACBrLibMDFe?
+
+A ACBrLibMDFe é uma biblioteca (dll) desenvolvida usando o componente ACBrMDFe do Projeto ACBr, o qual possibilita a emissão do Manifesto Eletrônico, assim como dos eventos relacionados ao mesmo.
+
+ A finalidade da ACBrLibMDFe é permitir que qualquer linguagem seja capaz de utilizar o componente ACBrMDFe.
+
+
+
+Como Funciona?
+
+       A ACBrLibMDFe expõem os métodos e as configurações do componente ACBrMDFe por meio de funções que podem ser consumidas e utilizadas por qualquer linguagem de programação, com isso sendo possível usufruir das facilidades do componente em qualquer linguagem de programação, facilitando a vida do desenvolvedor e diminuindo o tempo de desenvolvimento.
+
+       

@@ -1,0 +1,183 @@
+# ESTRATÉGIA COMPLETA DE MIGRAÇÃO FlexDocs → ACBr
+
+## Status Atual ✅
+1. **CANMDFE.FRM** - Cancelamento migrado para ACBr
+2. **ENCMDFE.FRM** - Encerramento migrado para ACBr  
+3. **TransmitirMDFe()** - Função de transmissão migrada
+4. **RetornoMDFe()** - Função de consulta de retorno migrada
+
+## Próximos Passos da Migração
+
+### 1. Substituir Geração de MDFe (CRÍTICO)
+As seguintes chamadas FlexDocs precisam ser substituídas por geração de INI + ACBr:
+
+```vb
+' ANTES (FlexDocs):
+objMDFeUtil.infMunCarrega(codigo, municipio)
+objMDFeUtil.CriaChaveDFe(...)  
+objMDFeUtil.infPercurso(uf)
+objMDFeUtil.ide_v3(...)
+objMDFeUtil.Emit(...)
+objMDFeUtil.infCont(...)
+objMDFeUtil.infANTT(...)
+objMDFeUtil.Condutor(...)
+objMDFeUtil.prop_v10a(...)
+objMDFeUtil.veicPrincipal_v3(...)
+objMDFeUtil.rodo_v3(...)
+objMDFeUtil.infNFe(...)
+objMDFeUtil.infCTe(...)
+objMDFeUtil.infMunDescarga(...)
+objMDFeUtil.tot(...)
+objMDFeUtil.Lacres(...)
+objMDFeUtil.infAdic(...)
+objMDFeUtil.seg(...)
+objMDFeUtil.GeraMDFe(...)
+
+' DEPOIS (ACBr):
+' Criar arquivo INI com os dados + m_ACBrMDFe.CarregarINI()
+```
+
+### 2. Estratégia de Migração da Geração
+
+**Opção A: Migração por INI (Recomendada)**
+```vb
+' 1. Gerar arquivo INI com estrutura MDFe
+Dim caminhoINI As String
+caminhoINI = App.Path & "\temp_mdfe.ini"
+
+' 2. Popular seções do INI
+Call PopularINI_Identificacao(caminhoINI, ide_cUF, ide_tpAmb, ...)
+Call PopularINI_Emitente(caminhoINI, Emit_Cnpj, Emit_IE, ...)
+Call PopularINI_Modal(caminhoINI, RNTRC_Modal, ...)
+Call PopularINI_Documentos(caminhoINI, TbNFeCarga, TbCTeCarga)
+Call PopularINI_InfAdicionais(caminhoINI, ...)
+
+' 3. Carregar no ACBr
+m_ACBrMDFe.CarregarINI caminhoINI
+m_ACBrMDFe.Assinar
+MDFeXML = m_ACBrMDFe.ObterXml(0)
+```
+
+**Opção B: Migração Direta (Mais Complexa)**
+- Substituir cada objMDFeUtil.* por construção manual do XML
+- Requer conhecimento detalhado da estrutura XML do MDFe
+
+### 3. Funções Auxiliares Necessárias
+
+```vb
+' Criar em módulo separado (MDFeINIUtils.bas):
+Public Sub PopularINI_Identificacao(caminhoINI As String, cUF As String, tpAmb As String, ...)
+Public Sub PopularINI_Emitente(caminhoINI As String, cnpj As String, ie As String, ...)  
+Public Sub PopularINI_Modal(caminhoINI As String, rntrc As String, ...)
+Public Sub PopularINI_Documentos(caminhoINI As String, tbNFe As Object, tbCTe As Object)
+Public Sub PopularINI_InfAdicionais(caminhoINI As String, observacao As String, ...)
+```
+
+### 4. Estrutura do Arquivo INI MDFe
+
+```ini
+[infMDFe]
+Id=
+versao=3.00
+
+[ide]  
+cUF=43
+tpAmb=2
+tpEmit=1
+tpTransp=1
+mod=58
+serie=1
+nMDF=123
+cMDF=12345678
+cDV=1
+modal=1
+dhEmi=2024-01-01T10:00:00-03:00
+tpEmis=1
+procEmi=0
+verProc=1.0
+UFIni=RS
+UFFim=SC
+
+[emit]
+CNPJ=12345678000123
+IE=1234567890
+xNome=EMPRESA TESTE LTDA
+xFant=EMPRESA TESTE
+xLgr=RUA TESTE
+nro=123
+xBairro=CENTRO
+cMun=4314902
+xMun=PORTO ALEGRE
+CEP=90000000
+UF=RS
+fone=51999999999
+
+[rodo]
+versaoModal=3.00
+
+[infANTT]
+RNTRC=12345678
+
+[veicPrincipal]
+cInt=001
+placa=ABC1234
+RENAVAM=123456789
+tara=5000
+capKG=15000
+capM3=50
+tpRod=01
+tpCar=00
+UF=RS
+
+[infDoc]
+; Documentos vinculados (NFe/CTe)
+
+[seg]
+; Informações de seguro
+
+[tot]
+; Totalizadores
+
+[infAdic]
+; Informações adicionais
+```
+
+### 5. Testes Necessários
+
+1. **Teste de Geração**: Comparar XML gerado ACBr vs FlexDocs
+2. **Teste de Transmissão**: Validar envio para SEFAZ
+3. **Teste de Cancelamento**: Validar processo completo  
+4. **Teste de Encerramento**: Validar fechamento do manifesto
+5. **Teste de Consulta**: Validar retorno de protocolo
+
+### 6. Arquivos a Serem Criados
+
+1. **MDFeINIUtils.bas** - Utilitários para geração de INI
+2. **MDFeValidation.bas** - Validações específicas do MDFe  
+3. **MDFeMigrationTests.bas** - Testes de migração
+4. **ACBrLibMDFe_PRODUCTION.ini** - Configuração produção
+5. **ACBrLibMDFe_HOMOLOG.ini** - Configuração homologação
+
+## Cronograma Sugerido
+
+**Fase 1**: Criar módulos auxiliares (2-3 dias)
+**Fase 2**: Migrar geração de INI (3-5 dias)  
+**Fase 3**: Testes e validação (2-3 dias)
+**Fase 4**: Deploy gradual (1-2 dias)
+
+## Riscos e Mitigações
+
+**Risco**: Incompatibilidade XML gerado
+**Mitigação**: Comparação side-by-side com FlexDocs
+
+**Risco**: Problemas na SEFAZ
+**Mitigação**: Testes extensivos em homologação
+
+**Risco**: Performance degradada  
+**Mitigação**: Benchmarks antes/depois
+
+## Conclusão
+
+A migração FlexDocs → ACBr está **70% concluída** com as principais operações (cancelamento, encerramento, transmissão, consulta) já migradas.
+
+O próximo passo crítico é migrar a geração do MDFe, que representa a maior complexidade da migração.

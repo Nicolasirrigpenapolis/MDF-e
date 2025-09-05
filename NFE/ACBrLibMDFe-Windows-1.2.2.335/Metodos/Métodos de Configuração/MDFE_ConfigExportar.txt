@@ -1,0 +1,54 @@
+MDFE_ConfigExportar
+Método usado para exportar a configuração da biblioteca do arquivo INI informado.
+
+
+
+Comando: MDFE_ConfigExportar(sMensagem, ref esTamanho);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+sMensagem
+
+String
+
+Não
+
+String com tamanho predefinido para que a mesma possa ser preenchida com o valor de retorno, mais informações em Como trabalhar com Strings?.
+
+02
+
+esTamanho
+
+Integer
+
+Não
+
+Tamanho da string, inteiro que determina o tamanho da string passada no primeiro parâmetro, mais informações em Como trabalhar com Strings ?. 
+
+
+
+RETORNO
+
+Valor
+
+Descrição
+
+0
+
+Indica que a biblioteca foi inicializada corretamente.
+
+-10
+
+Indica que houve falhas na execução do método.

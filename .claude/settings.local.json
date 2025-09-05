@@ -23,7 +23,16 @@
       "WebFetch(domain:mdfe.svrs.rs.gov.br)",
       "WebFetch(domain:mdfe-homologacao.svrs.rs.gov.br)",
       "Bash(TypeLibBrowser.exe)",
-      "Bash(\"C:\\Projetos\\mdf-e\\MDFe_Util\\v3.10\\MDFe_Util\\Utils\\TypeLibBrowser.exe\")"
+      "Bash(\"C:\\Projetos\\mdf-e\\MDFe_Util\\v3.10\\MDFe_Util\\Utils\\TypeLibBrowser.exe\")",
+      "WebSearch",
+      "WebFetch(domain:www.projetoacbr.com.br)",
+      "WebFetch(domain:acbr.sourceforge.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:svn.code.sf.net)",
+      "Bash(move:*)",
+      "Bash(cscript:*)",
+      "Bash(od:*)",
+      "Bash(regsvr32:*)"
     ],
     "deny": []
   }

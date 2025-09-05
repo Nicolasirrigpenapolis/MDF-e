@@ -1,0 +1,6 @@
+   Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         Rã‘Îã ª K¸Qlt         0 0 0 0 0   xsNone xsXmlSec xsMsXml xsMsXmlCapicom	 xsLibXml2   0 0 0 0 0   httpNone httpWinINet httpWinHttp httpOpenSSL httpIndy   0 0 0 0   cryNone
+ cryOpenSSL
+ cryCapicom cryWinCrypt   0 0 0 0 0 0 0 
+  LT_all LT_SSLv2 LT_SSLv3 LT_TLSv1
+ LT_TLSv1_1
+ LT_TLSv1_2 LT_SSHv2   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   AC AL AM AP BA CE DF ES GO MA MG MS MT PA PB PE PI PR RJ RN RO RR RS SC SE SP TO   0 0   ve200 ve300   0 0   ve200 ve300

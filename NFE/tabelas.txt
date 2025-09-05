@@ -1,0 +1,67 @@
+SELECT        TOP (200) [Sequencia do manifesto], [Nome condutor], [Cpf condutor]
+FROM            Codutores
+
+
+
+
+SELECT        TOP (200) [Sequencia descarrega cte], [Sequencia do manifesto], [Chave do cte], [Descrição do municipio], [Valor total], [Peso bruto]
+FROM            [Cte da carga]
+
+
+
+SELECT        TOP (200) [Sequencia descarrega], [Sequencia do manifesto], [Chave da nfe], [Descrição do municipio], [Valor total], [Peso bruto]
+FROM            [Nfe da carga]
+
+
+
+SELECT        TOP (200) [Sequencia do municipio], [Descrição do municipio], Uf, [Codigo do ibge], Cep, Inativo, Latitude, Longitude
+FROM            Municipios
+
+
+
+SELECT        TOP (200) [Sequencia do manifesto], [Numero do manifesto], [Data de emissão], Uf, [Tipo de emitente], [Uf de descarregamento], Observação, Rntrc, [Tipo de carroceria], [Uf do veiculo], [Tipo de rodado], Placa, Tara, Renavam, 
+                         [Capacidade kg], [Codigo do emitente], Transmitido, [Nota cancelada], Autorizada, Historico, Proprietario, [Cpf Proprietario], [Cnpj Proprietario], [Rntrc proprietario], [Nome Proprietario], [Ie Proprietario], [Uf proprietario], 
+                         [Tipo de proprietario], [Tipo documento], [Numero do recibo], [Chave de acesso], XmlAssinado, [Protocolo de autorização], [Data e hora do mdfe], XmlAutorizado, Encerrado, [Responsavel do seguro], [Tipo do responsavel], 
+                         [Documento do responsavel], [Nome da seguradora], [Cnpj da seguradora], [N da apolice], [N averbação], [Tipo de contratante], [Documento do contratante], [Produto Predominante], [Latitude de Carregamento], 
+                         [Longitude de Carregamento], [Latitude de Descrregamento], [Longitude de Descarregamento], [CEP Carregamento], [CEP Descarregamento]
+FROM            Manifesto
+
+
+
+
+SELECT        TOP (200) [Sequencia do manifesto], Sequencia, Uf, [Descrição do municipio], [Codigo do ibge]
+FROM            [Local de carregamento]
+
+
+
+
+SELECT        TOP (200) [Sequencia do emitente], Cnpj, Ie, [Razão social], [Nome fantasia], Logradouro, Nro, Complemento, Bairro, [Codigo do ibge], Municipio, Cep, Uf, Fone, Email, Inativo, [Certificado digital], [Chave flexdocs]
+FROM            [Emitentes mdfe]
+
+
+
+
+
+
+SELECT        TOP (200) [Sequencia descarrega], [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]
+FROM            [Descarregamento nfe]
+
+
+
+
+
+SELECT        TOP (200) [Sequencia descarregamento cte], [Sequencia do manifesto], [Codigo do ibge], [Descrição do municipio]
+FROM            [Descarregamento cte]
+
+
+
+SELECT        TOP (200) [Sequencia do manifesto], Sequencia, Uf
+FROM            [Uf de percurso]
+
+
+
+
+
+
+
+

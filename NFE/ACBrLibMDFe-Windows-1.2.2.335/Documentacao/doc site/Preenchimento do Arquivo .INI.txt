@@ -1,0 +1,65 @@
+Preenchimento do Arquivo .INI
+Informações para preenchimento do arquivo .INI
+
+
+
+
+
+-        A descrição dos campos informados no arquivo .INI utilizam a nomenclatura do Manual MDFe disponibilizado pela SEFAZ... Apenas os grupos entre chaves ( que está entre  [ ] ) seguem a nomenclatura interna do ACBr. 
+
+
+
+-        Para preenchimento do arquivo .INI da MDFe é imprescindível ter em mãos o Manual e as NTs disponibilizados pela SEFAZ, para conhecimento e o correto preenchimento dos campos, com os códigos especificados no Manual SEFAZ e as informações pertinentes para cada situação...
+
+
+
+-        Algumas tags [ ] não são obrigatórias (Conforme Manual Sefaz MDFe), podendo ser removidas do arquivo caso seus campos não sejam preenchidos.
+
+
+
+-        Alguns campos não são obrigatórias (Conforme Manual Sefaz MDFe), podendo ser removidas do arquivo ou permanecer em branco, caso seus campos não sejam preenchidos.
+
+
+
+Acesso a Manuais e NTs SEFAZ
+
+
+
+Especificação dos Grupos
+
+
+
+ex: [infCTe001001]
+
+
+
+-        A literal "001" indica grupos que podem ocorrer mais de uma vez (CT-e por exemplo) e quando existir 001001 ou 001002 indica grupos que são filhos de grupos com mais de uma ocorrência. Por exemplo, no caso de infCTe pode conter adições, então temos o grupo [Desc001] e após ele podemos ter [infCTE001001].
+
+
+
+- Alguns grupos podem ser repetidos. Ex: Para incluir dois CTes, existirão uma chave [infCTE001001]. e [infCTE001002].e assim sucessivamente. As chaves filhas devem conter a mesma sequencia numérica da chave pai e assim sucessivamente. 
+
+
+
+
+
+Legenda
+
+
+
+*   Campos Novos a partir do MDF-e Versão 3.0 estão destacados em azul no MDFe.INI modelo 
+
+
+
+
+
+Exemplos:
+
+
+
+Modelo MDFe.INI
+
+
+Created with the Personal Edition of HelpNDoc: Create cross-platform Qt Help files
+
+Copyright © <2018-2021> por <ACBr - Automação Comercial Brasil>

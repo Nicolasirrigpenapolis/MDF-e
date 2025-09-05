@@ -1,0 +1,38 @@
+MDFE_Nome
+Método que retornar o nome da biblioteca.
+
+
+
+Comando: MDFE_Nome(sNome, ref esTamanho);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+sNome
+
+String
+
+Não
+
+String com tamanho predefinido para que a mesma possa ser preenchida com o valor de retorno, mais informações em Como trabalhar com Strings?.
+
+02
+
+esTamanho
+
+Integer
+
+Não
+
+Tamanho da string, inteiro que determina o tamanho da string passada no primeiro parâmetro, mais informações em Como trabalhar com Strings ?. 

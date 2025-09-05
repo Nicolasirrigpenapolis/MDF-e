@@ -1,0 +1,157 @@
+# MIGRAÇÃO DA FUNÇÃO TransmitirMDFe - FlexDocs para ACBr
+
+## Código Original (linhas 936-1091 em mdfe.txt):
+
+```vb
+'Transmite MDFE 3.00
+Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
+   Dim msgDados As String, msgRetWS As String, msgResultado As String, siglaWS As String, certificado As String
+   Dim licenca As String, nroRecibo As String, cStat As Long, versao As String, dhRecibo As String, MDFeAssinado As String
+   Dim tMed As String, i As Integer, objMDFeUtil As Object, Arq As Long, proxy As String, usuario As String, senha As String
+   Dim Emitente As New GRecordSet, NomeEmitente As String
+   
+   On Error GoTo DeuErro
+   
+   Set Emitente = VgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
+   NomeEmitente = UCASE(Mid(Emitente![Razão Social],1,5))
+   Screen.MousePointer = vbHourglass    ' ampulheta
+   lblProgresso.Caption = "Transmitindo MDF-e..."
+   Set objMDFeUtil = CreateObject("MDFe_Util.Util")
+
+   certificado = Emitente![Certificado digital]
+   siglaWS = "RS"
+   versao = "3.00"
+   licenca = Emitente![Chave flexdocs]
+      
+   For i = 1 To 5 'Vamos Tentar 5 vezes
+      MDFeAssinado = objMDFeUtil.EnviaMDFe(siglaWS, certificado, versao, MDFe, msgDados, msgRetWS, cStat, msgResultado, nroRecibo, dhRecibo, tMed, proxy, usuario, senha, licenca)
+      
+      ' ... processamento do retorno ...
+   Next i
+   
+   Set objMDFeUtil = Nothing
+End Sub
+```
+
+## Código Migrado (ACBr):
+
+```vb
+'Transmite MDFE 3.00 - Versão ACBr
+Private Sub TransmitirMDFe(MDFe As String, ChaveMDFe As String)
+   Dim msgResultado As String, siglaWS As String, certificado As String
+   Dim nroRecibo As String, cStat As Long, versao As String, dhRecibo As String, MDFeAssinado As String
+   Dim tMed As String, i As Integer, Arq As Long, proxy As String, usuario As String, senha As String
+   Dim Emitente As New GRecordSet, NomeEmitente As String
+   Dim m_ACBrMDFe As ACBrMDFe
+   
+   On Error GoTo DeuErro
+   
+   Set Emitente = VgDb.OpenRecordSet("SELECT * From [Emitentes mdfe] Where [Sequencia do emitente] = " & Codigo_do_emitente)
+   NomeEmitente = UCASE(Mid(Emitente![Razão Social],1,5))
+   Screen.MousePointer = vbHourglass    ' ampulheta
+   lblProgresso.Caption = "Transmitindo MDF-e..."
+   
+   ' Criando instância da classe ACBrMDFe
+   Set m_ACBrMDFe = CreateMDFe(App.Path & "\ACBrLibMDFe.ini", "")
+
+   certificado = Emitente![Certificado digital]
+   siglaWS = "RS"
+   versao = "3.00"
+   proxy = ""
+   usuario = ""
+   senha = ""
+   
+   'Configurando ACBr
+   m_ACBrMDFe.ConfigGravarValor "DFe", "UF", siglaWS
+   m_ACBrMDFe.ConfigGravarValor "DFe", "AmbienteDFe", IIf(Parametros_da_NFe!ambiente = 0, "1", "2")
+   m_ACBrMDFe.ConfigGravarValor "DFe", "ArquivoPFX", certificado
+   m_ACBrMDFe.ConfigGravarValor "MDFe", "Versao", versao
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Servidor", proxy
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Usuario", usuario
+   m_ACBrMDFe.ConfigGravarValor "Proxy", "Senha", senha
+      
+   For i = 1 To 5 'Vamos Tentar 5 vezes
+      ' Carregando MDFe no ACBr
+      m_ACBrMDFe.CarregarXML MDFe
+      
+      ' Assinando o MDFe
+      m_ACBrMDFe.Assinar
+      
+      ' Enviando MDFe
+      Dim retornoEnvio As String
+      retornoEnvio = m_ACBrMDFe.Enviar(1, False, True) ' lote=1, imprimir=False, sincrono=True
+      
+      ' Parse do retorno XML para extrair informações necessárias
+      If InStr(retornoEnvio, "<cStat>103</cStat>") > 0 Then
+         cStat = 103 ' Lote recebido com sucesso
+         ' Extrair número do recibo do XML de retorno
+         Dim posInicioRecibo As Integer
+         Dim posFimRecibo As Integer
+         posInicioRecibo = InStr(retornoEnvio, "<nRec>") + 6
+         posFimRecibo = InStr(retornoEnvio, "</nRec>")
+         If posInicioRecibo > 6 And posFimRecibo > posInicioRecibo Then
+            nroRecibo = Mid(retornoEnvio, posInicioRecibo, posFimRecibo - posInicioRecibo)
+         End If
+         
+         MDFeAssinado = m_ACBrMDFe.ObterXml(0)
+         msgResultado = "MDFe transmitido com sucesso"
+         Exit For
+         
+      ElseIf InStr(retornoEnvio, "<cStat>104</cStat>") > 0 Then
+         cStat = 104 ' Lote processado
+         MDFeAssinado = m_ACBrMDFe.ObterXml(0)
+         msgResultado = "MDFe processado com sucesso"
+         Exit For
+         
+      Else
+         cStat = 0
+         msgResultado = "Erro na transmissão: " & retornoEnvio
+      End If
+      
+      ' ... resto do processamento igual ao original ...
+   Next i
+   
+   Set m_ACBrMDFe = Nothing
+   
+DeuErro:
+   If Err.Number <> 0 Then
+      MsgBox Err.Description, vbCritical + vbOKOnly, vaTitulo
+   End If
+   
+SaidaSub:
+   Set m_ACBrMDFe = Nothing
+   Screen.MousePointer = vbDefault
+   If Parametros_da_nfe!ambiente = 0 Then
+      lblProgresso.Caption = ""
+   Else
+      lblProgresso.Caption = "AMBIENTE EM MODO TESTE"
+   End If
+End Sub
+```
+
+## Principais Alterações:
+
+1. **Substituição do objeto FlexDocs**: 
+   - `Set objMDFeUtil = CreateObject("MDFe_Util.Util")` 
+   - **→** `Set m_ACBrMDFe = CreateMDFe(App.Path & "\ACBrLibMDFe.ini", "")`
+
+2. **Configuração via ACBr**:
+   - Uso de `m_ACBrMDFe.ConfigGravarValor` para configurar ambiente, certificado, etc.
+   - Remoção da dependência da licença FlexDocs
+
+3. **Processo de envio**:
+   - `objMDFeUtil.EnviaMDFe()` **→** `m_ACBrMDFe.Enviar()`
+   - Necessidade de carregar XML: `m_ACBrMDFe.CarregarXML`
+   - Assinatura: `m_ACBrMDFe.Assinar`
+
+4. **Parse do retorno**:
+   - ACBr retorna XML que precisa ser parseado para extrair códigos de status
+   - Extração manual do número do recibo do XML
+
+5. **Limpeza de recursos**:
+   - `Set objMDFeUtil = Nothing` **→** `Set m_ACBrMDFe = Nothing`
+
+## Observações:
+- O código migrado mantém a mesma lógica de tentativas (5x)
+- É necessário ajustar o parse do XML de retorno conforme formato do ACBr
+- Requer testes para validar compatibilidade completa

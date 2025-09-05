@@ -1,0 +1,25 @@
+Método usado para remover o componente ACBrMDFe e suas classes da memoria.
+
+
+
+Este método necessita sempre ser chamado quando não for utilizar mais a biblioteca para não deixar objetos na memória.
+
+
+
+Comando: MDFE_Finalizar();
+
+
+
+RETORNO
+
+Valor
+
+Descrição
+
+0
+
+Indica que a biblioteca foi inicializada corretamente.
+
+-2
+
+Indica que houve falhas na finalização da biblioteca.

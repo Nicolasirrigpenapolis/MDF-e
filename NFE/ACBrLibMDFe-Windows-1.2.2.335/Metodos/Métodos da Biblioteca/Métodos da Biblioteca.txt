@@ -1,0 +1,27 @@
+Métodos da Biblioteca
+Consulte os métodos exportados pela biblioteca.
+
+
+
+MDFe_Método[( param1 [,param2, param3, paramN...])]
+
+
+
+Parâmetros entre chaves '[' são opcionais.
+
+
+
+param1, param2, paramN: Parâmetros necessários para a execução do comando. Os parâmetros podem ser dos seguintes tipos:
+Texto ou “String”: Para especificar "Strings" nos parâmetros use sempre aspas duplas (");
+Notas: Para quebra de linha em "Strings" grandes, como a Observação no rodapé dos cupons, use o sinal Pipe (|) e para especificar aspas dentro da String, use 2 aspas.
+Exemplos válidos:        
+"DESCRICAO DO PRODUTO";
+"Cano de 8"" polegadas" (exemplo com aspas internas);
+
+
+Numéricos: Para especificar números nos parâmetros, não use aspas. Para separar as casas decimais use o ponto (.). Não use separador de milhar ou símbolo de moeda (R$);
+Exemplos válidos:
+10
+10.23
+0.123
+1234.50

@@ -1,0 +1,84 @@
+MDFE_ConfigLerValor
+Método usado para ler um determinado item  da configuração.
+
+
+
+Comando: MDFE_ConfigLerValor(eSessao, eChave, sValor, esTamanho);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+eSessao
+
+String
+
+Não
+
+Nome da sessão de configuração.
+
+02
+
+eChave
+
+String
+
+Não
+
+Nome da chave da sessão.
+
+03
+
+sValor
+
+String
+
+Não
+
+String com tamanho predefinido para que a mesma possa ser preenchida com o valor de retorno, mais informações em Como trabalhar com Strings?
+
+04
+
+esTamanho
+
+Integer
+
+Não
+
+Tamanho da string, inteiro que determina o tamanho da string passada no primeiro parâmetro, mais informações em Como trabalhar com Strings?
+
+
+
+RETORNO
+
+Valor
+
+Descrição
+
+0
+
+Indica que a biblioteca foi inicializada corretamente.
+
+-1
+
+Indica que a biblioteca não foi inicializada.
+
+-3
+
+Indica que houve erro ao ler a configuração informada.
+
+
+
+Nota:
+
+Consulte as chave e as configurações no tópico Configurações da Biblioteca.

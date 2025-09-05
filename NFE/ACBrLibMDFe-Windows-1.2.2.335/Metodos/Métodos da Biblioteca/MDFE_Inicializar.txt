@@ -1,0 +1,65 @@
+Método usado para inicializar o componente para uso da biblioteca, este método recebe dois parâmetros do tipo Strings, PAnsiChar no pascal.
+
+
+
+Este método necessita sempre ser chamado antes de utilizar qualquer função da biblioteca.
+
+
+
+Comando: MDFE_Inicializar([eArqConfig, eChaveCrypt]);
+
+
+
+SEQ.
+
+NOME
+
+TIPO
+
+OPICIONAL
+
+DESCRIÇÃO
+
+01
+
+eArqConfig
+
+String
+
+Sim
+
+Localização do arquivo INI, pode ser em branco neste caso o ACBrLib vai criar um novo arquivo INI.
+
+02
+
+eChaveCrypt
+
+String
+
+Sim
+
+Chave de segurança para criptografar as informações confidencias, pode ser em branco neste caso será usado a senha padrão.
+
+
+
+RETORNO
+
+Valor
+
+Descrição
+
+0
+
+Indica que a biblioteca foi inicializada corretamente.
+
+-1
+
+Indica que houve falhas na inicialização da biblioteca
+
+-5
+
+Indica que não foi possível localizar o arquivo INI informado.
+
+-6
+
+Indica que não foi possível encontrar o diretório do arquivo INI.

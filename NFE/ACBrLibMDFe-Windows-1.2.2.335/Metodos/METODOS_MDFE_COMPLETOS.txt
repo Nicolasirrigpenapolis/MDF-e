@@ -1,0 +1,276 @@
+================================================================================
+MÉTODOS ACBrLibMDFe - DOCUMENTAÇÃO COMPLETA
+================================================================================
+Fonte: https://acbr.sourceforge.io/ACBrLib/MetodosMDFe.html
+Data: 04/09/2025
+Status: Extraído da documentação oficial ACBr
+
+Este arquivo contém todos os métodos disponíveis na biblioteca ACBrLibMDFe
+para trabalhar com Manifesto Eletrônico de Documentos Fiscais (MDF-e).
+
+================================================================================
+🔧 MÉTODOS DE CONFIGURAÇÃO
+================================================================================
+
+1. MDFE_ConfigLer
+   Descrição: Lê configurações da biblioteca
+   Uso: Para carregar configurações salvas
+
+2. MDFE_ConfigGravar
+   Descrição: Salva configurações da biblioteca
+   Uso: Para persistir configurações
+
+3. MDFE_ConfigLerValor
+   Descrição: Lê um valor específico de configuração
+   Uso: Para obter valores individuais de config
+
+4. MDFE_ConfigGravarValor
+   Descrição: Grava um valor específico de configuração
+   Uso: Para definir valores individuais de config
+   Status: ✅ JÁ USADO NO PROJETO
+
+5. MDFE_ConfigImportar
+   Descrição: Importa configurações de arquivo
+   Uso: Para carregar config de arquivo externo
+
+6. MDFE_ConfigExportar
+   Descrição: Exporta configurações para arquivo
+   Uso: Para salvar config em arquivo externo
+
+================================================================================
+🚛 MÉTODOS ESPECÍFICOS DO MDF-e
+================================================================================
+
+7. MDFE_CarregarXML
+   Descrição: Carrega um arquivo XML do MDF-e
+   Uso: Para processar XMLs existentes
+   Parâmetros: Caminho do arquivo XML
+
+8. MDFE_CarregarINI
+   Descrição: Carrega configuração INI do MDF-e
+   Uso: Para criar MDF-e a partir de dados INI
+   Status: ✅ JÁ USADO NO PROJETO
+   Parâmetros: Conteúdo INI como string
+
+9. MDFE_LimparLista
+   Descrição: Limpa a lista de MDF-e em memória
+   Uso: Para resetar antes de processar novos documentos
+
+================================================================================
+🔐 MÉTODOS DE VALIDAÇÃO E ASSINATURA
+================================================================================
+
+10. MDFE_Assinar
+    Descrição: Assina digitalmente o MDF-e
+    Uso: Assinatura digital obrigatória
+    Status: ✅ JÁ USADO NO PROJETO
+    Requisitos: Certificado digital configurado
+
+11. MDFE_Validar
+    Descrição: Valida estrutura XML do MDF-e
+    Uso: Verificar se XML está correto
+    Recomendação: Usar antes de assinar
+
+12. MDFE_ValidarRegrasdeNegocios
+    Descrição: Valida regras de negócio do MDF-e
+    Uso: Verificar conformidade fiscal
+    Recomendação: Usar após validação estrutural
+
+13. MDFE_VerificarAssinatura
+    Descrição: Verifica se assinatura digital é válida
+    Uso: Validar XMLs assinados
+
+================================================================================
+🌐 MÉTODOS DE COMUNICAÇÃO COM SEFAZ
+================================================================================
+
+14. MDFE_StatusServico
+    Descrição: Consulta status dos serviços da SEFAZ
+    Uso: Verificar se serviços estão disponíveis
+
+15. MDFE_Consultar
+    Descrição: Consulta MDF-e por chave de acesso
+    Uso: Verificar situação de um MDF-e específico
+    Parâmetros: Chave de acesso (44 dígitos)
+
+16. MDFE_Enviar
+    Descrição: Envia MDF-e para autorização
+    Uso: Transmissão para SEFAZ
+    Status: Usado via MDFE_EnviarSincrono no projeto
+
+17. MDFE_EnviarSincrono (usado no projeto)
+    Descrição: Envia MDF-e de forma síncrona
+    Uso: Transmissão com aguardo de resposta
+    Status: ✅ JÁ USADO NO PROJETO
+
+================================================================================
+📋 MÉTODOS DE EVENTOS
+================================================================================
+
+18. MDFE_Cancelar
+    Descrição: Cancela um MDF-e autorizado
+    Uso: Cancelamento dentro do prazo legal
+    Parâmetros: Chave de acesso, justificativa
+
+19. MDFE_EnviarEvento
+    Descrição: Envia eventos do MDF-e
+    Uso: Envio de eventos diversos (cancelamento, etc.)
+    Tipos: Cancelamento, Encerramento, etc.
+
+================================================================================
+📊 MÉTODOS DE DISTRIBUIÇÃO DFe
+================================================================================
+
+20. MDFE_DistribuicaoDFePorUltNSU
+    Descrição: Consulta documentos por último NSU
+    Uso: Download de documentos de interesse
+
+21. MDFE_DistribuicaoDFePorNSU
+    Descrição: Consulta documentos por NSU específico
+    Uso: Download de documento específico
+
+22. MDFE_DistribuicaoDFePorChave
+    Descrição: Consulta documento por chave de acesso
+    Uso: Download de documento específico
+
+================================================================================
+📧 MÉTODOS DE EMAIL
+================================================================================
+
+23. MDFE_EnviarEmail
+    Descrição: Envia MDF-e por email
+    Uso: Envio automático de documentos
+    Requisitos: Configuração SMTP
+
+24. MDFE_EnviarEmailEvento
+    Descrição: Envia eventos por email
+    Uso: Envio de cancelamentos, etc.
+
+================================================================================
+🖨️ MÉTODOS DE IMPRESSÃO E PDF
+================================================================================
+
+25. MDFE_Imprimir
+    Descrição: Imprime DAMDFE
+    Uso: Impressão física do documento
+
+26. MDFE_ImprimirPDF
+    Descrição: Gera e imprime PDF do DAMDFE
+    Uso: Impressão em PDF
+
+27. MDFE_SalvarPDF
+    Descrição: Salva DAMDFE em PDF
+    Uso: Geração de arquivo PDF
+    Configuração: PathPDF no INI
+
+28. MDFE_ImprimirEvento
+    Descrição: Imprime eventos do MDF-e
+    Uso: Impressão de cancelamentos, etc.
+
+29. MDFE_ImprimirEventoPDF
+    Descrição: Imprime eventos em PDF
+    Uso: PDF de eventos
+
+30. MDFE_SalvarEventoPDF
+    Descrição: Salva eventos em PDF
+    Uso: Arquivo PDF de eventos
+
+================================================================================
+🔄 MÉTODOS FUNDAMENTAIS (BASE)
+================================================================================
+
+31. MDFE_Inicializar
+    Descrição: Inicializa a biblioteca ACBrLibMDFe
+    Uso: Primeira função a ser chamada
+    Status: ❌ PROBLEMA IDENTIFICADO - Access Violation em VB6
+    Parâmetros: Arquivo config, nível de log
+
+32. MDFE_Finalizar
+    Descrição: Finaliza e libera recursos da biblioteca
+    Uso: Última função a ser chamada
+    Status: ✅ JÁ USADO NO PROJETO
+
+33. MDFE_UltimoRetorno
+    Descrição: Retorna último resultado/erro
+    Uso: Obter detalhes de operações
+    Status: ✅ JÁ USADO NO PROJETO
+
+================================================================================
+📝 SEQUÊNCIA RECOMENDADA DE USO
+================================================================================
+
+PARA EMISSÃO DE MDF-e:
+1. MDFE_Inicializar
+2. MDFE_ConfigGravarValor (configurações)
+3. MDFE_StatusServico (opcional - verificar serviços)
+4. MDFE_CarregarINI (dados do MDF-e)
+5. MDFE_Validar (opcional - recomendado)
+6. MDFE_ValidarRegrasdeNegocios (opcional)
+7. MDFE_Assinar
+8. MDFE_Enviar (ou EnviarSincrono)
+9. MDFE_SalvarPDF (opcional)
+10. MDFE_Finalizar
+
+PARA CONSULTA DE MDF-e:
+1. MDFE_Inicializar
+2. MDFE_ConfigGravarValor
+3. MDFE_Consultar
+4. MDFE_UltimoRetorno
+5. MDFE_Finalizar
+
+PARA CANCELAMENTO:
+1. MDFE_Inicializar
+2. MDFE_ConfigGravarValor
+3. MDFE_Cancelar
+4. MDFE_UltimoRetorno
+5. MDFE_Finalizar
+
+================================================================================
+⚠️ PROBLEMAS IDENTIFICADOS NO PROJETO
+================================================================================
+
+❌ MDFE_Inicializar: Access Violation em VB6
+   - Problema confirmado através de testes extensivos
+   - DLL carrega corretamente, mas função trava
+   - Soluções alternativas documentadas
+
+✅ MÉTODOS FUNCIONAIS NO PROJETO:
+   - MDFE_ConfigGravarValor
+   - MDFE_CarregarINI  
+   - MDFE_Assinar
+   - MDFE_EnviarSincrono
+   - MDFE_UltimoRetorno
+   - MDFE_Finalizar
+
+================================================================================
+🎯 SOLUÇÕES ALTERNATIVAS RECOMENDADAS
+================================================================================
+
+1. ACBrMonitorPLUS (RECOMENDADO)
+   - Evita uso direto da DLL
+   - Comunicação via arquivos INI
+   - Todos os métodos disponíveis
+
+2. WebService .NET
+   - API REST intermediária
+   - VB6 faz chamadas HTTP
+   - Métodos encapsulados
+
+3. DLL Wrapper C++
+   - Controle de memória
+   - Exception handling
+   - Compatibilidade VB6
+
+================================================================================
+📚 REFERÊNCIAS OFICIAIS
+================================================================================
+
+• Documentação: https://acbr.sourceforge.io/ACBrLib/MetodosMDFe.html
+• Configurações: https://acbr.sourceforge.io/ACBrLib/ConfiguracoesdaBiblioteca14.html
+• Exemplos INI: https://acbr.sourceforge.io/ACBrLib/ExemplodeINI2.html
+• Forum ACBr: https://www.projetoacbr.com.br/forum/forum/76-acbrlib/
+• Projeto ACBr: https://projetoacbr.com.br/
+
+================================================================================
+FIM DA DOCUMENTAÇÃO DOS MÉTODOS MDFE
+================================================================================
